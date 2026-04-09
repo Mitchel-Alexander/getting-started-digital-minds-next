@@ -41,7 +41,7 @@ export function HomeContent() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white" />
         </div>
 
         <div className="mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
