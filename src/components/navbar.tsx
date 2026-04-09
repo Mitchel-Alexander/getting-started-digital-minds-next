@@ -17,9 +17,9 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[#3a3c3b] bg-[#2d2f2e]/95 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+        <Link href="/" className="text-lg font-semibold tracking-tight text-white">
           Getting Started in Digital Minds
         </Link>
 
@@ -31,8 +31,8 @@ export function Navbar() {
                 href={href}
                 className={`text-sm transition-colors hover:text-accent ${
                   pathname === href
-                    ? "text-foreground font-medium"
-                    : "text-muted"
+                    ? "text-white font-medium"
+                    : "text-white/60"
                 }`}
               >
                 {label}
@@ -43,7 +43,7 @@ export function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden text-muted"
+          className="lg:hidden text-white/60"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -74,7 +74,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <ul className="border-t border-border bg-background px-6 py-4 lg:hidden">
+        <ul className="border-t border-[#3a3c3b] bg-[#2d2f2e] px-6 py-4 lg:hidden">
           {links.map(({ href, label }) => (
             <li key={href} className="py-2">
               <Link
@@ -82,8 +82,8 @@ export function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={`text-sm transition-colors hover:text-accent ${
                   pathname === href
-                    ? "text-foreground font-medium"
-                    : "text-muted"
+                    ? "text-white font-medium"
+                    : "text-white/60"
                 }`}
               >
                 {label}
