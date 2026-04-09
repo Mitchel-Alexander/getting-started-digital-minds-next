@@ -33,13 +33,17 @@ export function HomeContent() {
       <section className="relative overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 -z-10">
+          {/* Solid tinted background */}
+          <div className="absolute inset-0 bg-[#f0f4f6]" />
+          {/* Image as subtle texture */}
           <div
-            className="absolute inset-0 h-full w-full bg-cover bg-center"
+            className="absolute inset-0 h-full w-full bg-cover bg-center opacity-15"
             style={{ backgroundImage: "url('/getting-started-digital-minds-next/hero.jpg')" }}
             role="img"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#9daab2]/50 via-[#9daab2]/60 to-[#9daab2]/20" />
+          {/* Bottom fade to white */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
         </div>
 
         <div className="mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
