@@ -81,7 +81,7 @@ export function HomeContent() {
 
         {/* Attribution */}
         <p className="absolute bottom-4 right-6 text-xs text-muted/40">
-          Photo by Planet Volumes on Unsplash
+          Photo by A C on Unsplash
         </p>
       </section>
 
