@@ -34,7 +34,7 @@ export function HomeContent() {
         {/* Background image */}
         <div className="absolute inset-0 -z-10">
           {/* Solid tinted background */}
-          <div className="absolute inset-0 bg-[#eef0ef]" />
+          <div className="absolute inset-0 bg-[#f0f4f6]" />
           {/* Image as subtle texture */}
           <div
             className="absolute inset-0 h-full w-full bg-cover bg-center opacity-15"
@@ -85,7 +85,7 @@ export function HomeContent() {
 
         {/* Attribution */}
         <p className="absolute bottom-4 right-6 text-xs text-muted/40">
-          Photo by Planet Volumes on Unsplash (modified)
+          Photo by Planet Volumes on Unsplash
         </p>
       </section>
 
