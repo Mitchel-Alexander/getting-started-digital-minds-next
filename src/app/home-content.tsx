@@ -39,7 +39,7 @@ export function HomeContent() {
             role="img"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/20 to-transparent" />
         </div>
 
         <div className="mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
@@ -81,7 +81,7 @@ export function HomeContent() {
 
         {/* Attribution */}
         <p className="absolute bottom-4 right-6 text-xs text-muted/40">
-          Photo by A C on Unsplash
+          Photo by Planet Volumes on Unsplash
         </p>
       </section>
 
