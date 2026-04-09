@@ -39,7 +39,7 @@ export function HomeContent() {
             role="img"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/60 to-white/20" />
         </div>
 
         <div className="mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
