@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
 
@@ -34,12 +33,11 @@ export function HomeContent() {
       <section className="relative overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 -z-10">
-          <Image
-            src="/hero.jpg"
-            alt=""
-            fill
-            className="object-cover"
-            priority
+          <div
+            className="absolute inset-0 h-full w-full bg-cover bg-center"
+            style={{ backgroundImage: "url('/getting-started-digital-minds-next/hero.jpg')" }}
+            role="img"
+            aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white" />
         </div>
