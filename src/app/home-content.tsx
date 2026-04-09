@@ -82,11 +82,6 @@ export function HomeContent() {
             </div>
           </FadeIn>
         </div>
-
-        {/* Attribution */}
-        <p className="absolute bottom-4 right-6 text-xs text-muted/40">
-          Photo by Planet Volumes on Unsplash
-        </p>
       </section>
 
       {/* Section cards */}
