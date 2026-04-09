@@ -45,12 +45,12 @@ function isRecent(event: Event): boolean {
 }
 
 const typeColors: Record<string, string> = {
-  conference: "border-purple-500/40 text-purple-400",
-  workshop: "border-blue-500/40 text-blue-400",
-  fellowship: "border-emerald-500/40 text-emerald-400",
-  course: "border-amber-500/40 text-amber-400",
-  programme: "border-cyan-500/40 text-cyan-400",
-  seminar: "border-rose-500/40 text-rose-400",
+  conference: "border-purple-300 text-purple-700 bg-purple-50",
+  workshop: "border-blue-300 text-blue-700 bg-blue-50",
+  fellowship: "border-emerald-300 text-emerald-700 bg-emerald-50",
+  course: "border-amber-300 text-amber-700 bg-amber-50",
+  programme: "border-cyan-300 text-cyan-700 bg-cyan-50",
+  seminar: "border-rose-300 text-rose-700 bg-rose-50",
 };
 
 function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {

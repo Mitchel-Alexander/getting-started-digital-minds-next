@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
 
@@ -31,6 +32,18 @@ export function HomeContent() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/hero.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white" />
+        </div>
+
         <div className="mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
           <FadeIn>
             <p className="text-sm font-medium uppercase tracking-widest text-accent">
@@ -54,7 +67,7 @@ export function HomeContent() {
             <div className="mt-10 flex gap-4">
               <Link
                 href="/research-areas"
-                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-80"
+                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-white transition-opacity hover:opacity-80"
               >
                 Start Exploring
               </Link>
@@ -67,6 +80,11 @@ export function HomeContent() {
             </div>
           </FadeIn>
         </div>
+
+        {/* Attribution */}
+        <p className="absolute bottom-4 right-6 text-xs text-muted/40">
+          Photo by Planet Volumes on Unsplash
+        </p>
       </section>
 
       {/* Section cards */}
@@ -114,7 +132,7 @@ export function HomeContent() {
             <div className="mt-8">
               <Link
                 href="/pathways"
-                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-80"
+                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-white transition-opacity hover:opacity-80"
               >
                 Find Your Pathway
               </Link>

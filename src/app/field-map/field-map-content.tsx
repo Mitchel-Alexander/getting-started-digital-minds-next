@@ -21,12 +21,12 @@ const zoneBorderColors: Record<Zone, string> = {
 };
 
 const zoneTagColors: Record<Zone, string> = {
-  "digital-minds": "bg-purple-900/40 text-purple-300",
-  "empirical-foundations": "bg-blue-900/40 text-blue-300",
-  "philosophical-foundations": "bg-teal-900/40 text-teal-300",
-  "governance-advocacy": "bg-green-900/40 text-green-300",
-  support: "bg-neutral-800/60 text-neutral-300",
-  media: "bg-amber-900/40 text-amber-300",
+  "digital-minds": "bg-purple-100 text-purple-700",
+  "empirical-foundations": "bg-blue-100 text-blue-700",
+  "philosophical-foundations": "bg-teal-100 text-teal-700",
+  "governance-advocacy": "bg-green-100 text-green-700",
+  support: "bg-neutral-100 text-neutral-600",
+  media: "bg-amber-100 text-amber-700",
 };
 
 function OrgCard({ org, onClick }: { org: Organisation; onClick: () => void }) {
@@ -72,13 +72,13 @@ function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/30 backdrop-blur-sm p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       <div
-        className="relative w-full max-w-lg rounded-2xl bg-card border border-border overflow-hidden"
+        className="relative w-full max-w-lg rounded-2xl bg-white border border-border overflow-hidden shadow-xl"
         style={{ borderTopColor: zoneAccents[org.zone], borderTopWidth: 3 }}
         role="dialog"
         aria-modal="true"
@@ -128,7 +128,7 @@ function Modal({
             href={org.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition-opacity hover:opacity-80"
+            className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-80"
           >
             Visit website &rarr;
           </a>
