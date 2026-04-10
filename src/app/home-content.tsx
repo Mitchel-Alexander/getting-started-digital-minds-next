@@ -6,25 +6,26 @@ import { NetworkCanvas } from "@/components/network-canvas";
 
 const sections = [
   {
-    num: "01",
+    title: "Start Here",
+    description: "New to digital minds? A quick orientation to the field, what it covers, and how to use this guide.",
+    href: "/start-here",
+  },
+  {
     title: "Research Areas",
     description: "Explore the key questions driving digital minds research, from AI consciousness to welfare and policy.",
     href: "/research-areas",
   },
   {
-    num: "02",
     title: "Pathways",
     description: "Find your way into the field, whether you come from philosophy, neuroscience, computer science, or beyond.",
     href: "/pathways",
   },
   {
-    num: "03",
     title: "Events",
     description: "Conferences, workshops, fellowships, and programmes happening across the digital minds community.",
     href: "/events",
   },
   {
-    num: "04",
     title: "Field Map",
     description: "An interactive directory of organisations working on AI consciousness, welfare, and related research.",
     href: "/field-map",
