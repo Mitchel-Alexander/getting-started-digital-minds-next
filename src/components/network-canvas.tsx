@@ -81,17 +81,26 @@ export function NetworkCanvas({
 
     const onMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
-      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
-    };
-
-    const onMouseLeave = () => {
-      mouseRef.current = null;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      // Only track if cursor is within canvas bounds
+      if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+        mouseRef.current = { x, y };
+      } else {
+        mouseRef.current = null;
+      }
     };
 
     const onTouchMove = (e: TouchEvent) => {
       const rect = canvas.getBoundingClientRect();
       const touch = e.touches[0];
-      mouseRef.current = { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+        mouseRef.current = { x, y };
+      } else {
+        mouseRef.current = null;
+      }
     };
 
     const onTouchEnd = () => {
@@ -101,10 +110,9 @@ export function NetworkCanvas({
     resize();
     window.addEventListener("resize", resize);
     window.addEventListener("scroll", onScroll, { passive: true });
-    canvas.addEventListener("mousemove", onMouseMove);
-    canvas.addEventListener("mouseleave", onMouseLeave);
-    canvas.addEventListener("touchmove", onTouchMove, { passive: true });
-    canvas.addEventListener("touchend", onTouchEnd);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("touchend", onTouchEnd);
 
     const draw = () => {
       const { width, height } = dimensionsRef.current;
@@ -131,15 +139,18 @@ export function NetworkCanvas({
           }
         }
 
-        // Dampen velocity back toward base drift speed
-        node.vx *= 0.98;
-        node.vy *= 0.98;
+        // Dampen velocity — gentle friction so repulsed nodes slow back down
+        const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+        if (speed > 0.4) {
+          // Only dampen when faster than base drift
+          node.vx *= 0.96;
+          node.vy *= 0.96;
+        }
 
         // Clamp max speed so nodes don't fly off
-        const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
-        if (speed > 3) {
-          node.vx = (node.vx / speed) * 3;
-          node.vy = (node.vy / speed) * 3;
+        if (speed > 4) {
+          node.vx = (node.vx / speed) * 4;
+          node.vy = (node.vy / speed) * 4;
         }
 
         node.x += node.vx;
@@ -198,10 +209,9 @@ export function NetworkCanvas({
       cancelAnimationFrame(animFrameRef.current);
       window.removeEventListener("resize", resize);
       window.removeEventListener("scroll", onScroll);
-      canvas.removeEventListener("mousemove", onMouseMove);
-      canvas.removeEventListener("mouseleave", onMouseLeave);
-      canvas.removeEventListener("touchmove", onTouchMove);
-      canvas.removeEventListener("touchend", onTouchEnd);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
     };
   }, [initNodes, connectionDistance, nodeColor, lineColor, parallaxStrength]);
 
