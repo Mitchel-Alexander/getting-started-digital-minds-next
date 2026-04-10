@@ -62,28 +62,12 @@ export function HomeContent() {
               help you find your way in.
             </p>
           </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="mt-10 flex gap-4">
-              <Link
-                href="/research-areas"
-                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-white transition-opacity hover:opacity-80"
-              >
-                Start Exploring
-              </Link>
-              <Link
-                href="/field-map"
-                className="inline-flex h-11 items-center rounded-full border border-border px-6 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:text-accent"
-              >
-                Field Map
-              </Link>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
       {/* Section cards */}
       <section className="bg-background">
-        <div className="mx-auto max-w-6xl px-6 py-16">
+        <div className="mx-auto max-w-6xl px-6 py-8">
           <FadeIn>
             <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
               Explore
