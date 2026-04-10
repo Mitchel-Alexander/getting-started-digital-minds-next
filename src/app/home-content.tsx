@@ -43,7 +43,7 @@ export function HomeContent() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
         </div>
 
-        <div className="mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
+        <div className="mx-auto max-w-6xl px-6 pb-32 pt-24 sm:pt-32">
           <FadeIn>
             <p className="text-sm font-medium uppercase tracking-widest text-accent">
               PRISM-CDM

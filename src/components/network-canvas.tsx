@@ -124,7 +124,7 @@ export function NetworkCanvas({
       // Update positions
       const mouse = mouseRef.current;
       const repulseRadius = 120;
-      const repulseStrength = 0.8;
+      const repulseStrength = 0.56;
 
       for (const node of nodes) {
         // Mouse repulsion
