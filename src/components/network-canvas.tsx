@@ -17,6 +17,7 @@ interface NetworkCanvasProps {
   nodeColor?: string;
   lineColor?: string;
   parallaxStrength?: number;
+  repulseStrength?: number;
 }
 
 export function NetworkCanvas({
@@ -26,6 +27,7 @@ export function NetworkCanvas({
   nodeColor = "rgba(13, 148, 136, 0.6)",
   lineColor = "13, 148, 136",
   parallaxStrength = 0.3,
+  repulseStrength: repulseStrengthProp = 0.56,
 }: NetworkCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nodesRef = useRef<Node[]>([]);
@@ -124,7 +126,7 @@ export function NetworkCanvas({
       // Update positions
       const mouse = mouseRef.current;
       const repulseRadius = 120;
-      const repulseStrength = 0.56;
+      const repulseStrength = repulseStrengthProp;
 
       for (const node of nodes) {
         // Mouse repulsion
