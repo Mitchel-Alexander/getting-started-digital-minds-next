@@ -47,7 +47,7 @@ export function HomeContent() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
         </div>
 
-        <div className="mx-auto max-w-6xl px-6 pb-32 pt-24 sm:pt-32">
+        <div className="mx-auto max-w-6xl px-6 pb-16 pt-16 sm:pt-20">
           <FadeIn>
             <p className="text-sm font-medium uppercase tracking-widest text-accent">
               PRISM-CDM
@@ -59,7 +59,7 @@ export function HomeContent() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
               A guide for newcomers to the field of AI consciousness, AI welfare,
               and digital minds research. Whether you come from philosophy,
               neuroscience, computer science, law, or policy, this resource will
@@ -71,12 +71,12 @@ export function HomeContent() {
 
       {/* Section cards */}
       <section className="bg-background">
-        <div className="mx-auto max-w-6xl px-6 py-8">
+        <div className="mx-auto max-w-6xl px-6 py-4">
           {/* Featured first card — full width */}
           <FadeIn>
             <Link
               href={sections[0].href}
-              className="group relative block rounded-2xl border-l-4 border-accent bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-accent/5 hover:scale-[1.01]"
+              className="group relative block rounded-2xl border-l-4 border-accent bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-accent/5 hover:scale-[1.01]"
             >
               <span className="text-xs font-mono text-accent/50">{sections[0].num}</span>
               <h3 className="mt-2 text-xl font-semibold group-hover:text-accent transition-colors">
@@ -92,7 +92,7 @@ export function HomeContent() {
           </FadeIn>
 
           {/* Remaining cards — three column */}
-          <StaggerContainer className="mt-4 grid gap-4 sm:grid-cols-3">
+          <StaggerContainer className="mt-3 grid gap-3 sm:grid-cols-3">
             {sections.slice(1).map((section) => (
               <StaggerItem key={section.title}>
                 <Link
