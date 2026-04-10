@@ -10,6 +10,7 @@ import {
   type Zone,
 } from "@/data/organisations";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
+import { PageHeader } from "@/components/page-header";
 
 const zoneBorderColors: Record<Zone, string> = {
   "digital-minds": "border-purple-800",
@@ -149,15 +150,14 @@ export function FieldMapContent() {
   })).filter((g) => g.orgs.length > 0);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
+    <>
+      <PageHeader
+        title="Field Map"
+        description="Organisations working on AI consciousness, AI welfare, and digital minds research."
+      />
+      <div className="mx-auto max-w-6xl px-6 py-8">
       <FadeIn>
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Field Map
-        </h1>
-        <p className="mt-4 max-w-2xl text-muted">
-          Organisations working on AI consciousness, AI welfare, and digital minds research.
-        </p>
-        <p className="mt-2 text-sm text-muted">
+        <p className="text-sm text-muted">
           {organisations.length} organisations across research, governance, training, and field building.
         </p>
       </FadeIn>
@@ -197,6 +197,7 @@ export function FieldMapContent() {
 
       {/* Modal */}
       {selectedOrg && <Modal org={selectedOrg} onClose={handleClose} />}
-    </div>
+      </div>
+    </>
   );
 }

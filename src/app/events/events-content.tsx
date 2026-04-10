@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { events, type Event } from "@/data/events";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
+import { PageHeader } from "@/components/page-header";
 
 const eventTypes = ["all", "conference", "workshop", "fellowship", "course", "programme", "seminar"] as const;
 const eventFormats = ["all", "in-person", "online", "hybrid"] as const;
@@ -132,15 +133,12 @@ export function EventsContent() {
   const totalAll = upcoming.length + recent.length;
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <FadeIn>
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Events and Opportunities
-        </h1>
-        <p className="mt-4 max-w-2xl text-muted">
-          Conferences, workshops, fellowships, courses, and other opportunities in digital minds.
-        </p>
-      </FadeIn>
+    <>
+      <PageHeader
+        title="Events and Opportunities"
+        description="Conferences, workshops, fellowships, courses, and other opportunities in digital minds."
+      />
+      <div className="mx-auto max-w-6xl px-6 py-8">
 
       <FadeIn delay={0.1}>
         <div className="mt-8 space-y-4">
@@ -248,6 +246,7 @@ export function EventsContent() {
           </p>
         </div>
       </FadeIn>
-    </div>
+      </div>
+    </>
   );
 }
