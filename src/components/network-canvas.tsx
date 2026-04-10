@@ -31,6 +31,7 @@ export function NetworkCanvas({
   const nodesRef = useRef<Node[]>([]);
   const animFrameRef = useRef<number>(0);
   const scrollYRef = useRef(0);
+  const mouseRef = useRef<{ x: number; y: number } | null>(null);
   const dimensionsRef = useRef({ width: 0, height: 0 });
 
   const initNodes = useCallback(
@@ -78,9 +79,32 @@ export function NetworkCanvas({
       scrollYRef.current = window.scrollY;
     };
 
+    const onMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    };
+
+    const onMouseLeave = () => {
+      mouseRef.current = null;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      mouseRef.current = { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+    };
+
+    const onTouchEnd = () => {
+      mouseRef.current = null;
+    };
+
     resize();
     window.addEventListener("resize", resize);
     window.addEventListener("scroll", onScroll, { passive: true });
+    canvas.addEventListener("mousemove", onMouseMove);
+    canvas.addEventListener("mouseleave", onMouseLeave);
+    canvas.addEventListener("touchmove", onTouchMove, { passive: true });
+    canvas.addEventListener("touchend", onTouchEnd);
 
     const draw = () => {
       const { width, height } = dimensionsRef.current;
@@ -90,7 +114,34 @@ export function NetworkCanvas({
       ctx.clearRect(0, 0, width, height);
 
       // Update positions
+      const mouse = mouseRef.current;
+      const repulseRadius = 120;
+      const repulseStrength = 0.8;
+
       for (const node of nodes) {
+        // Mouse repulsion
+        if (mouse) {
+          const dx = node.x - mouse.x;
+          const dy = node.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < repulseRadius && dist > 0) {
+            const force = (1 - dist / repulseRadius) * repulseStrength;
+            node.vx += (dx / dist) * force;
+            node.vy += (dy / dist) * force;
+          }
+        }
+
+        // Dampen velocity back toward base drift speed
+        node.vx *= 0.98;
+        node.vy *= 0.98;
+
+        // Clamp max speed so nodes don't fly off
+        const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+        if (speed > 3) {
+          node.vx = (node.vx / speed) * 3;
+          node.vy = (node.vy / speed) * 3;
+        }
+
         node.x += node.vx;
         node.y += node.vy;
 
@@ -147,6 +198,10 @@ export function NetworkCanvas({
       cancelAnimationFrame(animFrameRef.current);
       window.removeEventListener("resize", resize);
       window.removeEventListener("scroll", onScroll);
+      canvas.removeEventListener("mousemove", onMouseMove);
+      canvas.removeEventListener("mouseleave", onMouseLeave);
+      canvas.removeEventListener("touchmove", onTouchMove);
+      canvas.removeEventListener("touchend", onTouchEnd);
     };
   }, [initNodes, connectionDistance, nodeColor, lineColor, parallaxStrength]);
 
