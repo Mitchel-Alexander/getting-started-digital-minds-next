@@ -23,7 +23,7 @@ export function NetworkCanvas({
   className = "",
   nodeCount = 80,
   connectionDistance = 150,
-  nodeColor = "rgba(13, 148, 136, 0.4)",
+  nodeColor = "rgba(13, 148, 136, 0.6)",
   lineColor = "13, 148, 136",
   parallaxStrength = 0.3,
 }: NetworkCanvasProps) {
@@ -42,7 +42,7 @@ export function NetworkCanvas({
           y: Math.random() * height,
           vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 2 + 1,
+          radius: Math.random() * 2.5 + 1.5,
         });
       }
       return nodes;
@@ -112,10 +112,10 @@ export function NetworkCanvas({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const opacity = (1 - dist / connectionDistance) * 0.3;
+            const opacity = (1 - dist / connectionDistance) * 0.5;
             ctx.beginPath();
             ctx.strokeStyle = `rgba(${lineColor}, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 0.8;
             ctx.moveTo(
               nodes[i].x,
               nodes[i].y - scrollOffset * (nodes[i].vy + 0.5)
