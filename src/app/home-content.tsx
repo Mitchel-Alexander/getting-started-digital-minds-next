@@ -72,7 +72,12 @@ export function HomeContent() {
       {/* Section rows */}
       <section className="bg-background">
         <div className="mx-auto max-w-6xl px-6">
-          <StaggerContainer className="divide-y divide-border">
+          <FadeIn>
+            <h2 className="pb-4 pt-8 text-sm font-medium uppercase tracking-widest text-muted">
+              Explore
+            </h2>
+          </FadeIn>
+          <StaggerContainer className="divide-y divide-border border-t border-border">
             {sections.map((section) => (
               <StaggerItem key={section.title}>
                 <Link
