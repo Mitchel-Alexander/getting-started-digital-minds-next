@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
+import { NetworkCanvas } from "@/components/network-canvas";
 
 const sections = [
   {
@@ -31,18 +32,14 @@ export function HomeContent() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        {/* Background image */}
+        {/* Animated network background */}
         <div className="absolute inset-0 -z-10">
-          {/* Solid tinted background */}
           <div className="absolute inset-0 bg-[#f0f4f6]" />
-          {/* Image as subtle texture */}
-          <div
-            className="absolute inset-0 h-full w-full bg-cover bg-center opacity-15"
-            style={{ backgroundImage: "url('/getting-started-digital-minds-next/hero.jpg')" }}
-            role="img"
-            aria-hidden="true"
+          <NetworkCanvas
+            nodeCount={90}
+            connectionDistance={160}
+            parallaxStrength={0.3}
           />
-          {/* Bottom fade to white */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
         </div>
 

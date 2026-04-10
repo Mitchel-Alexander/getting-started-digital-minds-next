@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/animate";
+import { NetworkCanvas } from "@/components/network-canvas";
 
 export function PageHeader({
   title,
@@ -13,10 +14,10 @@ export function PageHeader({
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[#f0f4f6]" />
-        <div
-          className="absolute inset-0 h-full w-full bg-cover bg-center opacity-15"
-          style={{ backgroundImage: "url('/getting-started-digital-minds-next/hero.jpg')" }}
-          aria-hidden="true"
+        <NetworkCanvas
+          nodeCount={40}
+          connectionDistance={120}
+          parallaxStrength={0.2}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
       </div>
