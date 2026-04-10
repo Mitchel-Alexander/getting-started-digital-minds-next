@@ -47,7 +47,7 @@ export function HomeContent() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
         </div>
 
-        <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col justify-center px-6">
+        <div className="mx-auto flex min-h-[calc(100vh-10rem)] max-w-6xl flex-col justify-center px-6">
           <FadeIn>
             <p className="text-sm font-medium uppercase tracking-widest text-accent">
               PRISM-CDM
@@ -66,69 +66,31 @@ export function HomeContent() {
               help you find your way in.
             </p>
           </FadeIn>
-
-          {/* Scroll indicator */}
-          <FadeIn delay={0.5}>
-            <div className="flex justify-center pb-10 pt-12">
-              <a
-                href="#sections"
-                className="flex flex-col items-center gap-2 text-muted/50 transition-colors hover:text-accent"
-                aria-label="Scroll to sections"
-              >
-                <span className="text-xs tracking-widest uppercase">Explore</span>
-                <svg
-                  className="h-5 w-5 animate-bounce"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </a>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
-      {/* Section cards */}
-      <section id="sections" className="bg-background">
-        <div className="mx-auto max-w-6xl px-6 py-8">
-          {/* Featured first card — full width */}
-          <FadeIn>
-            <Link
-              href={sections[0].href}
-              className="group relative block rounded-2xl border-l-4 border-accent bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-accent/5 hover:scale-[1.01]"
-            >
-              <span className="text-xs font-mono text-accent/50">{sections[0].num}</span>
-              <h3 className="mt-2 text-xl font-semibold group-hover:text-accent transition-colors">
-                {sections[0].title}
-              </h3>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-                {sections[0].description}
-              </p>
-              <span className="mt-4 inline-block text-sm font-medium text-accent translate-x-0 group-hover:translate-x-1 transition-transform">
-                &rarr;
-              </span>
-            </Link>
-          </FadeIn>
-
-          {/* Remaining cards — three column */}
-          <StaggerContainer className="mt-4 grid gap-4 sm:grid-cols-3">
-            {sections.slice(1).map((section) => (
+      {/* Section rows */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-6xl px-6">
+          <StaggerContainer className="divide-y divide-border">
+            {sections.map((section) => (
               <StaggerItem key={section.title}>
                 <Link
                   href={section.href}
-                  className="group relative block h-full rounded-2xl border-l-4 border-accent/30 bg-card p-6 shadow-sm transition-all duration-300 hover:border-accent hover:shadow-xl hover:shadow-accent/5 hover:scale-[1.02]"
+                  className="group flex items-center gap-6 py-7 transition-colors hover:bg-card/50 sm:gap-8"
                 >
-                  <span className="text-xs font-mono text-accent/40">{section.num}</span>
-                  <h3 className="mt-2 text-base font-semibold group-hover:text-accent transition-colors">
-                    {section.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {section.description}
-                  </p>
-                  <span className="mt-3 inline-block text-sm font-medium text-accent translate-x-0 group-hover:translate-x-1 transition-transform">
+                  <span className="text-sm font-mono text-accent/40 group-hover:text-accent transition-colors">
+                    {section.num}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                      {section.title}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted">
+                      {section.description}
+                    </p>
+                  </div>
+                  <span className="text-lg text-accent/30 group-hover:text-accent group-hover:translate-x-1 transition-all">
                     &rarr;
                   </span>
                 </Link>
