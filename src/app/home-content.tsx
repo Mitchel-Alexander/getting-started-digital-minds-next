@@ -59,7 +59,7 @@ export function HomeContent() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
               A guide for newcomers to the field of AI consciousness, AI welfare,
               and digital minds research. Whether you come from philosophy,
               neuroscience, computer science, law, or policy, this resource will
