@@ -84,9 +84,6 @@ export function HomeContent() {
                   href={section.href}
                   className="group flex items-center gap-8 py-14 transition-colors hover:bg-card/50 sm:gap-12"
                 >
-                  <span className="text-lg font-mono text-accent/40 group-hover:text-accent transition-colors">
-                    {section.num}
-                  </span>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors sm:text-3xl">
                       {section.title}
