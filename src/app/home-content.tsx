@@ -77,20 +77,20 @@ export function HomeContent() {
               <StaggerItem key={section.title}>
                 <Link
                   href={section.href}
-                  className="group flex items-center gap-6 py-7 transition-colors hover:bg-card/50 sm:gap-8"
+                  className="group flex items-center gap-6 py-10 transition-colors hover:bg-card/50 sm:gap-10"
                 >
-                  <span className="text-sm font-mono text-accent/40 group-hover:text-accent transition-colors">
+                  <span className="text-base font-mono text-accent/40 group-hover:text-accent transition-colors">
                     {section.num}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                    <h3 className="text-xl font-semibold group-hover:text-accent transition-colors sm:text-2xl">
                       {section.title}
                     </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">
+                    <p className="mt-2 text-base leading-relaxed text-muted">
                       {section.description}
                     </p>
                   </div>
-                  <span className="text-lg text-accent/30 group-hover:text-accent group-hover:translate-x-1 transition-all">
+                  <span className="text-xl text-accent/30 group-hover:text-accent group-hover:translate-x-1 transition-all">
                     &rarr;
                   </span>
                 </Link>
