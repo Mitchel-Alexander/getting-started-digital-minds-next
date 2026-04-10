@@ -6,21 +6,25 @@ import { NetworkCanvas } from "@/components/network-canvas";
 
 const sections = [
   {
+    num: "01",
     title: "Research Areas",
     description: "Explore the key questions driving digital minds research, from AI consciousness to welfare and policy.",
     href: "/research-areas",
   },
   {
+    num: "02",
     title: "Pathways",
     description: "Find your way into the field, whether you come from philosophy, neuroscience, computer science, or beyond.",
     href: "/pathways",
   },
   {
+    num: "03",
     title: "Events",
     description: "Conferences, workshops, fellowships, and programmes happening across the digital minds community.",
     href: "/events",
   },
   {
+    num: "04",
     title: "Field Map",
     description: "An interactive directory of organisations working on AI consciousness, welfare, and related research.",
     href: "/field-map",
@@ -68,26 +72,42 @@ export function HomeContent() {
       {/* Section cards */}
       <section className="bg-background">
         <div className="mx-auto max-w-6xl px-6 py-8">
+          {/* Featured first card — full width */}
           <FadeIn>
-            <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
-              Explore
-            </h2>
+            <Link
+              href={sections[0].href}
+              className="group relative block rounded-2xl border-l-4 border-accent bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-accent/5 hover:scale-[1.01]"
+            >
+              <span className="text-xs font-mono text-accent/50">{sections[0].num}</span>
+              <h3 className="mt-2 text-xl font-semibold group-hover:text-accent transition-colors">
+                {sections[0].title}
+              </h3>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+                {sections[0].description}
+              </p>
+              <span className="mt-4 inline-block text-sm font-medium text-accent translate-x-0 group-hover:translate-x-1 transition-transform">
+                &rarr;
+              </span>
+            </Link>
           </FadeIn>
-          <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2">
-            {sections.map((section) => (
+
+          {/* Remaining cards — three column */}
+          <StaggerContainer className="mt-4 grid gap-4 sm:grid-cols-3">
+            {sections.slice(1).map((section) => (
               <StaggerItem key={section.title}>
                 <Link
                   href={section.href}
-                  className="group block rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
+                  className="group relative block h-full rounded-2xl border-l-4 border-accent/30 bg-card p-6 shadow-sm transition-all duration-300 hover:border-accent hover:shadow-xl hover:shadow-accent/5 hover:scale-[1.02]"
                 >
-                  <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                  <span className="text-xs font-mono text-accent/40">{section.num}</span>
+                  <h3 className="mt-2 text-base font-semibold group-hover:text-accent transition-colors">
                     {section.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
                     {section.description}
                   </p>
-                  <span className="mt-4 inline-block text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                    Explore &rarr;
+                  <span className="mt-3 inline-block text-sm font-medium text-accent translate-x-0 group-hover:translate-x-1 transition-transform">
+                    &rarr;
                   </span>
                 </Link>
               </StaggerItem>
@@ -97,7 +117,18 @@ export function HomeContent() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border">
+      <section className="relative overflow-hidden mt-16">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-[#f0f4f6]" />
+          <NetworkCanvas
+            nodeCount={50}
+            connectionDistance={140}
+            parallaxStrength={0.15}
+            repulseStrength={0.35}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white" />
+        </div>
+
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <FadeIn>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -110,7 +141,7 @@ export function HomeContent() {
             <div className="mt-8">
               <Link
                 href="/pathways"
-                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-white transition-opacity hover:opacity-80"
+                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-white transition-all duration-300 hover:opacity-80 hover:scale-105"
               >
                 Find Your Pathway
               </Link>
