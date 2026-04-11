@@ -28,7 +28,7 @@ export function NetworkCanvas({
   nodeColor = "255, 255, 255",
   lineColor = "255, 255, 255",
   parallaxStrength = 0.3,
-  repulseStrength: repulseStrengthProp = 0.56,
+  repulseStrength: repulseStrengthProp = 0.25,
 }: NetworkCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nodesRef = useRef<Node[]>([]);
@@ -157,9 +157,9 @@ export function NetworkCanvas({
         }
 
         // Clamp max speed
-        if (speed > 2) {
-          node.vx = (node.vx / speed) * 2;
-          node.vy = (node.vy / speed) * 2;
+        if (speed > 1.2) {
+          node.vx = (node.vx / speed) * 1.2;
+          node.vy = (node.vy / speed) * 1.2;
         }
 
         node.x += node.vx;

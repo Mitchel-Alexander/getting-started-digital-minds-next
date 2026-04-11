@@ -18,7 +18,7 @@ export function PageHeader({
           nodeCount={40}
           connectionDistance={120}
           parallaxStrength={0.2}
-          repulseStrength={0.35}
+          repulseStrength={0.25}
         />
       </div>
 

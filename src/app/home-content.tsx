@@ -49,7 +49,7 @@ export function HomeContent() {
             nodeCount={130}
             connectionDistance={160}
             parallaxStrength={0.3}
-            repulseStrength={0.35}
+            repulseStrength={0.25}
           />
 
         </div>
@@ -133,7 +133,7 @@ export function HomeContent() {
             nodeCount={50}
             connectionDistance={140}
             parallaxStrength={0.15}
-            repulseStrength={0.35}
+            repulseStrength={0.25}
           />
 
         </div>
