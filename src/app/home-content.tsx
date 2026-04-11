@@ -46,7 +46,7 @@ export function HomeContent() {
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-[#67b2b7]" />
           <NetworkCanvas
-            nodeCount={108}
+            nodeCount={130}
             connectionDistance={160}
             parallaxStrength={0.3}
             repulseStrength={0.35}

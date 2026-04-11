@@ -23,10 +23,6 @@ export function Navbar() {
         <Link
           href="/"
           className="text-lg font-semibold tracking-tight"
-          style={{
-            filter:
-              "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.06))",
-          }}
         >
           Getting Started in Digital Minds
         </Link>
@@ -40,12 +36,8 @@ export function Navbar() {
                 className={`text-sm transition-colors hover:text-accent ${
                   pathname === href
                     ? "text-foreground font-medium"
-                    : "text-muted/70"
+                    : "text-muted"
                 }`}
-                style={{
-                  filter:
-                    "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.06))",
-                }}
               >
                 {label}
               </Link>
