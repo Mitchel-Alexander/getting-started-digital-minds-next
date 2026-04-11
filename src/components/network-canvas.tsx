@@ -8,6 +8,7 @@ interface Node {
   vx: number;
   vy: number;
   radius: number;
+  depth: number; // 0 = far, 1 = near
 }
 
 interface NetworkCanvasProps {
@@ -22,10 +23,10 @@ interface NetworkCanvasProps {
 
 export function NetworkCanvas({
   className = "",
-  nodeCount = 80,
+  nodeCount = 96,
   connectionDistance = 150,
-  nodeColor = "rgba(13, 148, 136, 0.6)",
-  lineColor = "13, 148, 136",
+  nodeColor = "255, 255, 255",
+  lineColor = "255, 255, 255",
   parallaxStrength = 0.3,
   repulseStrength: repulseStrengthProp = 0.56,
 }: NetworkCanvasProps) {
@@ -40,14 +41,20 @@ export function NetworkCanvas({
     (width: number, height: number) => {
       const nodes: Node[] = [];
       for (let i = 0; i < nodeCount; i++) {
+        const depth = Math.random(); // 0 = far background, 1 = near foreground
         nodes.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 2.5 + 1.5,
+          // Far nodes drift slower
+          vx: (Math.random() - 0.5) * 0.3 * (0.3 + depth * 0.7),
+          vy: (Math.random() - 0.5) * 0.3 * (0.3 + depth * 0.7),
+          // Far nodes are smaller
+          radius: 0.8 + depth * 3,
+          depth,
         });
       }
+      // Sort so far nodes draw first (behind near nodes)
+      nodes.sort((a, b) => a.depth - b.depth);
       return nodes;
     },
     [nodeCount]
@@ -85,7 +92,6 @@ export function NetworkCanvas({
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      // Only track if cursor is within canvas bounds
       if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
         mouseRef.current = { x, y };
       } else {
@@ -129,30 +135,31 @@ export function NetworkCanvas({
       const repulseStrength = repulseStrengthProp;
 
       for (const node of nodes) {
-        // Mouse repulsion
+        // Mouse repulsion — near nodes react more
         if (mouse) {
           const dx = node.x - mouse.x;
           const dy = node.y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < repulseRadius && dist > 0) {
-            const force = (1 - dist / repulseRadius) * repulseStrength;
+          const rawDist = Math.sqrt(dx * dx + dy * dy);
+          const dist = Math.max(rawDist, 20);
+          if (rawDist < repulseRadius && rawDist > 0) {
+            const depthFactor = 0.2 + node.depth * 0.8;
+            const force = (1 - dist / repulseRadius) * repulseStrength * depthFactor;
             node.vx += (dx / dist) * force;
             node.vy += (dy / dist) * force;
           }
         }
 
-        // Dampen velocity — gentle friction so repulsed nodes slow back down
+        // Dampen velocity
         const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
         if (speed > 0.4) {
-          // Only dampen when faster than base drift
           node.vx *= 0.96;
           node.vy *= 0.96;
         }
 
-        // Clamp max speed so nodes don't fly off
-        if (speed > 4) {
-          node.vx = (node.vx / speed) * 4;
-          node.vy = (node.vy / speed) * 4;
+        // Clamp max speed
+        if (speed > 2) {
+          node.vx = (node.vx / speed) * 2;
+          node.vy = (node.vy / speed) * 2;
         }
 
         node.x += node.vx;
@@ -165,40 +172,44 @@ export function NetworkCanvas({
         if (node.y > height + 20) node.y = -20;
       }
 
-      // Draw connections
+      // Draw connections — opacity scaled by average depth of both nodes
       for (let i = 0; i < nodes.length; i++) {
+        const depthOffsetI = scrollOffset * (0.3 + nodes[i].depth * 0.7);
         for (let j = i + 1; j < nodes.length; j++) {
+          const depthOffsetJ = scrollOffset * (0.3 + nodes[j].depth * 0.7);
           const dx = nodes[i].x - nodes[j].x;
           const dy =
-            nodes[i].y -
-            scrollOffset * (nodes[i].vy + 0.5) -
-            (nodes[j].y - scrollOffset * (nodes[j].vy + 0.5));
+            (nodes[i].y - depthOffsetI * (nodes[i].vy + 0.5)) -
+            (nodes[j].y - depthOffsetJ * (nodes[j].vy + 0.5));
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const opacity = (1 - dist / connectionDistance) * 0.5;
+            const avgDepth = (nodes[i].depth + nodes[j].depth) / 2;
+            const opacity = (1 - dist / connectionDistance) * 0.6 * (0.15 + avgDepth * 0.85);
             ctx.beginPath();
             ctx.strokeStyle = `rgba(${lineColor}, ${opacity})`;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 0.3 + avgDepth * 0.7;
             ctx.moveTo(
               nodes[i].x,
-              nodes[i].y - scrollOffset * (nodes[i].vy + 0.5)
+              nodes[i].y - depthOffsetI * (nodes[i].vy + 0.5)
             );
             ctx.lineTo(
               nodes[j].x,
-              nodes[j].y - scrollOffset * (nodes[j].vy + 0.5)
+              nodes[j].y - depthOffsetJ * (nodes[j].vy + 0.5)
             );
             ctx.stroke();
           }
         }
       }
 
-      // Draw nodes
+      // Draw nodes — opacity and size driven by depth
       for (const node of nodes) {
-        const ny = node.y - scrollOffset * (node.vy + 0.5);
+        const depthOffset = scrollOffset * (0.3 + node.depth * 0.7);
+        const ny = node.y - depthOffset * (node.vy + 0.5);
+        const opacity = 0.12 + node.depth * 0.48;
         ctx.beginPath();
         ctx.arc(node.x, ny, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = nodeColor;
+        ctx.fillStyle = `rgba(${nodeColor}, ${opacity})`;
         ctx.fill();
       }
 

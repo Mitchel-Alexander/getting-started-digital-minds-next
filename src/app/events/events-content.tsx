@@ -46,12 +46,21 @@ function isRecent(event: Event): boolean {
 }
 
 const typeColors: Record<string, string> = {
-  conference: "border-purple-300 text-purple-700 bg-purple-50",
-  workshop: "border-blue-300 text-blue-700 bg-blue-50",
-  fellowship: "border-emerald-300 text-emerald-700 bg-emerald-50",
-  course: "border-amber-300 text-amber-700 bg-amber-50",
-  programme: "border-cyan-300 text-cyan-700 bg-cyan-50",
-  seminar: "border-rose-300 text-rose-700 bg-rose-50",
+  conference: "text-purple-700 bg-purple-50/80",
+  workshop: "text-blue-700 bg-blue-50/80",
+  fellowship: "text-emerald-700 bg-emerald-50/80",
+  course: "text-amber-700 bg-amber-50/80",
+  programme: "text-cyan-700 bg-cyan-50/80",
+  seminar: "text-rose-700 bg-rose-50/80",
+};
+
+const typeBorderColors: Record<string, string> = {
+  conference: "border-l-purple-200",
+  workshop: "border-l-blue-200",
+  fellowship: "border-l-emerald-200",
+  course: "border-l-amber-200",
+  programme: "border-l-cyan-200",
+  seminar: "border-l-rose-200",
 };
 
 function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
@@ -60,20 +69,20 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
       href={event.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group block rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 ${isPast ? "opacity-60 hover:opacity-80" : ""}`}
+      className={`group block rounded-xl border border-border border-l-[3px] ${typeBorderColors[event.type] || ""} bg-white p-6 transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995] active:bg-white/80 ${isPast ? "opacity-60 hover:opacity-80" : ""}`}
     >
       <div className="flex items-start justify-between gap-3">
-        <span className={`inline-block rounded-full border px-3 py-0.5 text-xs font-medium ${typeColors[event.type] || "border-border text-muted"}`}>
+        <span className={`inline-block rounded-full px-3 py-0.5 text-[10px] font-medium uppercase tracking-wider ${typeColors[event.type] || "text-muted bg-card"}`}>
           {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
         </span>
-        <span className="shrink-0 rounded-full border border-border px-3 py-0.5 text-xs text-muted">
+        <span className="shrink-0 rounded-full bg-card/60 px-3 py-0.5 text-[10px] font-medium uppercase tracking-wider text-muted">
           {event.format.charAt(0).toUpperCase() + event.format.slice(1)}
         </span>
       </div>
       <h3 className="mt-4 text-base font-semibold leading-snug group-hover:text-accent transition-colors">
         {event.name}
       </h3>
-      <p className="mt-1 text-sm text-muted">{event.organiser}</p>
+      <p className="mt-1 text-sm text-foreground/60">{event.organiser}</p>
       <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
         {event.date_start && (
           <span>
@@ -90,7 +99,7 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
           {isPast ? "Closed" : "Deadline"}: {formatDateFull(event.deadline)}
         </p>
       )}
-      <p className="mt-3 text-sm leading-relaxed text-muted line-clamp-3">
+      <p className="mt-3 text-sm leading-relaxed text-foreground/60 line-clamp-3">
         {event.description}
       </p>
     </a>
@@ -138,21 +147,22 @@ export function EventsContent() {
         title="Events and Opportunities"
         description="Conferences, workshops, fellowships, courses, and other opportunities in digital minds."
       />
+      <section className="bg-background">
       <div className="mx-auto max-w-6xl px-6 py-8">
 
       <FadeIn delay={0.1}>
         <div className="mt-8 space-y-4">
           <div>
-            <span className="text-xs font-medium uppercase tracking-wider text-muted">Type</span>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted">Type</span>
             <div className="mt-2 flex flex-wrap gap-2">
               {eventTypes.map((t) => (
                 <button
                   key={t}
                   onClick={() => setTypeFilter(t)}
-                  className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all ${
+                  className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all duration-200 ${
                     typeFilter === t
                       ? "border-accent bg-accent/10 text-accent"
-                      : "border-border text-muted hover:border-accent/30 hover:text-foreground"
+                      : "border-border bg-white text-muted hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] hover:text-foreground active:scale-[0.97]"
                   }`}
                 >
                   {t === "all" ? "All" : t.charAt(0).toUpperCase() + t.slice(1)}
@@ -161,16 +171,16 @@ export function EventsContent() {
             </div>
           </div>
           <div>
-            <span className="text-xs font-medium uppercase tracking-wider text-muted">Format</span>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted">Format</span>
             <div className="mt-2 flex flex-wrap gap-2">
               {eventFormats.map((f) => (
                 <button
                   key={f}
                   onClick={() => setFormatFilter(f)}
-                  className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all ${
+                  className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all duration-200 ${
                     formatFilter === f
                       ? "border-accent bg-accent/10 text-accent"
-                      : "border-border text-muted hover:border-accent/30 hover:text-foreground"
+                      : "border-border bg-white text-muted hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] hover:text-foreground active:scale-[0.97]"
                   }`}
                 >
                   {f === "all" ? "All" : f.charAt(0).toUpperCase() + f.slice(1)}
@@ -186,7 +196,13 @@ export function EventsContent() {
 
       {/* Upcoming */}
       <FadeIn delay={0.2}>
-        <h2 className="mt-12 text-xl font-semibold">Upcoming</h2>
+        <h2
+          className="mt-12 text-xl font-semibold"
+          style={{
+            filter:
+              "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.06))",
+          }}
+        >Upcoming</h2>
       </FadeIn>
       {filteredUpcoming.length > 0 ? (
         <StaggerContainer className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -204,7 +220,13 @@ export function EventsContent() {
       {filteredRecent.length > 0 && (
         <>
           <FadeIn>
-            <h2 className="mt-16 text-xl font-semibold text-muted">Recently closed</h2>
+            <h2
+              className="mt-16 text-xl font-semibold text-muted"
+              style={{
+                filter:
+                  "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.06))",
+              }}
+            >Recently closed</h2>
           </FadeIn>
           <StaggerContainer className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filteredRecent.map((event) => (
@@ -247,6 +269,7 @@ export function EventsContent() {
         </div>
       </FadeIn>
       </div>
+      </section>
     </>
   );
 }

@@ -45,7 +45,7 @@ export const zoneOrder: Zone[] = [
 ];
 
 export const zoneAccents: Record<Zone, string> = {
-  "digital-minds": "#4a148c",
+  "digital-minds": "#1e40af",
   "empirical-foundations": "#0d47a1",
   "philosophical-foundations": "#0f766e",
   "governance-advocacy": "#1a5e3a",

@@ -41,7 +41,11 @@ function ChevronIcon({ open }: { open: boolean }) {
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
-      className={`shrink-0 text-muted transition-transform duration-200 ${open ? "rotate-90" : ""}`}
+      className={`shrink-0 text-border transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${open ? "rotate-90" : ""}`}
+      style={{
+        filter:
+          "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.08))",
+      }}
     >
       <path strokeLinecap="round" strokeLinejoin="round" d="M6 4l4 4-4 4" />
     </svg>
@@ -131,8 +135,10 @@ function QuestionRow({
   return (
     <>
       <tr
-        className={`border-b border-border last:border-b-0 cursor-pointer transition-colors ${
-          isExpanded ? "bg-card" : "hover:bg-card/50"
+        className={`border-b border-border last:border-b-0 cursor-pointer transition-all duration-200 ${
+          isExpanded
+            ? "bg-card"
+            : "hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.08)_inset,0_2px_8px_rgba(0,0,0,0.03)]"
         }`}
         onClick={onToggle}
       >
@@ -196,8 +202,10 @@ function MobileCard({
 }) {
   return (
     <div
-      className={`border-b border-border py-4 last:border-b-0 cursor-pointer ${
-        isExpanded ? "bg-card/40 -mx-4 px-4" : ""
+      className={`border-b border-border py-4 last:border-b-0 cursor-pointer transition-all duration-200 ${
+        isExpanded
+          ? "bg-card/40 -mx-4 px-4 rounded-xl"
+          : "hover:bg-white/60 hover:backdrop-blur-sm hover:-mx-4 hover:px-4 hover:rounded-xl hover:shadow-[0_0_0_1px_rgba(13,148,136,0.08)_inset,0_2px_8px_rgba(0,0,0,0.03)]"
       }`}
       onClick={onToggle}
     >
@@ -339,7 +347,7 @@ export function OpenQuestionsContent() {
                   className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all ${
                     registerFilter === "all"
                       ? "border-accent bg-accent/10 text-accent"
-                      : "border-border text-muted hover:border-accent/30 hover:text-foreground"
+                      : "border-border text-muted hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] hover:text-foreground"
                   }`}
                 >
                   All
@@ -351,7 +359,7 @@ export function OpenQuestionsContent() {
                     className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all ${
                       registerFilter === r
                         ? "border-accent bg-accent/10 text-accent"
-                        : "border-border text-muted hover:border-accent/30 hover:text-foreground"
+                        : "border-border text-muted hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] hover:text-foreground"
                     }`}
                   >
                     {registerLabels[r]}
