@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
-const basePath = "/getting-started-digital-minds-next";
+const isVercel = !!process.env.VERCEL;
+const basePath = isVercel ? "" : "/getting-started-digital-minds-next";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  ...(isVercel ? {} : { output: "export" as const }),
   basePath,
   images: {
     unoptimized: true,
