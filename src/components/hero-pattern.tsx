@@ -63,8 +63,7 @@ export function HeroPattern() {
       {/* Primary node — large, upper-right */}
       <g transform="translate(960, 110)">
         <Dot r={3}   opacity={0.55} delay={0.0} />
-        <Ring r={55}  opacity={0.20} delay={0.20} duration={0.6} />
-        <Ring r={115} opacity={0.14} delay={0.40} duration={1.1} />
+        <Ring r={115} opacity={0.14} delay={0.20} duration={1.1} />
         <Ring r={190} opacity={0.09} delay={0.60} duration={1.6} />
         <Ring r={280} opacity={0.06} delay={0.80} duration={2.2} strokeWidth={0.5} />
         <Ring r={385} opacity={0.04} delay={1.00} duration={2.8} strokeWidth={0.5} />
