@@ -10,14 +10,16 @@ export function PageHeader({
   description?: string;
 }) {
   return (
-    <section className="bg-gradient-to-br from-[#67b2b7] to-[#4a9298]">
-      <div className="mx-auto max-w-6xl px-6 pb-10 pt-16">
+    <section className="border-b border-border bg-white">
+      <div className="mx-auto max-w-6xl px-6 pb-8 pt-12">
         <FadeIn>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-white">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-4 max-w-2xl text-white/80">{description}</p>
+            <p className="mt-3 max-w-2xl text-foreground/60 leading-relaxed">
+              {description}
+            </p>
           )}
         </FadeIn>
       </div>

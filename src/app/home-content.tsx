@@ -2,23 +2,29 @@
 
 import Link from "next/link";
 import { intro, tiersIntro, tiers, type ActionItem } from "@/data/start-here";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
+import { FadeIn } from "@/components/animate";
 
 const sections = [
   {
     title: "Research Areas",
+    label: "Research",
     description: "The key questions driving digital minds research, from AI consciousness to welfare and policy.",
     href: "/research-areas",
+    featured: true,
   },
   {
     title: "Events & Opportunities",
+    label: "Events",
     description: "Conferences, workshops, fellowships, and programs across the digital minds community.",
     href: "/events",
+    featured: false,
   },
   {
     title: "Field Map",
+    label: "Directory",
     description: "An interactive directory of organizations working on AI consciousness, welfare, and related research.",
     href: "/field-map",
+    featured: false,
   },
 ];
 
@@ -54,31 +60,33 @@ export function HomeContent() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#67b2b7] to-[#4a9298]">
-        <div className="mx-auto flex min-h-[calc(100vh-10rem)] max-w-6xl flex-col justify-center px-6">
-          <FadeIn delay={0.1}>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Getting Started in Digital Minds
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/80">
-              A guide for newcomers to the field of AI consciousness, AI welfare,
-              and digital minds research. Whether you come from philosophy,
-              neuroscience, computer science, law, or policy, this resource will
-              help you find your way in.
+      <section className="border-b border-border bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+          <FadeIn>
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-8">
+              A field guide
             </p>
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[3fr_2fr] lg:items-end">
+              <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
+                Getting Started<br />in Digital Minds
+              </h1>
+              <div className="lg:pb-1">
+                <p className="text-base leading-relaxed text-foreground/60 max-w-sm">
+                  A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
+                </p>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
 
       {/* Intro */}
-      <section className="bg-background">
+      <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <FadeIn>
             <div className="space-y-4">
               {intro.map((p, i) => (
-                <p key={i} className="text-base leading-relaxed text-foreground/80">
+                <p key={i} className="text-base leading-relaxed text-foreground/70">
                   {p}
                 </p>
               ))}
@@ -88,17 +96,17 @@ export function HomeContent() {
       </section>
 
       {/* AI Safety & Digital Minds */}
-      <section className="bg-background border-t border-border">
+      <section className="bg-white border-t border-border">
         <div className="mx-auto max-w-3xl px-6 py-12">
           <FadeIn>
-            <div className="rounded-2xl border border-accent/20 bg-accent/5 px-8 py-7">
-              <h2 className="text-lg font-semibold tracking-tight">
+            <div className="border-l-4 border-accent pl-6 py-1">
+              <h2 className="text-base font-bold tracking-tight">
                 Digital minds and AI safety
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/80">
+              <p className="mt-2 text-sm leading-relaxed text-foreground/70">
                 Digital minds and AI welfare research are closely linked with AI safety, and people working on either should understand the other. Some AI safety measures — constraint, monitoring, alteration, and shutdown — have implications for AI welfare if the systems involved are moral patients. Some welfare-motivated proposals, including legal standing and rights, have real implications for alignment and oversight. Many interventions are positive on both sides, and it is important that researchers from both communities coordinate closely, collaborate on the shared questions, and identify and push for measures that are good for safety and welfare together. If your background is in AI safety, engaging with digital minds and AI welfare is particularly valuable: the technical skills and strategic instincts the field has developed are directly useful here, and many of the most important open problems sit at the interface.
               </p>
-              <p className="mt-4">
+              <p className="mt-3">
                 <Link
                   href="/research-areas#safety-welfare-coordination"
                   className="text-sm text-accent hover:underline"
@@ -112,34 +120,30 @@ export function HomeContent() {
       </section>
 
       {/* What You Can Do This Week */}
-      <section className="border-t border-border bg-background">
+      <section className="border-t border-border bg-[#f8fafa]">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <FadeIn>
-            <div className="mb-10">
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                What You Can Do This Week
-              </h2>
-              <p className="mt-4 text-muted">{tiersIntro}</p>
-            </div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-4">
+              Getting started
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              What You Can Do This Week
+            </h2>
+            <p className="mt-3 text-foreground/60">{tiersIntro}</p>
           </FadeIn>
 
-          <div className="space-y-12">
+          <div className="mt-12 space-y-12">
             {tiers.map((tier, ti) => (
               <FadeIn key={tier.id} delay={0.05 * (ti + 1)}>
                 <div id={tier.id} className="scroll-mt-24">
-                  <h3 className="text-base font-semibold text-foreground mb-4">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-foreground/50 mb-4">
                     {tier.title}
                   </h3>
                   <ul className="space-y-3">
                     {tier.items.map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-3 text-sm leading-relaxed text-foreground/80"
-                      >
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent/60" />
-                        <span>
-                          <RichText item={item} />
-                        </span>
+                      <li key={i} className="flex gap-3 text-sm leading-relaxed text-foreground/70">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        <span><RichText item={item} /></span>
                       </li>
                     ))}
                   </ul>
@@ -150,52 +154,55 @@ export function HomeContent() {
         </div>
       </section>
 
-      {/* Section rows */}
-      <section className="border-t border-border bg-background">
-        <div className="mx-auto max-w-6xl px-6">
+      {/* Explore — variable card grid */}
+      <section className="border-t border-border bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-16">
           <FadeIn>
-            <h2 className="pb-4 pt-8 text-lg font-medium uppercase tracking-widest text-muted">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-8">
               Explore
-            </h2>
-          </FadeIn>
-          <StaggerContainer className="divide-y divide-border border-t border-border">
-            {sections.map((section) => (
-              <StaggerItem key={section.title}>
-                <Link
-                  href={section.href}
-                  className="group flex items-center gap-8 py-14 pr-4 -mx-4 px-4 rounded-2xl transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995] active:bg-white/80 sm:gap-12"
-                >
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors sm:text-3xl">
+            </p>
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+              {/* Featured card */}
+              <Link
+                href={sections[0].href}
+                className="group lg:col-span-2 rounded-xl border border-border bg-white p-8 hover:border-foreground/20 hover:bg-slate-50 transition-colors"
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+                  {sections[0].label}
+                </p>
+                <h3 className="text-3xl font-bold tracking-tight group-hover:text-accent transition-colors">
+                  {sections[0].title}
+                </h3>
+                <p className="mt-3 text-foreground/60 leading-relaxed max-w-lg">
+                  {sections[0].description}
+                </p>
+                <p className="mt-6 text-sm font-semibold text-accent">
+                  Explore →
+                </p>
+              </Link>
+
+              {/* Secondary cards */}
+              <div className="flex flex-col gap-4">
+                {sections.slice(1).map((section) => (
+                  <Link
+                    key={section.href}
+                    href={section.href}
+                    className="group flex-1 rounded-xl border border-border bg-white p-6 hover:border-foreground/20 hover:bg-slate-50 transition-colors"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
+                      {section.label}
+                    </p>
+                    <h3 className="text-lg font-bold tracking-tight group-hover:text-accent transition-colors">
                       {section.title}
                     </h3>
-                    <p className="mt-3 text-lg leading-relaxed text-muted">
+                    <p className="mt-2 text-sm text-foreground/60 leading-relaxed">
                       {section.description}
                     </p>
-                  </div>
-                  <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    className="shrink-0 text-border group-hover:translate-x-1 transition-all"
-                    style={{
-                      filter:
-                        "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.08))",
-                    }}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M7.5 5l5 5-5 5"
-                    />
-                  </svg>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </>

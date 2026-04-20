@@ -36,7 +36,7 @@ function OrgCard({ org, onClick }: { org: Organisation; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className={`group w-full text-left rounded-xl border border-border border-l-[3px] ${zoneBorderColors[org.zone]} bg-white p-5 transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995] active:bg-white/80 cursor-pointer`}
+      className={`group w-full text-left rounded-xl border border-border border-l-[3px] ${zoneBorderColors[org.zone]} bg-white p-5 transition-all duration-200 hover:bg-slate-50 cursor-pointer`}
     >
       {org.logo ? (
         <img
@@ -81,13 +81,13 @@ function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/30 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       <div
-        className="relative w-full max-w-lg rounded-xl bg-white/90 backdrop-blur-md border border-border overflow-hidden shadow-xl"
+        className="relative w-full max-w-lg rounded-xl bg-white border border-border overflow-hidden shadow-xl"
         style={{ borderTopColor: zoneAccents[org.zone], borderTopWidth: 3 }}
         role="dialog"
         aria-modal="true"
@@ -184,7 +184,7 @@ export function FieldMapContent() {
             <a
               key={zone}
               href={`#${zone}`}
-              className="rounded-full border border-border bg-white px-4 py-1.5 text-xs font-medium transition-all duration-200 text-muted hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] hover:text-foreground active:scale-[0.97]"
+              className="rounded-full border border-border bg-white px-4 py-1.5 text-xs font-medium transition-all duration-200 text-muted hover:bg-slate-50 hover:text-foreground"
             >
               {zoneLabels[zone]}
             </a>

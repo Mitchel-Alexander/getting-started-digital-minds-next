@@ -115,7 +115,7 @@ function AreaCard({ area }: { area: ResearchArea }) {
   return (
     <div
       id={area.id}
-      className="scroll-mt-24 rounded-xl border border-border bg-white transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)]"
+      className="scroll-mt-24 rounded-xl border border-border bg-white transition-all duration-200 hover:bg-slate-50"
     >
       <button
         onClick={() => setExpanded(!expanded)}
@@ -189,7 +189,7 @@ export function ResearchAreasContent() {
                 <a
                   key={group.id}
                   href={`#group-${group.id}`}
-                  className="group rounded-xl border border-border bg-card/50 px-5 py-5 transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995]"
+                  className="group rounded-xl border border-border bg-card/50 px-5 py-5 transition-all duration-200 hover:bg-slate-50"
                 >
                   <p className="text-[10px] font-medium uppercase tracking-widest text-accent mb-2">
                     Part {i + 1}

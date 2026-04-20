@@ -69,7 +69,7 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
       href={event.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group block rounded-xl border border-border border-l-[3px] ${typeBorderColors[event.type] || ""} bg-white p-6 transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995] active:bg-white/80 ${isPast ? "opacity-60 hover:opacity-80" : ""}`}
+      className={`group block rounded-xl border border-border border-l-[3px] ${typeBorderColors[event.type] || ""} bg-white p-6 transition-all duration-200 hover:bg-slate-50 ${isPast ? "opacity-60 hover:opacity-80" : ""}`}
     >
       <div className="flex items-start justify-between gap-3">
         <span className={`inline-block rounded-full px-3 py-0.5 text-[10px] font-medium uppercase tracking-wider ${typeColors[event.type] || "text-muted bg-card"}`}>
@@ -162,7 +162,7 @@ export function EventsContent() {
                   className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all duration-200 ${
                     typeFilter === t
                       ? "border-accent bg-accent/10 text-accent"
-                      : "border-border bg-white text-muted hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] hover:text-foreground active:scale-[0.97]"
+                      : "border-border bg-white text-muted hover:bg-slate-50 hover:text-foreground"
                   }`}
                 >
                   {t === "all" ? "All" : t.charAt(0).toUpperCase() + t.slice(1)}
@@ -180,7 +180,7 @@ export function EventsContent() {
                   className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all duration-200 ${
                     formatFilter === f
                       ? "border-accent bg-accent/10 text-accent"
-                      : "border-border bg-white text-muted hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] hover:text-foreground active:scale-[0.97]"
+                      : "border-border bg-white text-muted hover:bg-slate-50 hover:text-foreground"
                   }`}
                 >
                   {f === "all" ? "All" : f.charAt(0).toUpperCase() + f.slice(1)}
