@@ -13,7 +13,7 @@ export function PageHeader({
     <section className="border-b border-border bg-white">
       <div className="mx-auto max-w-6xl px-6 pb-8 pt-12">
         <FadeIn>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h1 className="font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {title}
           </h1>
           {description && (

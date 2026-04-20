@@ -67,7 +67,7 @@ export function HomeContent() {
               A field guide
             </p>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[3fr_2fr] lg:items-end">
-              <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
+              <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
               <div className="lg:pb-1">

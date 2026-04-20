@@ -233,7 +233,7 @@ export function ResearchAreasContent() {
                 <p className="text-xs font-medium uppercase tracking-widest text-accent mb-3">
                   Part {gi + 1} of {groups.length}
                 </p>
-                <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
                   {group.title}
                 </h2>
                 <p className="mt-2 text-muted italic">{group.subtitle}</p>
@@ -264,7 +264,7 @@ export function ResearchAreasContent() {
       <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
               Ready to get involved?
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-muted">
