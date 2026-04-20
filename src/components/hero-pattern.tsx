@@ -19,6 +19,7 @@ function Ring({ r, opacity, delay, strokeWidth = 0.75 }: RingProps) {
       style={
         {
           "--final-opacity": opacity,
+          transformBox: "fill-box",
           transformOrigin: "center",
           animation: `ring-expand 0.9s cubic-bezier(0.2, 0, 0.3, 1) ${delay}s both`,
         } as React.CSSProperties
@@ -39,6 +40,7 @@ function Dot({ r, opacity, delay }: DotProps) {
       style={
         {
           "--final-opacity": opacity,
+          transformBox: "fill-box",
           transformOrigin: "center",
           animation: `ring-expand 0.4s cubic-bezier(0.2, 0, 0.3, 1) ${delay}s both`,
         } as React.CSSProperties
