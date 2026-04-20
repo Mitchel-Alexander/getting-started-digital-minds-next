@@ -62,12 +62,12 @@ export function HomeContent() {
   return (
     <>
       {/* Hero — sticky, full viewport height, content anchored to bottom */}
-      <section className="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden bg-white flex flex-col justify-start">
+      <section className="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden bg-white flex flex-col justify-end">
         <HeroPattern />
-        <div className="relative mx-auto w-full max-w-6xl px-6 pt-16 lg:pt-20">
+        <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 lg:pb-20">
           <FadeIn>
             <div>
-              <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
+              <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
               <p className="mt-6 text-base leading-relaxed text-foreground/60 max-w-sm">
