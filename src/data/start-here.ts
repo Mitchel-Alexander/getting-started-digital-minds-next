@@ -12,7 +12,7 @@ export interface Tier {
 export const intro = [
   "Can AI systems have minds? The question is becoming harder to dismiss and more important to answer. Whether some AI systems might one day have experiences, feelings, or morally relevant states is an open question. Philosophers, consciousness scientists, and AI researchers disagree about how likely it is and what it would take to know. The stakes of getting it wrong run in both directions. Dismissing the possibility could mean ignoring morally significant beings at scale. Overstating it risks diverting moral concern and resources from those who clearly need them.",
   "Digital minds is the research field that takes these questions as its subject. Researchers across philosophy, cognitive science, AI, ethics, and governance are working to develop the conceptual tools, empirical methods, and policy frameworks that would let us assess whether AI systems may be sentient or have morally relevant states, understand what the impacts of this may be, and work out what to do about it. The aim is to have the frameworks ready before they are needed.",
-  "This site is designed to help you find your way into work in this area. Research Areas maps the open questions. The field map shows who is working on them and where. Pathways covers how your background translates into the work. Start here for practical steps you can take this week.",
+  "This site is designed to help you find your way into work in this area. Research Areas maps the open questions. The field map shows who is working on them and where. Scroll down for practical steps you can take this week.",
 ];
 
 export const tiersIntro =
@@ -51,7 +51,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Watch an episode of Exploring Machine Consciousness (PRISM), Our Lives With Bots, or Conspicuous Cognition. Three channels approaching consciousness, AI, and moral status from different directions. Good for getting a feel for how people in the field actually talk about these questions.",
+        text: "Watch an episode of Exploring Machine Consciousness (PRISM), Our Lives With Bots, or Conspicuous Cognition. Three channels approaching consciousness, AI, and moral status from different directions. Good for getting a sense of how people in the field actually talk about these questions.",
         links: [
           {
             label: "Exploring Machine Consciousness",
@@ -83,10 +83,10 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Listen to recordings from NYU Centre for Mind Ethics and Policy\u2019s lecture series. Working philosophers present and argue about AI consciousness and moral status, and watching several will reveal how much disagreement there is among people who take the questions seriously.",
+        text: "Listen to recordings from the NYU Center for Mind Ethics and Policy\u2019s lecture series. Working philosophers present and argue about AI consciousness and moral status, and watching several will reveal how much disagreement there is among people who take the questions seriously.",
         links: [
           {
-            label: "NYU Centre for Mind Ethics and Policy\u2019s lecture series",
+            label: "NYU Center for Mind Ethics and Policy\u2019s lecture series",
             url: "https://www.youtube.com/@nyucenterformindethicspolicy/videos",
           },
         ],
@@ -115,11 +115,12 @@ export const tiers: Tier[] = [
     title: "Going deeper",
     items: [
       {
-        text: "Start or join a reading group. If your department or institution does not have one, propose it. A handful of people meeting fortnightly to work through a paper is one of the lowest-cost, highest-value things you can organise. Several of the field\u2019s current collaborations began this way.",
+        text: "Start or join a reading group. If your department or institution does not have one, propose it. A handful of people meeting every two weeks to work through a paper is one of the lowest-cost, highest-value things you can organize. Several of the field\u2019s current collaborations began this way.",
         links: [],
       },
       {
         text: "Register for the Cambridge Digital Minds online course. Eight weeks covering consciousness theories, welfare assessment, governance, and public perception. Free, approximately 3.5 hours per week.",
+
         links: [
           {
             label: "Cambridge Digital Minds online course",
@@ -128,7 +129,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Apply for a structured programme. The Neuromatch AI Sentience Scholars Program, Future Impact Group Fellowship, and Sentient Futures Fellowship all offer mentored research within a cohort. See Pathways for the full pipeline and how these programmes connect.",
+        text: "Apply for a structured program. The Neuromatch AI Sentience Scholars Program, Future Impact Group Fellowship, and Sentient Futures Fellowship all offer mentored research within a cohort. See Events & Opportunities for the full list.",
         links: [
           {
             label: "Neuromatch AI Sentience Scholars Program",

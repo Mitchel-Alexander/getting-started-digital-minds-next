@@ -5,12 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/start-here", label: "Start Here" },
+  { href: "/", label: "Start Here" },
   { href: "/research-areas", label: "Research Areas" },
-  { href: "/pathways", label: "Pathways" },
-  { href: "/open-questions", label: "Open Questions" },
-  { href: "/events", label: "Events" },
+  { href: "/events", label: "Events & Opportunities" },
   { href: "/field-map", label: "Field Map" },
+  { href: "https://www.digitalminds.news/", label: "Newsletter", external: true },
 ];
 
 export function Navbar() {
@@ -29,18 +28,29 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <ul className="hidden gap-8 lg:flex">
-          {links.map(({ href, label }) => (
+          {links.map(({ href, label, external }) => (
             <li key={href}>
-              <Link
-                href={href}
-                className={`text-sm transition-colors hover:text-accent ${
-                  pathname === href
-                    ? "text-foreground font-medium"
-                    : "text-muted"
-                }`}
-              >
-                {label}
-              </Link>
+              {external ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted transition-colors hover:text-accent"
+                >
+                  {label}
+                </a>
+              ) : (
+                <Link
+                  href={href}
+                  className={`text-sm transition-colors hover:text-accent ${
+                    pathname === href
+                      ? "text-foreground font-medium"
+                      : "text-muted"
+                  }`}
+                >
+                  {label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -79,19 +89,31 @@ export function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <ul className="border-t border-border bg-white px-6 py-4 lg:hidden">
-          {links.map(({ href, label }) => (
+          {links.map(({ href, label, external }) => (
             <li key={href} className="py-2">
-              <Link
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className={`text-sm transition-colors hover:text-accent ${
-                  pathname === href
-                    ? "text-foreground font-medium"
-                    : "text-muted"
-                }`}
-              >
-                {label}
-              </Link>
+              {external ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted transition-colors hover:text-accent"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </a>
+              ) : (
+                <Link
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-sm transition-colors hover:text-accent ${
+                    pathname === href
+                      ? "text-foreground font-medium"
+                      : "text-muted"
+                  }`}
+                >
+                  {label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
