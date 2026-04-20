@@ -70,7 +70,7 @@ export function HomeContent() {
               <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
-              <p className="mt-6 text-base leading-relaxed text-accent max-w-sm">
+              <p className="mt-6 text-base leading-relaxed text-foreground/60 max-w-sm">
                 A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
               </p>
             </div>
@@ -79,12 +79,12 @@ export function HomeContent() {
       </section>
 
       {/* Intro */}
-      <section className="relative z-10 bg-white border-t border-border">
+      <section className="relative z-10 bg-accent">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <FadeIn>
             <div className="space-y-4">
               {intro.map((p, i) => (
-                <p key={i} className="text-base leading-relaxed text-foreground/70">
+                <p key={i} className="text-base leading-relaxed text-white/90">
                   {p}
                 </p>
               ))}
