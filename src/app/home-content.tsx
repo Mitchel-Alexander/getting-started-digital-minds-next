@@ -123,7 +123,7 @@ export function HomeContent() {
                     </p>
                     {/* Motif + text */}
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-[120px_1fr] sm:items-start">
-                      <NodeMark size={96} className="text-accent" />
+                      <NodeMark size={96} className="text-accent" strokeWidth={0.35} />
                       <div>
                         <p className="text-sm leading-relaxed text-foreground/70">
                           {area.description}
