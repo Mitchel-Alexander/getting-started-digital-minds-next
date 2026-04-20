@@ -61,22 +61,22 @@ function RichText({ item }: { item: ActionItem }) {
 export function HomeContent() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border bg-white">
+      {/* Hero — sticky, full viewport height, content anchored to bottom */}
+      <section className="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden bg-white flex flex-col justify-end">
         <HeroPattern />
-        <div className="relative mx-auto max-w-6xl px-6 py-20 lg:py-32">
+        <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 lg:pb-20">
           <FadeIn>
-            <div className="flex items-center gap-2 mb-8">
+            <div className="flex items-center gap-2 mb-6">
               <NodeMark size={16} />
               <p className="text-xs font-semibold uppercase tracking-widest text-accent">
                 A field guide
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[3fr_2fr] lg:items-end">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:items-end">
               <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
-              <div className="lg:pb-1">
+              <div>
                 <p className="text-base leading-relaxed text-foreground/60 max-w-sm">
                   A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
                 </p>
@@ -87,7 +87,7 @@ export function HomeContent() {
       </section>
 
       {/* Intro */}
-      <section className="bg-white">
+      <section className="relative z-10 bg-white border-t border-border">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <FadeIn>
             <div className="space-y-4">
@@ -102,7 +102,7 @@ export function HomeContent() {
       </section>
 
       {/* AI Safety & Digital Minds */}
-      <section className="bg-white border-t border-border">
+      <section className="relative z-10 bg-white border-t border-border">
         <div className="mx-auto max-w-3xl px-6 py-12">
           <FadeIn>
             <div className="border-l-4 border-accent pl-6 py-1">
@@ -126,7 +126,7 @@ export function HomeContent() {
       </section>
 
       {/* What You Can Do This Week */}
-      <section className="border-t border-border bg-[#f8fafa]">
+      <section className="relative z-10 border-t border-border bg-[#f8fafa]">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <FadeIn>
             <div className="flex items-center gap-2 mb-4">
@@ -164,7 +164,7 @@ export function HomeContent() {
       </section>
 
       {/* Explore — variable card grid */}
-      <section className="border-t border-border bg-white">
+      <section className="relative z-10 border-t border-border bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-8">
