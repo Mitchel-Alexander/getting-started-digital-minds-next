@@ -1,22 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
-  overview,
+  overviewIntro,
+  overviewConnector,
+  disciplineTooltips,
   groups,
   type ResearchArea,
   type Reading,
 } from "@/data/research-areas";
-import {
-  FadeIn,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/animate";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
 import { PageHeader } from "@/components/page-header";
-import { NetworkCanvas } from "@/components/network-canvas";
 
-/* ── Reading item ─────────────────────────────────────────────── */
+/* ── Discipline chip with tooltip ────────────────────────────────── */
+
+function DisciplineChip({ name }: { name: string }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  const tooltip = disciplineTooltips[name];
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
+
+  return (
+    <span ref={ref} className="relative inline-block">
+      <button
+        onClick={() => setOpen(!open)}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        className="cursor-default border-b border-dotted border-accent/50 text-foreground/80 hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+        aria-describedby={open ? `tooltip-${name}` : undefined}
+      >
+        {name}
+      </button>
+      {open && tooltip && (
+        <span
+          id={`tooltip-${name}`}
+          role="tooltip"
+          className="absolute bottom-full left-0 z-50 mb-2 w-72 rounded-xl border border-border bg-white px-4 py-3 text-xs leading-relaxed text-foreground/80 shadow-lg"
+        >
+          {tooltip}
+          <span className="absolute -bottom-1.5 left-4 h-3 w-3 rotate-45 border-b border-r border-border bg-white" />
+        </span>
+      )}
+    </span>
+  );
+}
+
+/* ── Reading item ────────────────────────────────────────────────── */
 
 function ReadingItem({ item }: { item: Reading }) {
   return (
@@ -47,15 +89,9 @@ function ReadingItem({ item }: { item: Reading }) {
   );
 }
 
-/* ── Reading section (Start here / Go deeper) ─────────────────── */
+/* ── Reading section (Start here / Go deeper) ────────────────────── */
 
-function ReadingSection({
-  label,
-  items,
-}: {
-  label: string;
-  items: Reading[];
-}) {
+function ReadingSection({ label, items }: { label: string; items: Reading[] }) {
   if (items.length === 0) return null;
   return (
     <div>
@@ -71,7 +107,7 @@ function ReadingSection({
   );
 }
 
-/* ── Area card (expandable) ───────────────────────────────────── */
+/* ── Area card (expandable) ──────────────────────────────────────── */
 
 function AreaCard({ area }: { area: ResearchArea }) {
   const [expanded, setExpanded] = useState(false);
@@ -79,11 +115,12 @@ function AreaCard({ area }: { area: ResearchArea }) {
   return (
     <div
       id={area.id}
-      className="scroll-mt-24 rounded-xl border border-border bg-white transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995] active:bg-white/80"
+      className="scroll-mt-24 rounded-xl border border-border bg-white transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)]"
     >
       <button
         onClick={() => setExpanded(!expanded)}
         className="flex w-full items-center gap-4 px-6 py-5 text-left group"
+        aria-expanded={expanded}
       >
         <h3 className="flex-1 text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
           {area.title}
@@ -95,35 +132,26 @@ function AreaCard({ area }: { area: ResearchArea }) {
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className={`shrink-0 text-border transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${expanded ? "rotate-180" : ""}`}
+          className={`shrink-0 text-border transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
           style={{
             filter:
               "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.08))",
           }}
+          aria-hidden
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M5 7.5l5 5 5-5"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 7.5l5 5 5-5" />
         </svg>
       </button>
 
       {expanded && (
         <div className="border-t border-border">
-          {/* Intro prose */}
           <div className="px-6 py-6 space-y-3">
             {area.intro.map((p, i) => (
-              <p
-                key={i}
-                className="text-sm leading-relaxed text-foreground/80"
-              >
+              <p key={i} className="text-sm leading-relaxed text-foreground/80">
                 {p}
               </p>
             ))}
           </div>
-
-          {/* Readings — two columns on lg */}
           <div className="border-t border-border bg-card/40 px-6 py-6">
             <div className="grid gap-8 lg:grid-cols-2">
               <ReadingSection label="Start here" items={area.startHere} />
@@ -136,52 +164,32 @@ function AreaCard({ area }: { area: ResearchArea }) {
   );
 }
 
-/* ── Group banner labels ──────────────────────────────────────── */
-
-const groupLabels: Record<string, string> = {
-  conscious:
-    "The first group of questions is empirical and philosophical. What is going on inside AI systems? Could they have experiences?",
-  meaning:
-    "The second group is ethical. If AI systems have morally relevant properties, what follows for how we treat them?",
-  action:
-    "The third group is governance. Given deep uncertainty, what should developers, institutions, and the public do now?",
-};
-
-/* ── Main component ───────────────────────────────────────────── */
+/* ── Main component ──────────────────────────────────────────────── */
 
 export function ResearchAreasContent() {
-
   return (
     <>
       <PageHeader
         title="Research Areas"
-        description="The field of digital minds spans three broad questions. Each section below introduces the key ideas, debates, and readings."
+        description="The key questions driving digital minds research, with readings for each area."
       />
 
-      {/* ── Overview + TOC ─────────────────────────────────────── */}
+      {/* Overview */}
       <section className="bg-background">
         <div className="mx-auto max-w-4xl px-6 py-16">
           <FadeIn>
-            <div className="max-w-3xl space-y-4">
-              {overview.map((p, i) => (
-                <p
-                  key={i}
-                  className="text-base leading-relaxed text-foreground/80"
-                >
-                  {p}
-                </p>
-              ))}
-            </div>
+            <p className="text-base leading-relaxed text-foreground/80 max-w-3xl">
+              {overviewIntro}
+            </p>
           </FadeIn>
 
-          {/* TOC cards */}
           <FadeIn delay={0.1}>
-            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {groups.map((group, i) => (
                 <a
                   key={group.id}
                   href={`#group-${group.id}`}
-                  className="group rounded-xl border border-border bg-card/50 px-5 py-4 transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995]"
+                  className="group rounded-xl border border-border bg-card/50 px-5 py-5 transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(13,148,136,0.1),0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.995]"
                 >
                   <p className="text-[10px] font-medium uppercase tracking-widest text-accent mb-2">
                     Part {i + 1}
@@ -189,88 +197,91 @@ export function ResearchAreasContent() {
                   <h3 className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
                     {group.title}
                   </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted">
-                    {groupLabels[group.id]}
+                  <p className="mt-1 text-xs text-muted italic">{group.subtitle}</p>
+                  <p className="mt-3 text-xs leading-relaxed text-muted">
+                    Disciplines:{" "}
+                    {group.disciplines.map((d, di) => (
+                      <span key={d}>
+                        <DisciplineChip name={d} />
+                        {di < group.disciplines.length - 1 ? ", " : ""}
+                      </span>
+                    ))}
                   </p>
                 </a>
               ))}
             </div>
           </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <p className="mt-10 text-sm leading-relaxed text-foreground/60 max-w-3xl border-l-2 border-accent/20 pl-4">
+              {overviewConnector}
+            </p>
+          </FadeIn>
         </div>
       </section>
 
-      {/* ── Group sections ────────────────────────────────────── */}
-      {groups.map((group, gi) => {
-        const isEven = gi % 2 === 0;
-        return (
-          <section
-            key={group.id}
-            id={`group-${group.id}`}
-            className={`scroll-mt-16 ${isEven ? "bg-background" : "bg-[#f0f4f6]/30"}`}
-          >
-            <div className="mx-auto max-w-4xl px-6 py-20">
-              {/* Group header */}
-              <FadeIn>
-                <div className="mb-12">
-                  <p className="text-xs font-medium uppercase tracking-widest text-accent mb-3">
-                    Part {gi + 1} of 3
-                  </p>
-                  <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                    {group.title}
-                  </h2>
-                  <p className="mt-4 max-w-2xl text-muted">
-                    {groupLabels[group.id]}
-                  </p>
-                </div>
-              </FadeIn>
-
-              {/* Area cards */}
-              <div className="space-y-4">
-                {group.areas.map((area, ai) => (
-                  <FadeIn key={area.id} delay={0.05 * (ai + 1)}>
-                    <AreaCard area={area} />
-                  </FadeIn>
-                ))}
+      {/* Group sections */}
+      {groups.map((group, gi) => (
+        <section
+          key={group.id}
+          id={`group-${group.id}`}
+          className={`scroll-mt-16 border-t border-border ${gi % 2 === 0 ? "bg-background" : "bg-[#f0f4f6]/30"}`}
+        >
+          <div className="mx-auto max-w-4xl px-6 py-20">
+            <FadeIn>
+              <div className="mb-12">
+                <p className="text-xs font-medium uppercase tracking-widest text-accent mb-3">
+                  Part {gi + 1} of {groups.length}
+                </p>
+                <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                  {group.title}
+                </h2>
+                <p className="mt-2 text-muted italic">{group.subtitle}</p>
+                <p className="mt-4 text-sm text-muted">
+                  Disciplines:{" "}
+                  {group.disciplines.map((d, di) => (
+                    <span key={d}>
+                      <DisciplineChip name={d} />
+                      {di < group.disciplines.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </p>
               </div>
+            </FadeIn>
+
+            <div className="space-y-4">
+              {group.areas.map((area, ai) => (
+                <FadeIn key={area.id} delay={0.05 * (ai + 1)}>
+                  <AreaCard area={area} />
+                </FadeIn>
+              ))}
             </div>
-          </section>
-        );
-      })}
+          </div>
+        </section>
+      ))}
 
-      {/* ── CTA footer ────────────────────────────────────────── */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[#67b2b7]" />
-          <NetworkCanvas
-            nodeCount={50}
-            connectionDistance={140}
-            parallaxStrength={0.15}
-            repulseStrength={0.25}
-          />
-
-        </div>
-
+      {/* CTA footer */}
+      <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Ready to go deeper?
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Ready to get involved?
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-white/80">
-              Explore the open questions researchers are working on, or find a
-              pathway into the field that matches your background.
+            <p className="mx-auto mt-4 max-w-lg text-muted">
+              See who is working on these questions, or find events and programs to connect with the field.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/open-questions"
-                className="inline-flex h-11 items-center rounded-full bg-white px-6 text-sm font-medium text-[#0f766e] transition-all duration-300 hover:opacity-90 hover:scale-105"
+                href="/field-map"
+                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-all duration-300 hover:opacity-80 hover:scale-105"
               >
-                Open Questions
+                Field Map
               </Link>
               <Link
-                href="/pathways"
-                className="inline-flex h-11 items-center rounded-full border border-white/40 px-6 text-sm font-medium text-white transition-all duration-300 hover:border-white hover:scale-105"
+                href="/events"
+                className="inline-flex h-11 items-center rounded-full border border-border px-6 text-sm font-medium text-foreground transition-all duration-300 hover:border-foreground hover:scale-105"
               >
-                Find Your Pathway
+                Events & Opportunities
               </Link>
             </div>
           </FadeIn>
