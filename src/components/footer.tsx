@@ -15,16 +15,16 @@ function FeedbackLink() {
       {open && (
         <span className="block mt-2 text-xs text-muted/60 max-w-sm">
           This resource is produced by{" "}
-          <a href="https://prismresearch.global" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">
+          <a href="https://www.prism-global.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">
             PRISM
           </a>{" "}
           and the{" "}
-          <a href="https://digitalminds.cam" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">
+          <a href="https://digitalminds.cam/" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">
             Centre for Digital Minds
           </a>
           . Reach us at{" "}
-          <a href="mailto:feedback@digitalminds.guide" className="underline hover:text-muted">
-            feedback@digitalminds.guide
+          <a href="mailto:placeholder@digitalminds.guide" className="underline hover:text-muted">
+            placeholder@digitalminds.guide
           </a>
           .
         </span>
