@@ -74,7 +74,7 @@ export const tiers: Tier[] = [
     title: "A weekend",
     items: [
       {
-        text: "Read Bradford Saad and Andreas Mogensen\u2019s Digital Minds I (2026). The most comprehensive academic introduction available. It covers the philosophical and cognitive science questions at the centre of the field, and it does so without assuming prior expertise in either.",
+        text: "Read Bradford Saad and Andreas Mogensen\u2019s Digital Minds I (2026). The most comprehensive academic introduction available. It covers the philosophical and cognitive science questions at the center of the field, and it does so without assuming prior expertise in either.",
         links: [
           {
             label: "Digital Minds I",
@@ -92,7 +92,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Read one sceptical voice. Anil Seth\u2019s The Mythology of AI Consciousness (2025) argues consciousness may require biological substrates. John Dorsch\u2019s Against AI Welfare (2025) challenges the coherence of the welfare concept itself. The field takes both positions seriously. You should too.",
+        text: "Read one skeptical voice. Anil Seth\u2019s The Mythology of AI Consciousness (2025) argues consciousness may require biological substrates. John Dorsch\u2019s Against AI Welfare (2025) challenges the coherence of the welfare concept itself. The field takes both positions seriously. You should too.",
         links: [
           {
             label: "The Mythology of AI Consciousness",

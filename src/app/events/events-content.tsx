@@ -50,7 +50,7 @@ const typeColors: Record<string, string> = {
   workshop: "text-blue-700 bg-blue-50/80",
   fellowship: "text-emerald-700 bg-emerald-50/80",
   course: "text-amber-700 bg-amber-50/80",
-  programme: "text-cyan-700 bg-cyan-50/80",
+  program: "text-cyan-700 bg-cyan-50/80",
   seminar: "text-rose-700 bg-rose-50/80",
 };
 
@@ -59,7 +59,7 @@ const typeBorderColors: Record<string, string> = {
   workshop: "border-l-blue-200",
   fellowship: "border-l-emerald-200",
   course: "border-l-amber-200",
-  programme: "border-l-cyan-200",
+  program: "border-l-cyan-200",
   seminar: "border-l-rose-200",
 };
 
@@ -82,7 +82,7 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
       <h3 className="mt-4 text-base font-semibold leading-snug group-hover:text-accent transition-colors">
         {event.name}
       </h3>
-      <p className="mt-1 text-sm text-foreground/60">{event.organiser}</p>
+      <p className="mt-1 text-sm text-foreground/60">{event.organizer}</p>
       <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
         {event.date_start && (
           <span>

@@ -168,12 +168,12 @@ export function FieldMapContent() {
     <>
       <PageHeader
         title="Field Map"
-        description="Organisations working on AI consciousness, AI welfare, and digital minds research."
+        description="Organizations working on AI consciousness, AI welfare, and digital minds research."
       />
       <div className="mx-auto max-w-6xl px-6 py-8">
       <FadeIn>
         <p className="text-sm text-muted">
-          {organisations.length} organisations across research, governance, training, and field building.
+          {organisations.length} organizations across research, governance, training, and field building.
         </p>
       </FadeIn>
 

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { intro, tiersIntro, tiers, type ActionItem } from "@/data/start-here";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
-import { NetworkCanvas } from "@/components/network-canvas";
 
 const sections = [
   {
@@ -55,20 +54,10 @@ export function HomeContent() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[#67b2b7]" />
-          <NetworkCanvas
-            nodeCount={130}
-            connectionDistance={160}
-            parallaxStrength={0.3}
-            repulseStrength={0.25}
-          />
-        </div>
-
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#67b2b7] to-[#4a9298]">
         <div className="mx-auto flex min-h-[calc(100vh-10rem)] max-w-6xl flex-col justify-center px-6">
           <FadeIn delay={0.1}>
-            <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
               Getting Started in Digital Minds
             </h1>
           </FadeIn>

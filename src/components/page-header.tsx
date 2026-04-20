@@ -1,7 +1,6 @@
 "use client";
 
 import { FadeIn } from "@/components/animate";
-import { NetworkCanvas } from "@/components/network-canvas";
 
 export function PageHeader({
   title,
@@ -11,17 +10,7 @@ export function PageHeader({
   description?: string;
 }) {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[#67b2b7]" />
-        <NetworkCanvas
-          nodeCount={40}
-          connectionDistance={120}
-          parallaxStrength={0.2}
-          repulseStrength={0.25}
-        />
-      </div>
-
+    <section className="bg-gradient-to-br from-[#67b2b7] to-[#4a9298]">
       <div className="mx-auto max-w-6xl px-6 pb-10 pt-16">
         <FadeIn>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-white">
