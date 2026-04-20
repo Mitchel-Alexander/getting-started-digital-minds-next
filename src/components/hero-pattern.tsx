@@ -1,3 +1,52 @@
+import React from "react";
+
+type RingProps = {
+  r: number;
+  opacity: number;
+  delay: number;
+  strokeWidth?: number;
+};
+
+function Ring({ r, opacity, delay, strokeWidth = 0.75 }: RingProps) {
+  return (
+    <circle
+      cx="0"
+      cy="0"
+      r={r}
+      stroke="#67b2b7"
+      strokeWidth={strokeWidth}
+      fill="none"
+      style={
+        {
+          "--final-opacity": opacity,
+          transformOrigin: "center",
+          animation: `ring-expand 0.9s cubic-bezier(0.2, 0, 0.3, 1) ${delay}s both`,
+        } as React.CSSProperties
+      }
+    />
+  );
+}
+
+type DotProps = { r: number; opacity: number; delay: number };
+
+function Dot({ r, opacity, delay }: DotProps) {
+  return (
+    <circle
+      cx="0"
+      cy="0"
+      r={r}
+      fill="#67b2b7"
+      style={
+        {
+          "--final-opacity": opacity,
+          transformOrigin: "center",
+          animation: `ring-expand 0.4s cubic-bezier(0.2, 0, 0.3, 1) ${delay}s both`,
+        } as React.CSSProperties
+      }
+    />
+  );
+}
+
 export function HeroPattern() {
   return (
     <svg
@@ -8,24 +57,30 @@ export function HeroPattern() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
     >
-      {/* Primary node — large, right side */}
-      <circle cx="960" cy="110" r="3" fill="#67b2b7" opacity="0.35" />
-      <circle cx="960" cy="110" r="55"  stroke="#67b2b7" strokeWidth="0.75" opacity="0.10" />
-      <circle cx="960" cy="110" r="115" stroke="#67b2b7" strokeWidth="0.75" opacity="0.07" />
-      <circle cx="960" cy="110" r="190" stroke="#67b2b7" strokeWidth="0.75" opacity="0.05" />
-      <circle cx="960" cy="110" r="280" stroke="#67b2b7" strokeWidth="0.5"  opacity="0.03" />
-      <circle cx="960" cy="110" r="385" stroke="#67b2b7" strokeWidth="0.5"  opacity="0.02" />
+      {/* Primary node — large, upper-right */}
+      <g transform="translate(960, 110)">
+        <Dot r={3}   opacity={0.55} delay={0.0} />
+        <Ring r={55}  opacity={0.20} delay={0.20} />
+        <Ring r={115} opacity={0.14} delay={0.40} />
+        <Ring r={190} opacity={0.09} delay={0.60} />
+        <Ring r={280} opacity={0.06} delay={0.80} strokeWidth={0.5} />
+        <Ring r={385} opacity={0.04} delay={1.00} strokeWidth={0.5} />
+      </g>
 
       {/* Secondary node — smaller, lower-left */}
-      <circle cx="280" cy="268" r="1.5" fill="#67b2b7" opacity="0.25" />
-      <circle cx="280" cy="268" r="32"  stroke="#67b2b7" strokeWidth="0.75" opacity="0.07" />
-      <circle cx="280" cy="268" r="72"  stroke="#67b2b7" strokeWidth="0.75" opacity="0.05" />
-      <circle cx="280" cy="268" r="125" stroke="#67b2b7" strokeWidth="0.5"  opacity="0.03" />
+      <g transform="translate(280, 268)">
+        <Dot r={1.5} opacity={0.40} delay={0.20} />
+        <Ring r={32}  opacity={0.14} delay={0.40} />
+        <Ring r={72}  opacity={0.09} delay={0.60} />
+        <Ring r={125} opacity={0.05} delay={0.80} strokeWidth={0.5} />
+      </g>
 
-      {/* Tertiary node — faint, mid-right */}
-      <circle cx="1140" cy="290" r="1"  fill="#67b2b7" opacity="0.20" />
-      <circle cx="1140" cy="290" r="22" stroke="#67b2b7" strokeWidth="0.5"  opacity="0.05" />
-      <circle cx="1140" cy="290" r="55" stroke="#67b2b7" strokeWidth="0.5"  opacity="0.03" />
+      {/* Tertiary node — faint, far-right */}
+      <g transform="translate(1140, 285)">
+        <Dot r={1}   opacity={0.30} delay={0.40} />
+        <Ring r={22} opacity={0.09} delay={0.60} strokeWidth={0.5} />
+        <Ring r={55} opacity={0.05} delay={0.80} strokeWidth={0.5} />
+      </g>
     </svg>
   );
 }

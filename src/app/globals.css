@@ -36,3 +36,14 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes ring-expand {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: var(--final-opacity, 1);
+  }
+}

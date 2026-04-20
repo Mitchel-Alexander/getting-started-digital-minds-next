@@ -72,15 +72,13 @@ export function HomeContent() {
                 A field guide
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:items-end">
+            <div className="max-w-2xl">
               <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
-              <div>
-                <p className="text-base leading-relaxed text-foreground/60 max-w-sm">
-                  A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
-                </p>
-              </div>
+              <p className="mt-6 text-base leading-relaxed text-foreground/60 max-w-sm">
+                A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
+              </p>
             </div>
           </FadeIn>
         </div>
