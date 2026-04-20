@@ -66,12 +66,6 @@ export function HomeContent() {
         <HeroPattern />
         <div className="relative mx-auto w-full max-w-6xl px-6 pt-16 lg:pt-20">
           <FadeIn>
-            <div className="flex items-center gap-2 mb-6">
-              <NodeMark size={16} />
-              <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-                A field guide
-              </p>
-            </div>
             <div className="max-w-sm">
               <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
