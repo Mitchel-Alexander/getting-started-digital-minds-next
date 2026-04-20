@@ -14,7 +14,7 @@ function Ring({ r, opacity, delay, duration, strokeWidth = 0.75 }: RingProps) {
       cx="0"
       cy="0"
       r={r}
-      stroke="#ffffff"
+      stroke="#67b2b7"
       strokeWidth={strokeWidth}
       fill="none"
       style={
@@ -37,7 +37,7 @@ function Dot({ r, opacity, delay }: DotProps) {
       cx="0"
       cy="0"
       r={r}
-      fill="#ffffff"
+      fill="#67b2b7"
       style={
         {
           "--final-opacity": opacity,

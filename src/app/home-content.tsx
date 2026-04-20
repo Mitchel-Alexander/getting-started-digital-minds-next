@@ -62,21 +62,21 @@ export function HomeContent() {
   return (
     <>
       {/* Hero — sticky, full viewport height, content anchored to bottom */}
-      <section className="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden bg-accent flex flex-col justify-end">
+      <section className="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden bg-white flex flex-col justify-start">
         <HeroPattern />
-        <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 lg:pb-20">
+        <div className="relative mx-auto w-full max-w-6xl px-6 pt-16 lg:pt-20">
           <FadeIn>
             <div className="flex items-center gap-2 mb-6">
-              <NodeMark size={16} className="text-white/70" />
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/70">
+              <NodeMark size={16} />
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">
                 A field guide
               </p>
             </div>
-            <div className="max-w-2xl">
-              <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-white lg:text-6xl">
+            <div className="max-w-sm">
+              <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
-              <p className="mt-6 text-base leading-relaxed text-white/70 max-w-sm">
+              <p className="mt-6 text-base leading-relaxed text-foreground/60">
                 A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
               </p>
             </div>
