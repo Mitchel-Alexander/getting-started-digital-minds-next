@@ -12,6 +12,7 @@ import {
 } from "@/data/research-areas";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
 import { PageHeader } from "@/components/page-header";
+import { NodeMark } from "@/components/node-mark";
 
 /* ── Discipline chip with tooltip ────────────────────────────────── */
 
@@ -191,9 +192,12 @@ export function ResearchAreasContent() {
                   href={`#group-${group.id}`}
                   className="group rounded-xl border border-border bg-card/50 px-5 py-5 transition-all duration-200 hover:bg-slate-50"
                 >
-                  <p className="text-[10px] font-medium uppercase tracking-widest text-accent mb-2">
-                    Part {i + 1}
-                  </p>
+                  <div className="flex items-center gap-1.5 mb-2">
+                    <NodeMark size={12} />
+                    <p className="text-[10px] font-medium uppercase tracking-widest text-accent">
+                      Part {i + 1}
+                    </p>
+                  </div>
                   <h3 className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
                     {group.title}
                   </h3>
@@ -230,9 +234,12 @@ export function ResearchAreasContent() {
           <div className="mx-auto max-w-4xl px-6 py-20">
             <FadeIn>
               <div className="mb-12">
-                <p className="text-xs font-medium uppercase tracking-widest text-accent mb-3">
-                  Part {gi + 1} of {groups.length}
-                </p>
+                <div className="flex items-center gap-2 mb-3">
+                  <NodeMark size={16} />
+                  <p className="text-xs font-medium uppercase tracking-widest text-accent">
+                    Part {gi + 1} of {groups.length}
+                  </p>
+                </div>
                 <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
                   {group.title}
                 </h2>

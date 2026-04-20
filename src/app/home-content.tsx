@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { intro, tiersIntro, tiers, type ActionItem } from "@/data/start-here";
 import { FadeIn } from "@/components/animate";
+import { NodeMark } from "@/components/node-mark";
 
 const sections = [
   {
@@ -63,9 +64,12 @@ export function HomeContent() {
       <section className="border-b border-border bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
           <FadeIn>
-            <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-8">
-              A field guide
-            </p>
+            <div className="flex items-center gap-2 mb-8">
+              <NodeMark size={16} />
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+                A field guide
+              </p>
+            </div>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[3fr_2fr] lg:items-end">
               <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
@@ -123,9 +127,12 @@ export function HomeContent() {
       <section className="border-t border-border bg-[#f8fafa]">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <FadeIn>
-            <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-4">
-              Getting started
-            </p>
+            <div className="flex items-center gap-2 mb-4">
+              <NodeMark size={16} />
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+                Getting started
+              </p>
+            </div>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               What You Can Do This Week
             </h2>
