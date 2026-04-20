@@ -100,33 +100,39 @@ export function HomeContent() {
         </div>
       </section>
 
-      {/* Learn About — two-column focus areas */}
+      {/* Learn About — focus areas */}
       <section className="relative z-10 bg-white border-t border-border">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[180px_1fr]">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-widest text-muted lg:sticky lg:top-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[180px_1fr]">
+
+            {/* Far-left label */}
+            <div className="mb-10 lg:mb-0">
+              <p className="text-xs font-medium uppercase tracking-widest text-muted lg:sticky lg:top-24 lg:pt-12">
                 Learn About
               </p>
             </div>
-            <div className="divide-y divide-border">
+
+            {/* Items */}
+            <div>
               {focusAreas.map((area) => (
                 <FadeIn key={area.id}>
-                  <div className="py-10 first:pt-0">
-                    <p className="text-xs font-medium uppercase tracking-widest text-accent mb-6">
+                  <div className="border-t border-border py-12">
+                    {/* Full-width title */}
+                    <p className="text-xs font-medium uppercase tracking-widest text-accent mb-8">
                       {area.label}
                     </p>
-                    <div className="grid grid-cols-[40px_1fr] gap-8 items-start">
-                      <NodeMark size={40} className="text-accent mt-0.5" />
+                    {/* Motif + text */}
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-[120px_1fr] sm:items-start">
+                      <NodeMark size={96} className="text-accent" />
                       <div>
                         <p className="text-sm leading-relaxed text-foreground/70">
                           {area.description}
                         </p>
                         <Link
                           href={area.href}
-                          className="mt-4 inline-block text-xs font-medium uppercase tracking-widest text-accent hover:underline"
+                          className="mt-6 inline-block border border-accent px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
                         >
-                          {area.cta} →
+                          {area.cta}
                         </Link>
                       </div>
                     </div>
@@ -134,6 +140,7 @@ export function HomeContent() {
                 </FadeIn>
               ))}
             </div>
+
           </div>
         </div>
       </section>
