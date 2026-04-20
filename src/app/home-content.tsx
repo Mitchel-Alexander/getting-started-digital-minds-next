@@ -66,11 +66,11 @@ export function HomeContent() {
         <HeroPattern />
         <div className="relative mx-auto w-full max-w-6xl px-6 pt-16 lg:pt-20">
           <FadeIn>
-            <div className="max-w-sm">
+            <div>
               <h1 className="font-serif text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
-              <p className="mt-6 text-base leading-relaxed text-foreground/60">
+              <p className="mt-6 text-base leading-relaxed text-foreground/60 max-w-sm">
                 A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
               </p>
             </div>
