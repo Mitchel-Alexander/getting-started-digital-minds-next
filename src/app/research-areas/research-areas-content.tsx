@@ -269,26 +269,26 @@ export function ResearchAreasContent() {
 
       {/* CTA footer */}
       <section className="border-t border-border bg-background">
-        <div className="mx-auto max-w-6xl px-6 py-24 text-center">
+        <div className="mx-auto max-w-4xl px-6 py-24">
           <FadeIn>
             <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
               Ready to get involved?
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-muted">
+            <p className="mt-4 max-w-lg text-muted">
               See who is working on these questions, or find events and programs to connect with the field.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 flex flex-wrap gap-8">
               <Link
                 href="/field-map"
-                className="inline-flex h-11 items-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-all duration-300 hover:opacity-80 hover:scale-105"
+                className="text-sm font-medium text-accent hover:underline"
               >
-                Field Map
+                Field Map →
               </Link>
               <Link
                 href="/events"
-                className="inline-flex h-11 items-center rounded-full border border-border px-6 text-sm font-medium text-foreground transition-all duration-300 hover:border-foreground hover:scale-105"
+                className="text-sm font-medium text-accent hover:underline"
               >
-                Events & Opportunities
+                Events & Opportunities →
               </Link>
             </div>
           </FadeIn>

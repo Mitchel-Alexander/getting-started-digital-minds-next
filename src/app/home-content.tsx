@@ -4,6 +4,7 @@ import Link from "next/link";
 import { intro, tiersIntro, tiers, type ActionItem } from "@/data/start-here";
 import { FadeIn } from "@/components/animate";
 import { NodeMark } from "@/components/node-mark";
+import { HeroPattern } from "@/components/hero-pattern";
 
 const sections = [
   {
@@ -61,8 +62,9 @@ export function HomeContent() {
   return (
     <>
       {/* Hero */}
-      <section className="border-b border-border bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+      <section className="relative overflow-hidden border-b border-border bg-white">
+        <HeroPattern />
+        <div className="relative mx-auto max-w-6xl px-6 py-20 lg:py-32">
           <FadeIn>
             <div className="flex items-center gap-2 mb-8">
               <NodeMark size={16} />
