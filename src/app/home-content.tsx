@@ -74,9 +74,9 @@ export function HomeContent() {
   return (
     <>
       {/* Hero — sticky, full viewport height, content anchored to bottom */}
-      <section className="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden bg-white flex flex-col justify-end">
+      <section className="sticky top-16 h-[50vh] overflow-hidden bg-white flex flex-col justify-start">
         <HeroPattern />
-        <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 lg:pb-20">
+        <div className="relative mx-auto w-full max-w-6xl px-6 pt-12">
           <FadeIn>
             <div>
               <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
@@ -96,7 +96,7 @@ export function HomeContent() {
           <FadeIn>
             <div className="space-y-4">
               {intro.map((p, i) => (
-                <p key={i} className="text-base leading-relaxed text-white/90">
+                <p key={i} className="text-xl leading-relaxed text-white/90">
                   {p}
                 </p>
               ))}

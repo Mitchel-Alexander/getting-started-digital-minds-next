@@ -10,9 +10,8 @@ export interface Tier {
 }
 
 export const intro = [
-  "Can AI systems have minds? The question is becoming harder to dismiss and more important to answer. Whether some AI systems might one day have experiences, feelings, or morally relevant states is an open question. Philosophers, consciousness scientists, and AI researchers disagree about how likely it is and what it would take to know. The stakes of getting it wrong run in both directions. Dismissing the possibility could mean ignoring morally significant beings at scale. Overstating it risks diverting moral concern and resources from those who clearly need them.",
-  "Digital minds is the research field that takes these questions as its subject. Researchers across philosophy, cognitive science, AI, ethics, and governance are working to develop the conceptual tools, empirical methods, and policy frameworks that would let us assess whether AI systems may be sentient or have morally relevant states, understand what the impacts of this may be, and work out what to do about it. The aim is to have the frameworks ready before they are needed.",
-  "This site is designed to help you find your way into work in this area. Research Areas maps the open questions. The field map shows who is working on them and where. Scroll down for practical steps you can take this week.",
+  "Could some AI systems have moral status, or welfare capacity? Experts across relevant disciplines remain deeply uncertain. If they do, we may be creating beings with moral status at enormous scale. If they don't, attention directed at them is attention taken from beings who plainly need it.",
+  "Digital minds is the research field that studies this question. Researchers in philosophy, cognitive science, AI, ethics, and policy are building the conceptual tools, empirical methods, and policy frameworks needed to answer it. The aim is to have this work ready before the question becomes urgent.",
 ];
 
 export const tiersIntro =
