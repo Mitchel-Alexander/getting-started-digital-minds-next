@@ -92,7 +92,7 @@ export function HomeContent() {
 
       {/* Intro */}
       <section id="intro" className="relative z-10 bg-accent scroll-mt-16">
-        <div className="mx-auto max-w-3xl px-6 pt-24 pb-16">
+        <div className="mx-auto max-w-3xl px-6 pt-16 pb-24">
           <FadeIn>
             <div className="space-y-4">
               {intro.map((p, i) => (
