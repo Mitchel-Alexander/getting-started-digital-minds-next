@@ -10,8 +10,8 @@ export interface Tier {
 }
 
 export const intro = [
-  "Could some AI systems have moral status, or welfare capacity? Experts across relevant disciplines remain deeply uncertain. If they do, we may be creating beings with moral status at enormous scale. If they don't, attention directed at them is attention taken from beings who plainly need it.",
-  "Digital minds is the research field that studies this question. Researchers in philosophy, cognitive science, AI, ethics, and policy are building the conceptual tools, empirical methods, and policy frameworks needed to answer it. The aim is to have this work ready before the question becomes urgent.",
+  "Could some AI systems be candidates for moral status? Experts across relevant disciplines remain deeply uncertain. If they are, we may be creating beings with morally relevant experiences at enormous scale. If they aren't, attention directed at them is attention taken from beings who plainly need it.",
+  "Digital minds is the research field that studies this question. Researchers in philosophy, cognitive science, AI, policy and law are building the tools needed to address it.",
 ];
 
 export const tiersIntro =
