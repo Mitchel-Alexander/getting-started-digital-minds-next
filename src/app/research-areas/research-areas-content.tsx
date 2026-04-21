@@ -3,16 +3,71 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
-  overviewIntro,
-  overviewConnector,
   disciplineTooltips,
   groups,
   type ResearchArea,
   type Reading,
 } from "@/data/research-areas";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
+import { FadeIn } from "@/components/animate";
 import { PageHeader } from "@/components/page-header";
-import { NodeMark } from "@/components/node-mark";
+
+/* ── Table of contents ───────────────────────────────────────────── */
+
+function TableOfContents() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <aside className="hidden xl:block w-56 shrink-0 sticky top-20 self-start max-h-[calc(100vh-5rem)] overflow-y-auto pl-6">
+      <div className="pr-4 py-8">
+
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-muted">
+            Contents
+          </p>
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="text-muted/50 hover:text-muted transition-colors"
+            aria-label={collapsed ? "Expand contents" : "Collapse contents"}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              {collapsed
+                ? <><path d="M2 5h10M2 9h10" /></>
+                : <><path d="M2 4h10M2 7h6M2 10h8" /></>
+              }
+            </svg>
+          </button>
+        </div>
+
+        {!collapsed && (
+          <nav className="space-y-5">
+            {groups.map((group, gi) => (
+              <div key={group.id}>
+                <a
+                  href={`#group-${group.id}`}
+                  className="block text-xs font-semibold text-foreground/80 hover:text-accent transition-colors leading-snug mb-2"
+                >
+                  Part {gi + 1} — {group.title}
+                </a>
+                <div className="ml-2 border-l border-border pl-3 space-y-1.5">
+                  {group.areas.map((area) => (
+                    <a
+                      key={area.id}
+                      href={`#${area.id}`}
+                      className="block text-xs text-muted hover:text-accent transition-colors leading-snug py-0.5"
+                    >
+                      {area.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </nav>
+        )}
+
+      </div>
+    </aside>
+  );
+}
 
 /* ── Discipline chip with tooltip ────────────────────────────────── */
 
@@ -24,9 +79,7 @@ function DisciplineChip({ name }: { name: string }) {
   useEffect(() => {
     if (!open) return;
     function handleClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -63,43 +116,42 @@ function DisciplineChip({ name }: { name: string }) {
 
 function ReadingItem({ item }: { item: Reading }) {
   return (
-    <div className="border-l-2 border-accent/20 pl-4 py-1">
-      <p className="text-sm leading-relaxed">
-        <span className="text-foreground">{item.author}</span>
-        {", "}
-        {item.url ? (
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="italic text-accent hover:underline"
-          >
-            {item.title}
-          </a>
-        ) : (
-          <span className="italic">{item.title}</span>
-        )}
-        {" "}({item.year})
+    <div className="pt-5">
+      <p className="text-xs font-medium uppercase tracking-widest text-accent mb-1.5">
+        {item.author} · {item.year}
+      </p>
+      <p className="text-sm font-semibold text-foreground leading-snug">
+        {item.title}
       </p>
       {item.description && (
-        <p className="mt-1 text-sm leading-relaxed text-foreground/60">
+        <p className="mt-1.5 text-xs leading-relaxed text-foreground/60">
           {item.description}
         </p>
+      )}
+      {item.url && (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-block border border-accent rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
+        >
+          Read
+        </a>
       )}
     </div>
   );
 }
 
-/* ── Reading section (Start here / Go deeper) ────────────────────── */
+/* ── Reading section ─────────────────────────────────────────────── */
 
 function ReadingSection({ label, items }: { label: string; items: Reading[] }) {
   if (items.length === 0) return null;
   return (
     <div>
-      <h4 className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
+      <h4 className="text-xs font-medium uppercase tracking-widest text-muted mb-2">
         {label}
       </h4>
-      <div className="space-y-4">
+      <div className="space-y-6">
         {items.map((item, i) => (
           <ReadingItem key={i} item={item} />
         ))}
@@ -108,60 +160,28 @@ function ReadingSection({ label, items }: { label: string; items: Reading[] }) {
   );
 }
 
-/* ── Area card (expandable) ──────────────────────────────────────── */
+/* ── Flat area section ───────────────────────────────────────────── */
 
-function AreaCard({ area }: { area: ResearchArea }) {
-  const [expanded, setExpanded] = useState(false);
-
+function AreaSection({ area }: { area: ResearchArea }) {
   return (
-    <div
-      id={area.id}
-      className="scroll-mt-24 rounded-xl border border-border bg-white transition-all duration-200 hover:bg-slate-50"
-    >
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="flex w-full items-center gap-4 px-6 py-5 text-left group"
-        aria-expanded={expanded}
-      >
-        <h3 className="flex-1 text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+    <FadeIn>
+      <div id={area.id} className="scroll-mt-24 border-t border-border py-14">
+        <h3 className="text-2xl font-semibold text-foreground mb-5">
           {area.title}
         </h3>
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className={`shrink-0 text-border transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
-          style={{
-            filter:
-              "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.08))",
-          }}
-          aria-hidden
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 7.5l5 5 5-5" />
-        </svg>
-      </button>
-
-      {expanded && (
-        <div className="border-t border-border">
-          <div className="px-6 py-6 space-y-3">
-            {area.intro.map((p, i) => (
-              <p key={i} className="text-sm leading-relaxed text-foreground/80">
-                {p}
-              </p>
-            ))}
-          </div>
-          <div className="border-t border-border bg-card/40 px-6 py-6">
-            <div className="grid gap-8 lg:grid-cols-2">
-              <ReadingSection label="Start here" items={area.startHere} />
-              <ReadingSection label="Go deeper" items={area.goDeeper} />
-            </div>
-          </div>
+        <div className="space-y-3 max-w-2xl mb-10">
+          {area.intro.map((p, i) => (
+            <p key={i} className="text-sm leading-relaxed text-foreground/70">
+              {p}
+            </p>
+          ))}
         </div>
-      )}
-    </div>
+        <div className="grid gap-10 lg:grid-cols-2">
+          <ReadingSection label="Start here" items={area.startHere} />
+          <ReadingSection label="Go deeper" items={area.goDeeper} />
+        </div>
+      </div>
+    </FadeIn>
   );
 }
 
@@ -175,99 +195,50 @@ export function ResearchAreasContent() {
         description="The key questions driving digital minds research, with readings for each area."
       />
 
-      {/* Overview */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-4xl px-6 py-16">
-          <FadeIn>
-            <p className="text-base leading-relaxed text-foreground/80 max-w-3xl">
-              {overviewIntro}
-            </p>
-          </FadeIn>
+      <div className="xl:flex xl:items-start">
 
-          <FadeIn delay={0.1}>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {groups.map((group, i) => (
-                <a
-                  key={group.id}
-                  href={`#group-${group.id}`}
-                  className="group rounded-xl border border-border bg-card/50 px-5 py-5 transition-all duration-200 hover:bg-slate-50"
-                >
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <NodeMark size={12} />
-                    <p className="text-[10px] font-medium uppercase tracking-widest text-accent">
-                      Part {i + 1}
+        <TableOfContents />
+
+        <div className="flex-1 min-w-0">
+
+          {/* Group sections */}
+          {groups.map((group, gi) => (
+            <section
+              key={group.id}
+              id={`group-${group.id}`}
+              className={`scroll-mt-24 border-t border-border ${gi % 2 === 0 ? "bg-background" : "bg-[#f0f4f6]/30"}`}
+            >
+              <div className="mx-auto max-w-4xl px-6 py-20">
+                <FadeIn>
+                  <div className="mb-4">
+                    <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+                      {group.title}
+                    </h2>
+                    <p className="mt-2 text-muted italic">{group.subtitle}</p>
+                    <p className="mt-4 text-sm text-muted">
+                      Disciplines:{" "}
+                      {group.disciplines.map((d, di) => (
+                        <span key={d}>
+                          <DisciplineChip name={d} />
+                          {di < group.disciplines.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
                     </p>
                   </div>
-                  <h3 className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
-                    {group.title}
-                  </h3>
-                  <p className="mt-1 text-xs text-muted italic">{group.subtitle}</p>
-                  <p className="mt-3 text-xs leading-relaxed text-muted">
-                    Disciplines:{" "}
-                    {group.disciplines.map((d, di) => (
-                      <span key={d}>
-                        <DisciplineChip name={d} />
-                        {di < group.disciplines.length - 1 ? ", " : ""}
-                      </span>
-                    ))}
-                  </p>
-                </a>
-              ))}
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <p className="mt-10 text-sm leading-relaxed text-foreground/60 max-w-3xl border-l-2 border-accent/20 pl-4">
-              {overviewConnector}
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Group sections */}
-      {groups.map((group, gi) => (
-        <section
-          key={group.id}
-          id={`group-${group.id}`}
-          className={`scroll-mt-16 border-t border-border ${gi % 2 === 0 ? "bg-background" : "bg-[#f0f4f6]/30"}`}
-        >
-          <div className="mx-auto max-w-4xl px-6 py-20">
-            <FadeIn>
-              <div className="mb-12">
-                <div className="flex items-center gap-2 mb-3">
-                  <NodeMark size={16} />
-                  <p className="text-xs font-medium uppercase tracking-widest text-accent">
-                    Part {gi + 1} of {groups.length}
-                  </p>
-                </div>
-                <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-                  {group.title}
-                </h2>
-                <p className="mt-2 text-muted italic">{group.subtitle}</p>
-                <p className="mt-4 text-sm text-muted">
-                  Disciplines:{" "}
-                  {group.disciplines.map((d, di) => (
-                    <span key={d}>
-                      <DisciplineChip name={d} />
-                      {di < group.disciplines.length - 1 ? ", " : ""}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            </FadeIn>
-
-            <div className="space-y-4">
-              {group.areas.map((area, ai) => (
-                <FadeIn key={area.id} delay={0.05 * (ai + 1)}>
-                  <AreaCard area={area} />
                 </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
+                <div>
+                  {group.areas.map((area) => (
+                    <AreaSection key={area.id} area={area} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          ))}
 
-      {/* CTA footer */}
+        </div>
+      </div>
+
+      {/* CTA footer — outside flex so sidebar stops here */}
       <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-4xl px-6 py-24">
           <FadeIn>
@@ -277,18 +248,12 @@ export function ResearchAreasContent() {
             <p className="mt-4 max-w-lg text-muted">
               See who is working on these questions, or find events and programs to connect with the field.
             </p>
-            <div className="mt-8 flex flex-wrap gap-8">
-              <Link
-                href="/field-map"
-                className="text-sm font-medium text-accent hover:underline"
-              >
-                Field Map →
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/field-map" className="inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors">
+                Field Map
               </Link>
-              <Link
-                href="/events"
-                className="text-sm font-medium text-accent hover:underline"
-              >
-                Events & Opportunities →
+              <Link href="/events" className="inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors">
+                Events & Opportunities
               </Link>
             </div>
           </FadeIn>

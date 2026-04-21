@@ -5,7 +5,6 @@ import {
   organisations,
   zoneLabels,
   zoneOrder,
-  zoneAccents,
   type Organisation,
   type Zone,
 } from "@/data/organisations";
@@ -14,61 +13,28 @@ import { PageHeader } from "@/components/page-header";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-const zoneBorderColors: Record<Zone, string> = {
-  "digital-minds": "border-blue-700",
-  "empirical-foundations": "border-blue-800",
-  "philosophical-foundations": "border-teal-700",
-  "governance-advocacy": "border-green-800",
-  support: "border-neutral-600",
-  media: "border-amber-800",
-};
-
-const zoneTagColors: Record<Zone, string> = {
-  "digital-minds": "bg-blue-100 text-blue-700",
-  "empirical-foundations": "bg-blue-100 text-blue-700",
-  "philosophical-foundations": "bg-teal-100 text-teal-700",
-  "governance-advocacy": "bg-green-100 text-green-700",
-  support: "bg-neutral-100 text-neutral-600",
-  media: "bg-amber-100 text-amber-700",
-};
-
 function OrgCard({ org, onClick }: { org: Organisation; onClick: () => void }) {
+  const typeLabel = org.org_type.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+
   return (
     <button
       onClick={onClick}
-      className={`group w-full text-left rounded-xl border border-border border-l-[3px] ${zoneBorderColors[org.zone]} bg-white p-5 transition-all duration-200 hover:bg-slate-50 cursor-pointer`}
+      className="group w-full text-left border-t-2 border-accent pt-4 pb-2 mt-6"
     >
-      {org.logo ? (
-        <img
-          src={`${basePath}/logos/${org.logo}.png`}
-          alt=""
-          className="h-16 w-full object-contain mb-3"
-        />
-      ) : (
-        <div className="h-16 mb-3" />
-      )}
       <h3 className="text-sm font-semibold leading-snug group-hover:text-accent transition-colors">
         {org.name}
       </h3>
-      <div className="mt-1.5 flex items-center gap-1.5 text-xs text-foreground/60">
-        <span>{org.org_type.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase())}</span>
-        <span className="text-border">&middot;</span>
-        <span>{org.geography}</span>
-      </div>
-      <p className="mt-2.5 text-xs leading-relaxed text-foreground/60 line-clamp-3">
+      <p className="mt-1.5 text-xs font-medium uppercase tracking-widest text-accent/70">
+        {typeLabel} · {org.geography}
+      </p>
+      <p className="mt-2 text-xs leading-relaxed text-foreground/60 line-clamp-3">
         {org.description}
       </p>
     </button>
   );
 }
 
-function Modal({
-  org,
-  onClose,
-}: {
-  org: Organisation;
-  onClose: () => void;
-}) {
+function Modal({ org, onClose }: { org: Organisation; onClose: () => void }) {
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -77,53 +43,41 @@ function Modal({
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const alsoLabel = org.zone_secondary ? ` \u00b7 also: ${zoneLabels[org.zone_secondary]}` : "";
+  const typeLabel = org.org_type.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+  const zoneLabel = zoneLabels[org.zone] + (org.zone_secondary ? ` · also: ${zoneLabels[org.zone_secondary]}` : "");
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4"
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative w-full max-w-lg rounded-xl bg-white border border-border overflow-hidden shadow-xl"
-        style={{ borderTopColor: zoneAccents[org.zone], borderTopWidth: 3 }}
+        className="relative w-full max-w-lg bg-white border border-border rounded-sm overflow-hidden shadow-lg"
         role="dialog"
         aria-modal="true"
       >
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-2xl text-muted hover:text-foreground transition-colors"
+          className="absolute right-5 top-5 text-muted hover:text-foreground transition-colors text-xl leading-none"
           aria-label="Close"
         >
           &times;
         </button>
         <div className="p-8">
-          {org.logo && (
-            <img
-              src={`${basePath}/logos/${org.logo}.png`}
-              alt=""
-              className="h-16 w-auto object-contain mb-4"
-            />
-          )}
-          <h2 className="text-lg font-semibold pr-8">{org.name}</h2>
-          <p className="mt-1 text-xs text-muted">
-            {zoneLabels[org.zone]}
-            {alsoLabel}
+          <p className="text-xs font-medium uppercase tracking-widest text-accent mb-2">
+            {typeLabel} · {org.geography}
           </p>
-          <div className="mt-3 flex items-center gap-2 text-xs text-foreground/60">
-            <span>{org.org_type.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase())}</span>
-            <span className="text-border">&middot;</span>
-            <span>{org.geography}</span>
-          </div>
+          <h2 className="text-xl font-semibold pr-8 leading-snug">{org.name}</h2>
+          <p className="mt-1 text-xs text-muted">{zoneLabel}</p>
           <p className="mt-5 text-sm leading-relaxed text-foreground/70">
             {org.description}
           </p>
           {org.selected_links && org.selected_links.length > 0 && (
-            <div className="mt-5">
-              <p className="text-xs font-medium uppercase tracking-widest text-muted">Selected coverage</p>
-              <ul className="mt-2 space-y-1">
+            <div className="mt-6">
+              <p className="text-xs font-medium uppercase tracking-widest text-muted mb-3">
+                Selected coverage
+              </p>
+              <ul className="space-y-1.5">
                 {org.selected_links.map((link) => (
                   <li key={link.url}>
                     <a
@@ -132,8 +86,7 @@ function Modal({
                       rel="noopener noreferrer"
                       className="text-sm text-accent hover:underline"
                     >
-                      {link.title}
-                      {link.author && ` (${link.author})`}
+                      {link.title}{link.author && ` (${link.author})`}
                     </a>
                   </li>
                 ))}
@@ -144,9 +97,9 @@ function Modal({
             href={org.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:opacity-80 hover:scale-105"
+            className="mt-6 inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
           >
-            Visit website &rarr;
+            Visit website
           </a>
         </div>
       </div>
@@ -154,15 +107,27 @@ function Modal({
   );
 }
 
+const fieldGroups = [
+  {
+    id: "science",
+    title: "Science & Philosophy of Digital Minds",
+    zones: ["digital-minds", "empirical-foundations", "philosophical-foundations"] as Zone[],
+  },
+  {
+    id: "governance",
+    title: "Governance of Digital Minds",
+    zones: ["governance-advocacy"] as Zone[],
+  },
+  {
+    id: "infrastructure",
+    title: "Field Infrastructure",
+    zones: ["support", "media"] as Zone[],
+  },
+];
+
 export function FieldMapContent() {
   const [selectedOrg, setSelectedOrg] = useState<Organisation | null>(null);
-
   const handleClose = useCallback(() => setSelectedOrg(null), []);
-
-  const orgsByZone = zoneOrder.map((zone) => ({
-    zone,
-    orgs: organisations.filter((o) => o.zone === zone),
-  })).filter((g) => g.orgs.length > 0);
 
   return (
     <>
@@ -171,53 +136,66 @@ export function FieldMapContent() {
         description="Organizations working on AI consciousness, AI welfare, and digital minds research."
       />
       <div className="mx-auto max-w-6xl px-6 py-8">
-      <FadeIn>
-        <p className="text-sm text-muted">
-          {organisations.length} organizations across research, governance, training, and field building.
-        </p>
-      </FadeIn>
 
-      {/* TOC pills */}
-      <FadeIn delay={0.1}>
-        <nav className="mt-8 flex flex-wrap gap-2" aria-label="Section navigation">
-          {orgsByZone.map(({ zone }) => (
-            <a
-              key={zone}
-              href={`#${zone}`}
-              className="rounded-full border border-border bg-white px-4 py-1.5 text-xs font-medium transition-all duration-200 text-muted hover:bg-slate-50 hover:text-foreground"
-            >
-              {zoneLabels[zone]}
-            </a>
-          ))}
-        </nav>
-      </FadeIn>
+        <FadeIn>
+          <p className="text-sm text-muted">
+            {organisations.length} organizations across research, governance, training, and field building.
+          </p>
+        </FadeIn>
 
-      {/* Sections */}
-      {orgsByZone.map(({ zone, orgs }) => (
-        <section key={zone} id={zone} className="mt-14">
-          <FadeIn>
-            <h2
-              className={`text-xl font-semibold border-l-4 pl-4 ${zoneBorderColors[zone]}`}
-              style={{
-                filter:
-                  "drop-shadow(1px 1px 0px rgba(255,255,255,0.9)) drop-shadow(-0.5px -0.5px 0px rgba(0,0,0,0.06))",
-              }}
-            >
-              {zoneLabels[zone]}
-            </h2>
-          </FadeIn>
-          <StaggerContainer className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {orgs.map((org) => (
-              <StaggerItem key={org.name}>
-                <OrgCard org={org} onClick={() => setSelectedOrg(org)} />
-              </StaggerItem>
+        {/* Zone navigation */}
+        <FadeIn delay={0.1}>
+          <nav className="mt-8 flex flex-wrap gap-2" aria-label="Section navigation">
+            {zoneOrder.map((zone) => (
+              <a
+                key={zone}
+                href={`#${zone}`}
+                className="border border-border rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-muted hover:border-accent hover:text-accent transition-colors"
+              >
+                {zoneLabels[zone]}
+              </a>
             ))}
-          </StaggerContainer>
-        </section>
-      ))}
+          </nav>
+        </FadeIn>
 
-      {/* Modal */}
-      {selectedOrg && <Modal org={selectedOrg} onClose={handleClose} />}
+        {/* Grouped sections */}
+        {fieldGroups.map((group, gi) => {
+          const zonesWithOrgs = group.zones
+            .map((zone) => ({ zone, orgs: organisations.filter((o) => o.zone === zone) }))
+            .filter((z) => z.orgs.length > 0);
+          if (zonesWithOrgs.length === 0) return null;
+
+          return (
+            <div key={group.id}>
+              <section className={`mt-16 scroll-mt-24 border-t border-border ${gi % 2 === 0 ? "bg-background" : "bg-[#f0f4f6]/30"} -mx-6 px-6 pt-14 pb-4`}>
+                <FadeIn>
+                  <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+                    {group.title}
+                  </h2>
+                </FadeIn>
+              </section>
+
+              {zonesWithOrgs.map(({ zone, orgs }) => (
+                <section key={zone} id={zone} className="mt-12 scroll-mt-24">
+                  <FadeIn>
+                    <h3 className="text-xs font-medium uppercase tracking-widest text-muted">
+                      {zoneLabels[zone]}
+                    </h3>
+                  </FadeIn>
+                  <StaggerContainer className="mt-2 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+                    {orgs.map((org) => (
+                      <StaggerItem key={org.name}>
+                        <OrgCard org={org} onClick={() => setSelectedOrg(org)} />
+                      </StaggerItem>
+                    ))}
+                  </StaggerContainer>
+                </section>
+              ))}
+            </div>
+          );
+        })}
+
+        {selectedOrg && <Modal org={selectedOrg} onClose={handleClose} />}
       </div>
     </>
   );

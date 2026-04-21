@@ -30,7 +30,7 @@ export const zoneLabels: Record<Zone, string> = {
   "digital-minds": "Digital Minds Research",
   "empirical-foundations": "Empirical Foundations",
   "philosophical-foundations": "Philosophical Foundations",
-  "governance-advocacy": "Governance & Advocacy",
+  "governance-advocacy": "Governance",
   support: "Training & Field Building",
   media: "Media",
 };

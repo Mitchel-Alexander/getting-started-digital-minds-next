@@ -5,6 +5,7 @@ import { intro, tiersIntro, tiers, type ActionItem } from "@/data/start-here";
 import { FadeIn } from "@/components/animate";
 import { NodeMark } from "@/components/node-mark";
 import { HeroPattern } from "@/components/hero-pattern";
+import { FocusMarkSafety, FocusMarkResearch, FocusMarkEvents, FocusMarkFieldMap } from "@/components/focus-marks";
 
 const focusAreas = [
   {
@@ -12,28 +13,32 @@ const focusAreas = [
     label: "Digital Minds and AI Safety",
     description: "Digital minds and AI welfare research are closely linked with AI safety. Some safety measures — constraint, monitoring, shutdown — have direct implications for AI welfare if the systems involved are moral patients. Many interventions are positive for both. If your background is in AI safety, the technical skills and strategic instincts you have developed are directly useful here.",
     href: "/research-areas#safety-welfare-coordination",
-    cta: "See Safety-Welfare Coordination",
+    cta: "Explore Safety-Welfare Coordination",
+    mark: <FocusMarkFieldMap size={96} className="text-accent" />,
   },
   {
     id: "research",
     label: "Research Areas",
     description: "The key open questions in digital minds research — from consciousness and sentience to welfare, governance, and long-term futures — with readings for each area.",
     href: "/research-areas",
-    cta: "Explore research areas",
+    cta: "Explore Research Areas",
+    mark: <FocusMarkResearch size={96} className="text-accent" />,
   },
   {
     id: "events",
     label: "Events & Opportunities",
     description: "Conferences, workshops, fellowships, and programs across the digital minds community.",
     href: "/events",
-    cta: "See events and opportunities",
+    cta: "Explore Events & Opportunities",
+    mark: <FocusMarkEvents size={96} className="text-accent" />,
   },
   {
     id: "field-map",
     label: "Field Map",
     description: "An interactive directory of organizations working on AI consciousness, welfare, and related research.",
     href: "/field-map",
-    cta: "Explore the field map",
+    cta: "Explore Field Map",
+    mark: <FocusMarkSafety size={96} className="text-accent" />,
   },
 ];
 
@@ -77,7 +82,7 @@ export function HomeContent() {
               <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
-              <p className="mt-6 text-base leading-relaxed text-foreground/60 max-w-sm">
+              <p className="mt-6 text-xl leading-relaxed text-foreground/60 max-w-sm">
                 A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
               </p>
             </div>
@@ -86,8 +91,8 @@ export function HomeContent() {
       </section>
 
       {/* Intro */}
-      <section className="relative z-10 bg-accent">
-        <div className="mx-auto max-w-3xl px-6 py-16">
+      <section id="intro" className="relative z-10 bg-accent scroll-mt-16">
+        <div className="mx-auto max-w-3xl px-6 pt-24 pb-16">
           <FadeIn>
             <div className="space-y-4">
               {intro.map((p, i) => (
@@ -107,7 +112,7 @@ export function HomeContent() {
 
             {/* Far-left label */}
             <div className="mb-10 lg:mb-0">
-              <p className="text-xs font-medium uppercase tracking-widest text-muted lg:sticky lg:top-24 lg:pt-12">
+              <p className="text-sm font-medium uppercase tracking-widest text-muted lg:sticky lg:top-24 lg:pt-12">
                 Learn About
               </p>
             </div>
@@ -118,19 +123,19 @@ export function HomeContent() {
                 <FadeIn key={area.id}>
                   <div className="border-t border-border py-12">
                     {/* Full-width title */}
-                    <p className="text-xs font-medium uppercase tracking-widest text-accent mb-8">
+                    <p className="text-sm font-medium uppercase tracking-widest text-accent mb-8">
                       {area.label}
                     </p>
                     {/* Motif + text */}
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-[120px_1fr] sm:items-start">
-                      <NodeMark size={96} className="text-accent" strokeWidth={0.35} dotRadius={1.2} />
+                      {area.mark}
                       <div>
                         <p className="text-sm leading-relaxed text-foreground/70">
                           {area.description}
                         </p>
                         <Link
                           href={area.href}
-                          className="mt-6 inline-block border border-accent px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
+                          className="mt-6 inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
                         >
                           {area.cta}
                         </Link>

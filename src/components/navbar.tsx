@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/", label: "Start Here" },
+  { href: "/#intro", label: "Start Here" },
   { href: "/research-areas", label: "Research Areas" },
   { href: "/events", label: "Events & Opportunities" },
   { href: "/field-map", label: "Field Map" },
@@ -43,7 +43,7 @@ export function Navbar() {
                 <Link
                   href={href}
                   className={`text-sm transition-colors hover:text-accent ${
-                    pathname === href
+                    pathname === href || (href.startsWith("/#") && pathname === "/")
                       ? "text-foreground font-medium"
                       : "text-muted"
                   }`}
@@ -106,7 +106,7 @@ export function Navbar() {
                   href={href}
                   onClick={() => setMenuOpen(false)}
                   className={`text-sm transition-colors hover:text-accent ${
-                    pathname === href
+                    pathname === href || (href.startsWith("/#") && pathname === "/")
                       ? "text-foreground font-medium"
                       : "text-muted"
                   }`}
