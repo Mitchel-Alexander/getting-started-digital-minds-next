@@ -74,7 +74,7 @@ export function HomeContent() {
   return (
     <>
       {/* Hero — sticky, full viewport height, content anchored to bottom */}
-      <section className="relative h-[50vh] overflow-hidden bg-white flex flex-col justify-start">
+      <section className="relative h-[50vh] overflow-hidden bg-white flex flex-col justify-center items-center text-center">
         <HeroPattern />
         <div className="relative mx-auto w-full max-w-6xl px-6 pt-12">
           <FadeIn>
@@ -82,7 +82,7 @@ export function HomeContent() {
               <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
                 Getting Started<br />in Digital Minds
               </h1>
-              <p className="mt-6 text-xl leading-relaxed text-foreground/60 max-w-sm">
+              <p className="mt-6 text-xl leading-relaxed text-foreground/60 max-w-sm mx-auto">
                 A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
               </p>
             </div>
@@ -91,7 +91,7 @@ export function HomeContent() {
       </section>
 
       {/* Intro */}
-      <section id="intro" className="relative z-10 bg-accent scroll-mt-16">
+      <section id="intro" className="relative z-10 bg-accent scroll-mt-16 text-center">
         <div className="mx-auto w-full max-w-3xl px-6 py-24">
           <FadeIn>
             <div className="space-y-4">
