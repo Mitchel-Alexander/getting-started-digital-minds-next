@@ -6,7 +6,6 @@ import {
   zoneLabels,
   zoneOrder,
   type Organisation,
-  type Zone,
 } from "@/data/organisations";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
 import { PageHeader } from "@/components/page-header";
@@ -107,24 +106,6 @@ function Modal({ org, onClose }: { org: Organisation; onClose: () => void }) {
   );
 }
 
-const fieldGroups = [
-  {
-    id: "science",
-    title: "Science & Philosophy of Digital Minds",
-    zones: ["digital-minds", "empirical-foundations", "philosophical-foundations"] as Zone[],
-  },
-  {
-    id: "governance",
-    title: "Governance of Digital Minds",
-    zones: ["governance-advocacy"] as Zone[],
-  },
-  {
-    id: "infrastructure",
-    title: "Field Infrastructure",
-    zones: ["support", "media"] as Zone[],
-  },
-];
-
 export function FieldMapContent() {
   const [selectedOrg, setSelectedOrg] = useState<Organisation | null>(null);
   const handleClose = useCallback(() => setSelectedOrg(null), []);
@@ -139,7 +120,7 @@ export function FieldMapContent() {
 
         <FadeIn>
           <p className="text-sm text-muted">
-            {organisations.length} organizations across research, governance, training, and field building.
+            {organisations.length} organisations across digital minds research, training and fieldbuilding, and media.
           </p>
         </FadeIn>
 
@@ -150,7 +131,7 @@ export function FieldMapContent() {
               <a
                 key={zone}
                 href={`#${zone}`}
-                className="border border-border rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-muted hover:border-accent hover:text-accent transition-colors"
+                className="inline-block border border-accent rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all"
               >
                 {zoneLabels[zone]}
               </a>
@@ -158,40 +139,30 @@ export function FieldMapContent() {
           </nav>
         </FadeIn>
 
-        {/* Grouped sections */}
-        {fieldGroups.map((group, gi) => {
-          const zonesWithOrgs = group.zones
-            .map((zone) => ({ zone, orgs: organisations.filter((o) => o.zone === zone) }))
-            .filter((z) => z.orgs.length > 0);
-          if (zonesWithOrgs.length === 0) return null;
+        {/* Zone sections */}
+        {zoneOrder.map((zone, gi) => {
+          const orgs = organisations.filter((o) => o.zone === zone);
+          if (orgs.length === 0) return null;
 
           return (
-            <div key={group.id}>
-              <section className={`mt-16 scroll-mt-24 border-t border-border ${gi % 2 === 0 ? "bg-background" : "bg-[#f0f4f6]/30"} -mx-6 px-6 pt-14 pb-4`}>
-                <FadeIn>
-                  <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-                    {group.title}
-                  </h2>
-                </FadeIn>
-              </section>
-
-              {zonesWithOrgs.map(({ zone, orgs }) => (
-                <section key={zone} id={zone} className="mt-12 scroll-mt-24">
-                  <FadeIn>
-                    <h3 className="text-xs font-medium uppercase tracking-widest text-muted">
-                      {zoneLabels[zone]}
-                    </h3>
-                  </FadeIn>
-                  <StaggerContainer className="mt-2 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
-                    {orgs.map((org) => (
-                      <StaggerItem key={org.name}>
-                        <OrgCard org={org} onClick={() => setSelectedOrg(org)} />
-                      </StaggerItem>
-                    ))}
-                  </StaggerContainer>
-                </section>
-              ))}
-            </div>
+            <section
+              key={zone}
+              id={zone}
+              className={`mt-16 scroll-mt-24 border-t border-border ${gi % 2 === 0 ? "bg-background" : "bg-[#f0f4f6]/30"} -mx-6 px-6 pt-14 pb-10`}
+            >
+              <FadeIn>
+                <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+                  {zoneLabels[zone]}
+                </h2>
+              </FadeIn>
+              <StaggerContainer className="mt-8 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+                {orgs.map((org) => (
+                  <StaggerItem key={org.name}>
+                    <OrgCard org={org} onClick={() => setSelectedOrg(org)} />
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </section>
           );
         })}
 

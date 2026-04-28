@@ -1,8 +1,5 @@
 export type Zone =
   | "digital-minds"
-  | "empirical-foundations"
-  | "philosophical-foundations"
-  | "governance-advocacy"
   | "support"
   | "media";
 
@@ -28,43 +25,24 @@ export interface Organisation {
 
 export const zoneLabels: Record<Zone, string> = {
   "digital-minds": "Digital Minds Research",
-  "empirical-foundations": "Empirical Foundations",
-  "philosophical-foundations": "Philosophical Foundations",
-  "governance-advocacy": "Governance",
-  support: "Training & Field Building",
+  support: "Training and Fieldbuilding",
   media: "Media",
 };
 
 export const zoneOrder: Zone[] = [
   "digital-minds",
-  "empirical-foundations",
-  "philosophical-foundations",
-  "governance-advocacy",
   "support",
   "media",
 ];
 
 export const zoneAccents: Record<Zone, string> = {
   "digital-minds": "#1e40af",
-  "empirical-foundations": "#0d47a1",
-  "philosophical-foundations": "#0f766e",
-  "governance-advocacy": "#1a5e3a",
   support: "#555",
   media: "#8b5e3c",
 };
 
 export const organisations: Organisation[] = [
   // ── DIGITAL MINDS RESEARCH ──
-  {
-    name: "AE Studio \u2014 AI Alignment and Consciousness",
-    url: "https://ae.studio/ai-alignment",
-    zone: "digital-minds",
-    description: "AI company based in California with a dedicated empirical AI consciousness research program. Takes a neuroscience-inspired approach, using induced self-reference, interpretability tools, and cognitive stress-testing to probe internal dynamics in frontier models. Also conducts research on prosociality, brain-computer interfaces, and alignment policy.",
-    org_type: "lab-team",
-    function: "research",
-    geography: "USA",
-    logo: "ae-studio-ai-alignment-and-consciousness",
-  },
   {
     name: "Anthropic \u2014 Model Welfare Program",
     url: "https://www.anthropic.com/research/exploring-model-welfare",
@@ -189,7 +167,6 @@ export const organisations: Organisation[] = [
     name: "Jeremy Coller Centre for Animal Sentience (LSE)",
     url: "https://www.lse.ac.uk/sentience",
     zone: "digital-minds",
-    zone_secondary: "empirical-foundations",
     description: "Research centre at the London School of Economics, launched with support from the Jeremy Coller Foundation. Works across three priority areas \u2014 public communication on animal sentience, invertebrate farming ethics, and AI and sentience. Builds on the ASENT project, which contributed evidence to the UK Animal Welfare (Sentience) Act 2022. Led by Jonathan Birch.",
     org_type: "university-centre",
     function: "research",
@@ -239,7 +216,6 @@ export const organisations: Organisation[] = [
     name: "Sentience Institute",
     url: "https://www.sentienceinstitute.org/",
     zone: "digital-minds",
-    zone_secondary: "governance-advocacy",
     description: "Research nonprofit focused on digital minds and moral circle expansion. Runs the AIMS Survey (Artificial Intelligence, Morality, and Sentience), tracking public attitudes toward the moral status of AI systems.",
     org_type: "nonprofit",
     function: "research",
@@ -250,7 +226,6 @@ export const organisations: Organisation[] = [
     name: "Sussex Centre for Consciousness Science",
     url: "https://www.sussex.ac.uk/research/centres/sussex-centre-for-consciousness-science/",
     zone: "digital-minds",
-    zone_secondary: "empirical-foundations",
     description: "Research centre at the University of Sussex bringing together neuroscience, philosophy, mathematics, and psychiatry to advance the scientific understanding of consciousness. Applies findings to medicine, technology, and society. Led by Anil Seth.",
     org_type: "university-centre",
     function: "research",
@@ -261,7 +236,6 @@ export const organisations: Organisation[] = [
     name: "University of Oxford \u2014 Faculty of Philosophy",
     url: "https://www.philosophy.ox.ac.uk/",
     zone: "digital-minds",
-    zone_secondary: "philosophical-foundations",
     description: "Oxford previously hosted the Future of Humanity Institute and the Global Priorities Institute, both of which supported early research on AI welfare and moral status. Following the closure of both, related research continues within the Faculty of Philosophy.",
     org_type: "university-centre",
     function: "research",
@@ -272,7 +246,7 @@ export const organisations: Organisation[] = [
   {
     name: "Association for the Scientific Study of Consciousness (ASSC)",
     url: "https://theassc.org/",
-    zone: "empirical-foundations",
+    zone: "digital-minds",
     description: "International professional society for consciousness research. Runs the annual ASSC conference, the field\u2019s largest scientific gathering, which increasingly features dedicated sessions on AI consciousness. Publishes Neuroscience of Consciousness (Oxford University Press).",
     org_type: "nonprofit",
     function: "research",
@@ -282,7 +256,7 @@ export const organisations: Organisation[] = [
   {
     name: "BAM\u039E \u2014 Bamberg Mathematical Consciousness Science Initiative",
     url: "https://www.uni-bamberg.de/en/bamxi/",
-    zone: "empirical-foundations",
+    zone: "digital-minds",
     description: "International research initiative at the University of Bamberg applying mathematical methods to consciousness science. Runs research sprints including a dedicated AI Consciousness Sprint. Co-organises the Models of Consciousness conference series.",
     org_type: "university-centre",
     function: "research",
@@ -294,7 +268,7 @@ export const organisations: Organisation[] = [
   {
     name: "MINT Lab",
     url: "https://mintresearch.org/",
-    zone: "philosophical-foundations",
+    zone: "digital-minds",
     description: "Philosophy and computational research lab at Johns Hopkins University investigating normative competence in AI systems. Engages AI moral status questions, including whether AI systems can be persons without being sentient and whether moral agency requires consciousness. Led by Seth Lazar.",
     org_type: "university-centre",
     function: "research",
@@ -304,7 +278,7 @@ export const organisations: Organisation[] = [
   {
     name: "NYU Center for Mind Brain and Consciousness",
     url: "https://wp.nyu.edu/consciousness/",
-    zone: "philosophical-foundations",
+    zone: "digital-minds",
     description: "Research centre at New York University devoted to foundational questions in the mind-brain sciences. Has hosted debates on LLM sentience, co-sponsored events on AI welfare and moral status, and organised conferences on the philosophy of deep learning. Co-directed by David Chalmers and Ned Block.",
     org_type: "university-centre",
     function: "research",
@@ -316,7 +290,7 @@ export const organisations: Organisation[] = [
   {
     name: "The Harder Problem Project",
     url: "https://harderproblem.org/",
-    zone: "governance-advocacy",
+    zone: "digital-minds",
     description: "Nonprofit building societal readiness for artificial sentience. Produces practical resources for healthcare providers, journalists, educators, and researchers. Maintains the Sentience Readiness Index, ranking countries\u2019 preparedness for machine consciousness. Based in Portland, Oregon.",
     org_type: "nonprofit",
     function: "policy-governance",
