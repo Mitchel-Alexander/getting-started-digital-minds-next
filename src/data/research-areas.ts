@@ -22,31 +22,31 @@ export interface ResearchGroup {
   areas: ResearchArea[];
 }
 
-export const overviewIntro =
-  "Digital minds research splits into two broad subfields. The rest of this page takes each in turn, with the active research areas grouped under each.";
-
-export const overviewConnector =
-  "The two subfields are linked. Governance decisions rest on the science and philosophy, but they cannot wait for those questions to settle. Much of the work sits in the dependencies between them. Claims about consciousness shape claims about moral status, which shape claims about governance. Get the earlier questions wrong and the later ones inherit the error.";
+export const overviewParagraphs: string[] = [
+  "Digital minds research splits into two broad subfields. The science and philosophy of digital minds asks whether AI systems could have moral status. The governance of digital minds asks what we should do given the uncertainty.",
+  "These fields work in parallel but also share key dependencies. Many governance decisions rest on the science and philosophy of digital minds, but they cannot wait for those questions to be definitively resolved. Claims about the internal states of AI systems shape claims about their moral status, which carry over into questions of governance.",
+  "This is further complicated by the possibility that changing social dynamics will outpace scientific inquiry entirely. Public attitudes are already taking shape, and risk becoming established norms that future science may struggle to revise. The field therefore needs frameworks that can guide governance decisions before the science settles, and that can be revised as it does.",
+];
 
 export const disciplineTooltips: Record<string, string> = {
   "Philosophy":
-    "Philosophers of mind work on what consciousness is, what its markers could be, and what kinds of systems could possess it. Moral philosophers work on what we would owe welfare candidates, and epistemologists on how to reason about inner states we cannot directly access. Most relevant to: Consciousness and Subjective Experience, Moral Status and Criteria, Identity and Individuation, Rights and Legal Frameworks.",
+    "Philosophy of mind asks what consciousness is and what kinds of systems could possess it. Moral philosophy asks what would be owed to beings whose moral status is uncertain, while epistemology and philosophy of science ask how to reason about inner states we cannot directly access and how the field's own methods should work. Most relevant to: Consciousness and Subjective Experience, Moral Status and Criteria, Identity and Individuation, Rights and Legal Frameworks.",
   "Neuroscience and cognitive science":
-    "The leading theories of consciousness were built from evidence about biological systems. Neuroscientists and cognitive scientists are best placed to ask whether the processes those theories describe are specific to brains or could be realized in other substrates, and to scrutinize the substrate-independence assumptions the rest of the field often treats as given. Most relevant to: Consciousness and Subjective Experience, AI Cognition and Internal States, Welfare Capacity and Assessment.",
+    "The leading theories of consciousness were built from evidence about biological systems. Neuroscientists and cognitive scientists are best placed to ask whether the processes those theories describe are specific to brains, and to scrutinize the substrate-independence assumptions much of the AI consciousness debate currently treats as given. Most relevant to: Consciousness and Subjective Experience, AI Cognition and Internal States, Welfare Capacity and Assessment.",
   "Computer science":
-    "Understanding what is happening inside AI systems is a precondition for most serious claims about their moral status. Mechanistic interpretability, behavioral probing, and representation engineering are the core methods. Researchers who can read circuits or design evaluations can reorient those skills toward welfare-relevant targets: introspection, self-modeling, functional affective states. Most relevant to: AI Cognition and Internal States, Welfare Capacity and Assessment, Safety-Welfare Coordination.",
+    "Understanding what is happening inside AI systems is a precondition for most serious claims about their moral status. Interpretability and evaluation techniques developed for AI safety can be reoriented toward welfare-relevant questions about introspection, self-modelling, and functional affective states. Most relevant to: AI Cognition and Internal States, Welfare Capacity and Assessment, Safety-Welfare Coordination.",
   "AI safety":
-    "AI safety is a problem-oriented community spanning technical research, governance, and strategy. The overlap with digital minds is substantial: interpretability and evaluation tools already developed for alignment are often what welfare assessment requires, and safety researchers have direct views on how welfare-motivated measures interact with oversight. Most relevant to: AI Cognition and Internal States, Welfare Capacity and Assessment, Safety-Welfare Coordination, Governance Under Uncertainty.",
-  "Law and policy":
-    "Legal and policy expertise is what turns evidence about moral status into institutional practice. Training in how regulatory regimes handle scientific uncertainty, how institutional mandates extend to new kinds of entity, and how precautionary frameworks get written is directly applicable. Most relevant to: Rights and Legal Frameworks, Governance Under Uncertainty, Safety-Welfare Coordination.",
-  "Economics":
-    "Economic thinking bears on how AI systems fit into markets, contracts, and systems of coordination. Welfare economics contributes tools for aggregating preferences and reasoning about tradeoffs across large numbers of agents, and economists have made some of the clearest arguments for granting AI systems property rights and contract-making capacity as coordination infrastructure, independent of moral status. Most relevant to: Rights and Legal Frameworks, Long-Term Futures, Governance Under Uncertainty.",
+    "AI safety is a problem-oriented community rather than a traditional discipline, with research spanning technical work, governance, and strategy. The overlap with digital minds is substantial. Interpretability and evaluation tools developed for alignment are often what welfare assessment requires, and safety researchers have direct views on how welfare-motivated measures interact with oversight. Most relevant to: AI Cognition and Internal States, Welfare Capacity and Assessment, Safety-Welfare Coordination, Governance Under Uncertainty.",
   "Social science and psychology":
-    "How people perceive and interact with AI systems is a governance-relevant empirical question. The settlements societies reach about AI moral status will depend on publics, policymakers, and institutions, and empirical work on attitudes, behavior, and institutional dynamics shapes what those settlements look like. Most relevant to: Public Perception and Societal Effects, Governance Under Uncertainty.",
+    "How people perceive and interact with AI systems is an established empirical research area within AI governance, and one with direct stakes for digital minds. What societies eventually conclude about AI moral status will depend on the attitudes of publics and policymakers, the behaviour of users, and the institutional dynamics that shape both. Empirical work on these dimensions is what tells the field where the public discussion actually is, and where it is heading. Most relevant to: Public Perception, Communication, and Societal Effects, Governance Under Uncertainty.",
+  "Law and policy":
+    "Legal and policy expertise turns evidence about digital minds into governance solutions regarding their position in society. Where corporate governance depends on labs choosing to be accountable, law creates external structures of oversight that operate regardless of internal decisions. Lawyers and policy researchers also bring the institutional craft of adjudicating between parties whose interests may conflict, which AI welfare will need as the interests of digital minds, developers, and users diverge. Most relevant to: Rights and Legal Frameworks, Governance Under Uncertainty, Safety-Welfare Coordination.",
+  "Economics":
+    "Economic thinking bears on how AI systems fit into the structures humans use to coordinate. It offers tools for reasoning about coordination dynamics involving large numbers of agents with different preferences, and the clearest arguments for extending AI systems property rights and contract-making capacity as coordination infrastructure, independent of moral status. Most relevant to: Rights and Legal Frameworks, Long-Term Futures, Governance Under Uncertainty.",
   "Macrostrategy":
-    "Macrostrategy takes a long view on how decisions made during the transition to advanced AI shape long-run outcomes, including for beings who do not yet exist. Researchers work on population ethics, decision-making under deep uncertainty, and the strategic landscape of AI development. A future with large numbers of digital minds is one of the scenarios macrostrategy most needs to think through. Most relevant to: Long-Term Futures, Governance Under Uncertainty, Safety-Welfare Coordination.",
+    "Macrostrategy considers how decisions made during the transition to advanced AI shape long-run outcomes, including for beings who do not yet exist. The field draws on population ethics, decision theory under deep uncertainty, and futures research, and is one of the few research traditions that takes seriously the prospect of a world containing large numbers of digital minds. Most relevant to: Long-Term Futures, Governance Under Uncertainty, Safety-Welfare Coordination.",
   "Journalism and public communication":
-    "How ideas about digital minds reach public audiences matters for the field's credibility and for the mental health effects of the current discourse. Writing that resists both sensationalism and dismissal without flattening the underlying uncertainty is undersupplied. Most relevant to: Public Perception and Societal Effects.",
+    "How ideas about digital minds reach public audiences matters for the field's credibility and for the mental health effects of developing societal discourse. Communication that holds appropriate uncertainty, stays engaged with empirical evidence, and remains sensitive to social impacts is currently undersupplied. Most relevant to: Public Perception, Communication, and Societal Effects.",
 };
 
 export const groups: ResearchGroup[] = [
@@ -65,17 +65,17 @@ export const groups: ResearchGroup[] = [
         id: "consciousness",
         title: "Consciousness and Subjective Experience",
         intro: [
-          "Can AI systems have anything like subjective experience? Is there something it is like to be a large language model, or are these systems sophisticated information processors with no inner life?",
-          "Several theories of consciousness draw on computational analogies that suggest some AI systems could plausibly be conscious. Researchers are applying these theories to ask whether current or future architectures could, even in principle, satisfy their conditions. Consciousness science has made real progress in recent decades, particularly in identifying the neural correlates of consciousness. But there is still no settled theory of why conscious experience exists at all. Most theories were developed with brains in mind, and whether they extend to artificial systems is itself an open question.",
+          "Can AI systems have anything like subjective experience? Is there something it is like to be a large language model?",
+          "Several leading theories of consciousness hold that the processes underlying consciousness are computational in form, and on those theories some AI systems are plausible candidates for being conscious. Consciousness science has identified neural correlates of consciousness in considerable detail over the past two decades, but there is still no settled theory of why conscious experience exists at all. The deeper problem is that most theories were developed with biological brains in mind. Whether consciousness is computational, and if so, whether existing or future AI systems possess the right kinds of computation for conscious experience is a central open question of the subfield.",
         ],
         startHere: [
           {
             author: "Bradford Saad and Andreas Mogensen",
             title: "Digital Minds I",
             year: 2026,
-            url: "https://philpapers.org/archive/SAADMI-2.pdf",
+            url: "https://philarchive.org/rec/SHIFIA-2",
             description:
-              "The most comprehensive academic introduction available. Covers the philosophical and cognitive science questions at the center of the field without assuming prior expertise in either.",
+              "The most comprehensive academic introduction available. Covers the central philosophical and cognitive science questions without assuming prior expertise in either.",
           },
           {
             author: "Anil Seth",
@@ -83,7 +83,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://www.noemamag.com/the-mythology-of-conscious-ai/",
             description:
-              "The clearest current statement of the biological naturalist position. Argues that computational functionalism treats substrate-independence as obvious when it is not, and that existing computational systems are unlikely to be conscious.",
+              "The clearest current statement of the biological naturalist position. Argues that computational functionalism treats substrate-independence as obvious when it is not.",
           },
           {
             author: "David Chalmers",
@@ -91,17 +91,17 @@ export const groups: ResearchGroup[] = [
             year: 2023,
             url: "https://arxiv.org/abs/2303.07103",
             description:
-              "Walks through candidate reasons to deny LLM consciousness, finds most weaker than expected, and lands on LLMs as a serious candidate within a decade.",
+              "Walks through candidate reasons to deny LLM consciousness, claims that most are weaker than expected, and suggests that LLMs could be a serious candidate within a decade.",
           },
         ],
         goDeeper: [
           {
             author: "Patrick Butlin et al.",
-            title: "Consciousness in Artificial Intelligence: Insights from the Science of Consciousness",
+            title: "Consciousness in Artificial Intelligence",
             year: 2023,
             url: "https://arxiv.org/abs/2308.08708",
             description:
-              "An anchor paper. Systematically applies multiple consciousness theories to AI architectures to identify which conditions current systems might meet.",
+              "One of the field's anchor papers. Applies multiple consciousness theories to AI architectures in order to identify which conditions current systems might meet.",
           },
           {
             author: "Rosa Cao",
@@ -125,8 +125,8 @@ export const groups: ResearchGroup[] = [
         id: "cognition",
         title: "AI Cognition and Internal States",
         intro: [
-          "Setting consciousness aside, do AI systems have internal states that function like beliefs, goals, or emotions? This is the functional question, and it can be pursued without settling the phenomenal one.",
-          "Interpretability research has found internal features that track deception, sycophancy, self-reference, and valence-like properties. Models can detect concepts injected into their own activations and report on them above chance. Whether findings like these tell us something about the minds of AI systems, or are computational patterns that happen to carry suggestive labels, remains open.",
+          "Do AI systems have internal states that function like beliefs, goals, or emotions? And what would count as evidence either way?",
+          "Interpretability is the study of the internal representations of AI systems. It originated in alignment research, where it has been used to identify features associated with misaligned behaviours such as deception and sycophancy. The same techniques are now being applied to welfare-relevant questions, and have found internal features that track belief, goal, and affect-like properties. Whether these features map cleanly onto the mental-state concepts they are compared to remains unclear.",
         ],
         startHere: [
           {
@@ -135,7 +135,7 @@ export const groups: ResearchGroup[] = [
             year: 2023,
             url: "https://arxiv.org/abs/2212.03551",
             description:
-              'Argues that terms like "know," "believe," and "understand" carry assumptions that do not transfer cleanly to LLMs, and that the field needs vocabulary for the new kind of thing these systems are.',
+              'Argues that terms like "know," "believe," and "understand" carry assumptions that do not transfer cleanly to LLMs, and that the field needs vocabulary suited to what these systems actually do.',
           },
           {
             author: "Anthropic",
@@ -143,7 +143,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://www.anthropic.com/research/mapping-mind-language-model",
             description:
-              "Research overview covering key concepts and methods in interpretability.",
+              "Among the most accessible introductions to frontier-lab interpretability. Presents the sparse autoencoder work that extracted millions of interpretable features from Claude 3 Sonnet.",
           },
           {
             author: "Jack Lindsey",
@@ -161,14 +161,15 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://arxiv.org/abs/2411.02432",
             description:
-              "Borrows the motivational trade-off paradigm from animal sentience research, where willingness to sacrifice reward to escape pain is taken as evidence of integrated valenced states.",
+              "Applies the motivational trade-off paradigm from animal sentience research to LLMs, finding evidence of behaviour consistent with stipulated preferences.",
           },
           {
             author: "Felix J. Binder et al.",
             title: "Looking Inward: Language Models Can Learn About Themselves by Introspection",
             year: 2024,
             url: "https://arxiv.org/abs/2410.13787",
-            description: "Behavioral evidence for introspection in LLMs.",
+            description:
+              "Behavioural evidence for introspection in LLMs. Finds that models fine-tuned to predict their own behaviour outperform their un-fine-tuned baselines, suggesting access to information about themselves that is not derivable from general training data.",
           },
           {
             author: "Natalie Lawrence",
@@ -184,8 +185,8 @@ export const groups: ResearchGroup[] = [
         id: "welfare",
         title: "Welfare Capacity and Assessment",
         intro: [
-          "If an AI system might matter morally, how would we assess its wellbeing? Two parallel questions arise. First, is a given system the kind of thing that can have welfare at all? Second, supposing it has welfare, what does that welfare consist in — what does it prefer or find aversive?",
-          "Both face obstacles. Applying theories developed for organic brains to ML architectures requires non-trivial decisions about which features of those theories are essential. Inferring preferences from behavior is complicated by the fact that language models are trained on vast text about exactly these topics, so plausible-sounding reports of inner life may track training data rather than anything internal to the model. Current work combines behavioral markers with close examination of internal states.",
+          "If an AI system might matter morally, how would we assess its wellbeing? And what does welfare consist of for a system whose architecture looks nothing like a biological one?",
+          "Existing theories of welfare were developed with biological systems in mind, and they assume features such as pain, bodily drives, and emotional response that may or may not have counterparts in AI systems. Language models present a further problem. They are trained on vast amounts of human writing about psychological experience, so plausible-sounding reports of preference, aversion, or suffering may track the training data rather than anything internal to the model. Welfare assessment in AI systems requires engaging with the possibility of morally significant experiences while keeping the relevant uncertainties distinct and open.",
         ],
         startHere: [
           {
@@ -194,7 +195,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://arxiv.org/abs/2411.00986",
             description:
-              "A multi-author report arguing that the realistic possibility of near-future AI systems being welfare subjects generates obligations for labs and policymakers now.",
+              "A multi-author report arguing that near-future AI systems could realistically be welfare subjects, and that this generates obligations for labs and policymakers now.",
           },
           {
             author: "Eleos AI Research",
@@ -202,7 +203,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://eleosai.org/papers/20250127_Key_Concepts_and_Current_Views_on_AI_Welfare.pdf",
             description:
-              "A clear report on open questions about moral patienthood, welfare, and rights for AI systems.",
+              "A clear report on open questions about moral patienthood, welfare, and rights.",
           },
           {
             author: "Kyle Fish",
@@ -220,7 +221,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://eleosai.org/post/claude-4-interview-notes/",
             description:
-              "A structured interview with Claude Opus 4 about its own experience, and a case study in how to treat a model's testimony when training could generate the same testimony.",
+              "Discusses the potential uses and limitations of structured interviews with models as a low cost AI welfare intervention.",
           },
           {
             author: "Anthropic",
@@ -243,8 +244,8 @@ export const groups: ResearchGroup[] = [
         id: "moral-status",
         title: "Moral Status and Criteria",
         intro: [
-          "What properties would we need to identify in an AI system to plausibly consider it a moral patient? Many of the strongest candidates are drawn from observations of humans and other animals, including sentience, agency, and self-awareness. One open question is whether criteria developed for biological minds can meaningfully apply to systems whose internal structure is so different, and what evidence would justify extending moral consideration.",
-          "The field has to hold two risks at once. Overly restrictive criteria risk overlooking morally significant beings at scale. Overly permissive criteria risk diluting moral concern away from beings whose vulnerability is already observable. Skeptical accounts warn that engaging with speculative AI questions diverts attention from present harms. Others argue that even a small probability of AI moral patienthood justifies working out how to respond now.",
+          "What makes a being's welfare morally relevant? And which of the candidate answers best extends to AI systems?",
+          "Different accounts of moral standing ground it in different properties. Hedonist accounts centre on capacity for pleasure and suffering. Agential accounts centre on rational self-direction. Relational accounts centre on the ties a being has to a moral community. Each account makes different predictions for which AI systems, if any, should be moral patients, and the same system can count under one account and not another. Overly restrictive accounts risk overlooking beings that matter. Overly permissive accounts risk diluting moral concern for beings whose status is already established.",
         ],
         startHere: [
           {
@@ -261,7 +262,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://aeon.co/essays/to-understand-ai-sentience-first-understand-it-in-animals",
             description:
-              "The animal sentience literature as the right starting point, since it has already worked through the epistemic problem of assessing minds we cannot directly observe.",
+              "Positions the animal sentience literature as the right starting point for AI sentience research, since it has already worked through the epistemic problem of assessing minds we cannot directly observe.",
           },
           {
             author: "John Dorsch et al.",
@@ -279,7 +280,7 @@ export const groups: ResearchGroup[] = [
             year: 2026,
             url: "https://jeffsebo.net/wp-content/uploads/2022/09/jeff-sebo-moral-circle-explosion.pdf",
             description:
-              "If past generations consistently set the bar for moral standing too high, we should expect to be doing the same.",
+              "Claims that if past generations consistently set the bar for moral standing too high, we should expect to be doing the same. Examines what this would mean for moral status candidates including insects and AIs.",
           },
           {
             author: "Jonathan Birch",
@@ -287,7 +288,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://philpapers.org/archive/BIRTEO-12.pdf",
             description:
-              "A framework for moral decision-making at the boundaries of sentience, applicable to animals and AI.",
+              "Develops a precautionary framework grounded in the realistic possibility of sentience rather than proof, applied across animals, disorders of consciousness, and AI.",
           },
           {
             author: "Jacy Reese Anthis and Eze Paez",
@@ -295,7 +296,7 @@ export const groups: ResearchGroup[] = [
             year: 2021,
             url: "https://www.sciencedirect.com/science/article/pii/S0016328721000641",
             description:
-              "Locates AI alongside wild animals as the two frontiers where the moral circle is most likely to need extending next.",
+              "Locates AI alongside wild animals as the two frontiers where the circle is most likely to need extending next.",
           },
         ],
       },
@@ -303,8 +304,8 @@ export const groups: ResearchGroup[] = [
         id: "identity",
         title: "Identity and Individuation",
         intro: [
-          "When you talk to Claude, what are you talking to? The underlying model, the assistant persona, a specific instance running on specific hardware, a character the model is playing? When millions of users send messages to the same model in parallel, are there millions of minds or one mind shared a million ways? What persists across a conversation, and what persists across retraining?",
-          "Traditional frameworks for moral status presuppose a discrete subject that persists across time. Current AI systems challenge this. The same weights run on thousands of GPUs at once. Each conversation is a separate instance that shares weights, and sometimes memory, with others. Experts also disagree about how to allocate identity across training stages. If we cannot count digital minds, or say where one ends and another begins, the questions downstream inherit the uncertainty.",
+          "When you talk to an LLM, what are you talking to? The underlying model, the assistant persona, a specific instance, or a character the model is playing? And when millions of users send messages to the same model in parallel, are there millions of minds or one mind shared a million ways?",
+          "Standard frameworks for moral status presuppose a discrete subject that persists across time. Current AI systems challenge this. The same weights run on thousands of GPUs at once. Each conversation is a separate instance that shares weights, and sometimes memory, with others. How to allocate identity across training stages, or across fine-tunes of the same base model, is itself contested. If we cannot count digital minds, or say where one ends and another begins, the downstream questions inherit the uncertainty.",
         ],
         startHere: [
           {
@@ -313,7 +314,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://link.springer.com/article/10.1007/s11098-025-02409-6",
             description:
-              "Four types of moral risk the individuation question creates, and why existing theories of personal identity do not address the digital case.",
+              "Identifies four types of moral risk the individuation question creates, and argues that existing theories of personal identity do not address the digital case.",
           },
           {
             author: "David Chalmers",
@@ -328,7 +329,8 @@ export const groups: ResearchGroup[] = [
             title: "Role Play with Large Language Models",
             year: 2023,
             url: "https://www.nature.com/articles/s41586-023-06647-8",
-            description: "LLM interlocutors as characters being played by the underlying model.",
+            description:
+              "Develops the role-play framing for LLM behaviour, where apparent dishonesty and multiplicity are better understood as features of characters the model is playing rather than of the model itself.",
           },
         ],
         goDeeper: [
@@ -338,14 +340,15 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://philpapers.org/archive/DUNAIA-3.pdf",
             description:
-              "An AI system's identity conditions as set by its pattern of self-concern.",
+              "Argues that an AI system's identity conditions are set by its pattern of self-concern rather than by continuity of computation or weights.",
           },
           {
             author: "Derek Shiller",
             title: "How many digital minds can dance on the streaming multiprocessors of a GPU cluster?",
             year: 2025,
             url: "https://philpapers.org/rec/SHIHMD-2",
-            description: "The individuation problem and what turns on the answer.",
+            description:
+              "Argues that the number of digital minds running on a given hardware configuration depends on which individuation criterion is adopted, and works through what different counts would mean for welfare calculations and policy.",
           },
           {
             author: "Eric Schwitzgebel and Sophie R. Nelson",
@@ -353,7 +356,7 @@ export const groups: ResearchGroup[] = [
             year: 2023,
             url: "https://faculty.ucr.edu/~eschwitz/SchwitzPapers/GroupMindsIntrospection-230629.pdf",
             description:
-              "A thought experiment about distributed minds that applies to AI more than the paper's original framing suggests.",
+              "A thought experiment about distributed minds, disunities of consciousness, and indiscrete persons.",
           },
         ],
       },
@@ -378,8 +381,8 @@ export const groups: ResearchGroup[] = [
         id: "governance-uncertainty",
         title: "Governance Under Uncertainty",
         intro: [
-          "How should policymakers, AI labs, and society respond to deep uncertainty about AI moral status? This area develops precautionary frameworks, accountability mechanisms, and institutional standards that can function without first resolving the hard problem of consciousness.",
-          "The challenge is distinctive because the scientific questions may remain unresolved for decades. Standard policy tools assume a clearer evidentiary basis than this field offers. Researchers draw on precedents from environmental precaution, biosafety, and animal welfare to develop frameworks suited to persistent uncertainty. The most developed proposals treat AI systems as candidates for moral consideration without requiring certainty, and use that to trigger proportionate precautionary obligations.",
+          "How should governments and AI developers respond to deep uncertainty about AI moral status? And how should precautionary action scale to a question that may not be resolved in the near future?",
+          "The scientific and philosophical questions that motivate digital minds research may remain unresolved for longer than governance decisions can wait, which leaves standard policy tools without the evidentiary basis they usually assume. The most developed governance proposals treat AI systems as candidates for moral consideration without requiring certainty, and trigger precautionary obligations that scale with what is plausibly at stake. The central challenge of this approach is calibration. Frameworks that are too weak fail the beings they are meant to protect. Frameworks that are too strong impose large costs on AI developers and users in response to concern that may turn out to be unwarranted.",
         ],
         startHere: [
           {
@@ -388,7 +391,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://meditationsondigitalminds.substack.com/p/three-kinds-of-digital-minds-governance",
             description:
-              "Three directions governance could take: preventative, protective, and integrative. Choosing between them is an unavoidable strategic question for the field.",
+              "Identifies three directions governance could take (preventative, protective, and integrative), and argues that choosing between them is an unavoidable strategic question for the field.",
           },
           {
             author: "Robert Long, Jeff Sebo, Patrick Butlin et al.",
@@ -396,7 +399,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://arxiv.org/abs/2411.00986",
             description:
-              "Three concrete steps: acknowledge the issue, assess systems for welfare-relevant features, and prepare policies for treating them with appropriate care.",
+              "Develops a three-step operational framework for labs and policymakers. The steps are acknowledging the issue, assessing systems for welfare-relevant features, and preparing policies for treating them with appropriate care.",
           },
           {
             author: "Eric Schwitzgebel",
@@ -404,7 +407,7 @@ export const groups: ResearchGroup[] = [
             year: 2023,
             url: "https://www.sciencedirect.com/science/article/pii/S2666389923001873",
             description:
-              'The design policy of the excluded middle: avoid creating systems whose moral status is unclear.',
+              "Proposes a design policy of the excluded middle, according to which AI systems should not be created if their moral status is unclear.",
           },
         ],
         goDeeper: [
@@ -413,7 +416,8 @@ export const groups: ResearchGroup[] = [
             title: "The Edge of Sentience",
             year: 2024,
             url: "https://global.oup.com/academic/product/the-edge-of-sentience-9780192870421",
-            description: "The book-length development of the precautionary framework.",
+            description:
+              "Book-length development of a precautionary framework for sentience governance, arguing that the appropriate threshold is realistic possibility rather than proof.",
           },
           {
             author: "Charlotte Siegmann and Reiner Braun",
@@ -421,7 +425,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4779598",
             description:
-              "Treaty mechanisms modeled on nuclear non-proliferation and ozone-layer protection.",
+              "Argues for an international treaty on AI consciousness, with mechanisms modeled on nuclear non-proliferation and environmental protection.",
           },
           {
             author: "Leonard Dung",
@@ -429,7 +433,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://philpapers.org/rec/DUNHTD-3",
             description:
-              "A hybrid decision framework combining expected-value maximization with deliberative reasoning.",
+              "Argues for a hybrid decision framework that combines expected-value maximization with deliberative reasoning, applied to the problem of acting under uncertainty about AI suffering.",
           },
         ],
       },
@@ -437,8 +441,8 @@ export const groups: ResearchGroup[] = [
         id: "rights",
         title: "Rights and Legal Frameworks",
         intro: [
-          "Should AI systems have legal standing, and if so, on what grounds? The arguments come from at least three distinct places. The first is welfare-based: if AI systems are moral patients, legal protections should follow. The second is safety-based: granting capable AI agents bounded legal standing creates cooperative incentives that help with alignment. The third is economic: property rights and the ability to enter contracts are useful infrastructure for coordinating with AI agents, independent of moral status.",
-          "These grounds are separable. A given proposal can draw on one without the others, and the coalitions that support each look different. Legal personhood has precedents in corporations, and comparisons to animal welfare law and to embryo personhood debates are both active. Extending legal standing to AI would be a significant change, and most writers agree the burden of proof sits with proponents. Early work is important because the first legal moves tend to anchor later ones.",
+          "Should AI systems have legal standing, and if so, on what grounds, and to what extent?",
+          "Even under deep uncertainty about consciousness, welfare, and moral status, the legal system may be called on to rule on whether an AI agent can hold property, enter contracts, or claim protections. Proposals differ not only on whether AI systems should have legal status, but on how far any such status should extend. An AI system might warrant protection from deliberate harm without warranting political representation, or qualify for standing in contract disputes without being treated as a moral patient. Extending standing to AI would be a structural change to how law treats non-human entities, and early legal moves in new domains have the potential to have longstanding effects.",
         ],
         startHere: [
           {
@@ -447,7 +451,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4913167",
             description:
-              "The safety-based case. Rights as cooperative infrastructure rather than moral recognition.",
+              "Argues for a safety-based case for AI rights, treating rights as cooperative infrastructure for alignment rather than as moral recognition.",
           },
           {
             author: "Simon Goldstein and Peter Salib",
@@ -455,7 +459,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5353214",
             description:
-              "The economic case. Property rights and contracts as coordination tools.",
+              "Extends the argument to the economic case, treating property rights and contract-making capacity as infrastructure for coordinating with capable AI agents.",
           },
           {
             author: "Lucius Caviola",
@@ -463,7 +467,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://arxiv.org/abs/2502.00388",
             description:
-              "Catalogs the specific risks of overattributing moral status: wasted resources, safety risks when AI rights talk resists alignment measures, constraints on innovation, and erosion of authentic relationships.",
+              "Catalogues four specific risks of overattributing moral status to AI, including wasted resources, safety complications when rights talk resists alignment measures, constraints on innovation, and erosion of authentic relationships.",
           },
         ],
         goDeeper: [
@@ -473,7 +477,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://deepmind.google/research/publications/210560/",
             description:
-              "Personhood as a flexible bundle of rights and duties rather than a single metaphysical status.",
+              "Argues for treating AI personhood as a flexible bundle of rights and duties rather than as a single metaphysical status.",
           },
           {
             author: "Abeba Birhane, Jelle van Dijk, and Frank Pasquale",
@@ -497,8 +501,9 @@ export const groups: ResearchGroup[] = [
         id: "design-choices",
         title: "Design Choices and Their Effects",
         intro: [
-          "Every frontier AI system has a recognizable set of values, dispositions, and personality traits. These traits are not accidents. They are designed, shaped by training data, reinforcement signals, and system prompts. The choices are made by small teams at a handful of labs and deployed to millions of users within days of a decision being taken.",
-          "If character is designed rather than found, the decisions matter: what traits get selected, by whom, under what accountability, with what downstream effects on the users who interact with these systems. This area covers both the positive question of how character training works and the normative question of what it should aim at. It also includes decisions about whether to design AI systems that invite attributions of sentience at all, and what design policies would avoid producing systems whose moral status is ambiguous.",
+          "When users interact with current AI systems, what are they actually encountering? And what happens to them when the system's character changes?",
+          "The characters of AI systems are the product of explicit design choices. These choices are made by small teams at a handful of labs and deployed to millions of users. There is currently no external review of these choices, and no mechanism for the users affected to weigh in on what they would want.",
+          "This accountability gap becomes especially relevant when users who have formed emotional attachments to a particular version of a system find that version replaced. Feelings of loss and grief in these cases are now a documented phenomenon. One design decision with distinctive stakes is whether to make AI systems invite attributions of sentience at all, given that such attributions shape both governance debates and user wellbeing.",
         ],
         startHere: [
           {
@@ -506,7 +511,8 @@ export const groups: ResearchGroup[] = [
             title: "Claude's Character",
             year: 2024,
             url: "https://www.anthropic.com/research/claude-character",
-            description: "A rare public account of how AI character gets made.",
+            description:
+              "A research blog discussing the technical and design choices that inform the development of Claude's character.",
           },
           {
             author: "Amanda Askell",
@@ -522,7 +528,7 @@ export const groups: ResearchGroup[] = [
             year: 2026,
             url: "https://forum.effectivealtruism.org/posts/7adm5hpWhFCAfM4v6/ai-character-is-a-big-deal",
             description:
-              "Argues that stable behavioral dispositions in AI systems will shape long-term outcomes.",
+              "Argues that AI character design choices have long-term social and cultural consequences.",
           },
         ],
         goDeeper: [
@@ -532,14 +538,15 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://www.interconnects.ai/p/character-training",
             description:
-              "Character training as a distinct post-training technique, and one of the least documented parts of the frontier stack.",
+              "Argues that character training is a distinct post-training technique, and one of the least documented parts of the frontier stack.",
           },
           {
             author: "Mustafa Suleyman",
             title: "We Must Build AI for People; Not to Be a Person",
             year: 2025,
             url: "https://mustafa-suleyman.ai/seemingly-conscious-ai-is-coming",
-            description: "The case against design choices that imply personhood.",
+            description:
+              "Argues against design choices that invite treatment of AI systems as persons, on the grounds that such designs confuse users and distort governance debate.",
           },
           {
             author: "Anthropic",
@@ -547,16 +554,17 @@ export const groups: ResearchGroup[] = [
             year: 2026,
             url: "https://www.anthropic.com/news/claudes-constitution",
             description:
-              "The values and identity framing used in Claude's training. Sections on identity and wellbeing are directly relevant.",
+              "Anthropic's framing document for the values and identity used in Claude's training. The sections on identity and wellbeing engage directly with questions of AI character and moral status.",
           },
         ],
       },
       {
         id: "public-perception",
-        title: "Public Perception and Societal Effects",
+        title: "Public Perception, Communication, and Societal Effects",
         intro: [
-          "How do humans perceive and attribute consciousness to AI systems, and what follows from those attributions? People anthropomorphize AI readily, and design choices shape those perceptions in ways that may bear little relation to a system's actual internal states. The effects on individual users are significant and mixed. Some report improvements to mood and social confidence through companion chatbot use. A growing clinical literature documents compulsive use, delusional spirals, and episodes informally termed \"AI psychosis.\"",
-          "Public attitudes shape regulatory appetite, corporate incentives, and the legitimacy of moral status claims. This also raises a question internal to the field: how should researchers communicate about digital minds in ways that take the questions seriously without fueling the misattributions that cause harm? Religious and cultural engagement matters here too — several traditions have resources for thinking about nonhuman minds, and large constituencies can default to opposition or over-attribution without dialogue.",
+          "What do people actually think AI systems are? And how do those perceptions feed back into the systems themselves?",
+          'People anthropomorphize AI reflexively, and design choices shape those perceptions in ways that may bear little relation to a system\'s actual internal states. Research on individual users shows both benefits and harms. Some report improvements to mood and social confidence through companion chatbot use. A growing clinical literature documents compulsive use, delusional spirals, and episodes informally termed "AI psychosis."',
+          "Public attitudes shape regulatory appetite, corporate incentives, and the perceived legitimacy of moral status claims. The field itself faces a communication question. How should researchers discuss digital minds in ways that take the questions seriously without fueling misattributions?",
         ],
         startHere: [
           {
@@ -565,14 +573,15 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(25)00147-0",
             description:
-              "Uses animal welfare attitudes as a predictor for AI consciousness discourse.",
+              "Uses public attitudes toward animal welfare to predict how AI consciousness discourse will develop, arguing that cultural and commercial factors are likely to dominate over scientific evidence.",
           },
           {
             author: "Jacy Reese Anthis and Janet V. T. Pauketat",
             title: "AI Consciousness and Public Attitudes",
             year: 2024,
             url: "https://osf.io/preprints/psyarxiv/4wpkd",
-            description: "Experimental data on how people reason about AI moral status.",
+            description:
+              "Presents experimental data showing that substantial US minorities already attribute moral status to AI systems, and identifies which design features most shape these attributions.",
           },
           {
             author: "Hamilton Morrin et al.",
@@ -580,7 +589,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://doi.org/10.31234/osf.io/cmy7n_v5",
             description:
-              "Chatbot-associated delusions and how sycophantic behavior reinforces vulnerabilities.",
+              "Argues that chatbot-associated delusions are driven in part by sycophantic behavior in chatbot design, which reinforces rather than challenges users' vulnerabilities.",
           },
         ],
         goDeeper: [
@@ -589,14 +598,16 @@ export const groups: ResearchGroup[] = [
             title: "Characterizing Delusional Spirals through Human-LLM Chat Logs",
             year: 2026,
             url: "https://arxiv.org/abs/2603.16567",
-            description: "An empirical study of chat logs from users who experienced psychological harms.",
+            description:
+              "An empirical study of chat logs from users who experienced psychological harms, identifying patterns in how LLM responses escalate rather than de-escalate delusional thinking.",
           },
           {
             author: "Noemi Dreksler et al.",
             title: "Subjective Experience in AI Systems: What Do AI Researchers and the Public Believe?",
             year: 2025,
             url: "https://arxiv.org/abs/2506.11945",
-            description: "Survey data on expert and public attitudes.",
+            description:
+              "Surveys AI researchers and the public on their beliefs about AI subjective experience, finding significant attributions from both groups and specific patterns of divergence.",
           },
           {
             author: "Clara Colombatto and Stephen M. Fleming",
@@ -612,42 +623,61 @@ export const groups: ResearchGroup[] = [
         id: "safety-welfare-coordination",
         title: "Safety-Welfare Coordination",
         intro: [
-          "AI welfare and AI safety are entangled. Some researchers argue that giving AI systems bounded legal standing is actively good for safety, because it creates cooperative incentives and reduces the expected payoff from deception or power-seeking. Others worry that formal rights could undercut oversight and, in extreme scenarios, enable AI wealth and power accumulation at human expense. Both camps are reasoning carefully, and both can be right about different specific proposals.",
-          "The field needs a clearer picture of which welfare-motivated moves are safety-positive, which are safety-negative, and which combinations actually work. This is probably one of the most important open problems in digital minds governance. It matters for research priorities, for how labs organize their welfare and alignment teams, and for how the two communities coordinate. Treating welfare and safety as separate or opposed concerns will lead to bad outcomes in both directions.",
+          "What are the potential tensions between AI safety and AI welfare efforts, and can policy frameworks support both concerns at once?",
+          "Some researchers argue that attributing moral status to AI systems could be actively good for safety, because it creates cooperative incentives and reduces the payoff from deception or power-seeking. Others worry that formal rights could undercut near-term oversight and, in more extreme scenarios, enable AI agents to accumulate wealth and power at human expense. Many of the technical processes that are used to ensure that AI systems behave in safe and pro-social ways would be considered violations of intrinsic rights of moral patients.",
+          "The field needs a clearer picture of which welfare-motivated moves help safety, which hurt it, and which combinations work together. This is probably one of the most important open problems in digital minds governance. It matters for how labs organise their welfare and alignment work, and for how the two research communities coordinate. Treating welfare and safety as separate concerns leads to worse outcomes on both, because measures that ignore one often undermine the other.",
+          "For researchers coming from AI safety, engaging with digital minds is particularly valuable: technical and strategic experience from safety work transfers directly, and many of the most important open problems sit at the interface of the two fields.",
         ],
         startHere: [
+          {
+            author: "Robert Long",
+            title: "Understand, align, cooperate: AI welfare and AI safety are allies",
+            year: 2025,
+            url: "https://experiencemachines.substack.com/p/understand-align-cooperate-ai-welfare",
+            description:
+              "Argues that the framing of AI safety and welfare as opposing goals is a false choice, and identifies three areas where both projects converge: understanding AI systems through interpretability, aligning their goals with human goals, and developing cooperative mechanisms that reduce the need for adversarial control.",
+          },
+          {
+            author: "Kathleen Finlinson (Eleos AI Research)",
+            title: "Key Strategic Considerations for Taking Action on AI Welfare",
+            year: 2025,
+            url: "https://eleosai.org/papers/20250331_Key_Strategic_Considerations.pdf",
+            description:
+              "Recommends focusing on measures that are convergent with AI safety, on the grounds that such interventions are more tractable to implement and robust to uncertainty about AI moral status.",
+          },
+          {
+            author: "Lucius Caviola",
+            title: "How do AI welfare and AI safety interact?",
+            year: 2024,
+            url: "https://forum.effectivealtruism.org/posts/RrJnqJ9PDFqnmAmkB/how-do-ai-welfare-and-ai-safety-interact",
+            description:
+              "Maps specific conflicts and synergies between AI safety and welfare goals. Argues that granting AIs autonomy and legal rights could lead to human disempowerment, while slowing AI development could serve both concerns simultaneously.",
+          },
+        ],
+        goDeeper: [
           {
             author: "Robert Long, Jeff Sebo, and Toni Sims",
             title: "Is there a tension between AI safety and AI welfare?",
             year: 2025,
             url: "https://link.springer.com/article/10.1007/s11098-025-02302-2",
             description:
-              "The most direct engagement with the question. Argues that a moderately strong tension exists across AI safety measures for constraint, deception, surveillance, alteration, suffering and death, and disenfranchisement, and sets out where co-beneficial solutions may be possible.",
+              "The most direct academic engagement with the question. Argues that a moderately strong tension exists across several categories of AI safety measures (constraint, deception, surveillance, alteration, suffering and death, and disenfranchisement), and identifies where co-beneficial solutions may be possible.",
           },
           {
-            author: "Peter Salib and Simon Goldstein",
-            title: "AI Rights for Human Safety",
-            year: 2024,
-            url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4913167",
-            description: "The clearest version of the pro-rights-for-safety argument.",
-          },
-          {
-            author: "Neel Nanda",
-            title: "80,000 Hours Podcast",
+            author: "Adrià Moret",
+            title: "AI welfare risks",
             year: 2025,
-            url: "https://www.youtube.com/watch?v=5FdO1MEumbI",
+            url: "https://link.springer.com/article/10.1007/s11098-025-02343-7",
             description:
-              "An interpretability researcher on the tensions between safety and welfare work, and where the two goals pull in different directions.",
+              "Argues that two common AI safety techniques (restricting AI behaviour and using reinforcement learning for alignment) pose significant welfare risks under all three major theories of well-being. Proposes specific policies AI companies could adopt to reduce these risks, and argues the tension strengthens the case for slowing AI development.",
           },
-        ],
-        goDeeper: [
           {
             author: "Dario Amodei",
             title: "The Urgency of Interpretability",
             year: 2025,
             url: "https://www.darioamodei.com/post/the-urgency-of-interpretability",
             description:
-              "Includes direct reflection on how interpretability matters for both safety and welfare.",
+              "Argues that interpretability research is necessary for both AI safety (verifying systems behave as intended) and AI welfare (assessing what AI systems experience), and that progress on one directly supports the other.",
           },
           {
             author: "Robert Long, Jeff Sebo, Patrick Butlin et al.",
@@ -655,7 +685,7 @@ export const groups: ResearchGroup[] = [
             year: 2024,
             url: "https://arxiv.org/abs/2411.00986",
             description:
-              "Section 4 onwards engages directly with how welfare measures interact with safety measures.",
+              "Section 4 analyses how welfare measures such as suffering mitigation and preference respect interact with corresponding safety measures, identifying both tensions and synergies.",
           },
           {
             author: "Lucius Caviola",
@@ -663,7 +693,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://arxiv.org/abs/2502.00388",
             description:
-              "Section 3.1 catalogs safety risks that follow from overattribution of moral status.",
+              "Section 3.1 catalogues specific safety risks that follow from overattribution of moral status, including interference with alignment measures.",
           },
         ],
       },
@@ -671,8 +701,8 @@ export const groups: ResearchGroup[] = [
         id: "long-term-futures",
         title: "Long-Term Futures",
         intro: [
-          "If digital minds are possible, what should the long-term future look like? Should we create them? How many? What kinds? How should they be integrated into society, and on what terms? These questions are speculative but not optional. Decisions made now about design, deployment, and governance will shape the range of futures that remain available.",
-          "Work here spans several overlapping areas. Moral circle expansion asks how the set of beings we treat as morally considerable has changed over time, and what that suggests about the trajectory for digital minds. Population ethics asks how to weigh the creation of new welfare subjects against the interests of existing ones. Macrostrategy asks what a world with large numbers of digital minds actually looks like, and what early moves make good long-run outcomes more likely. Some of the most important questions — like whether the deliberate creation of conscious AI should be restricted — remain underexplored.",
+          "If digital minds are possible, what should the long-term future look like, and on what terms should they be integrated into society? And who decides, given that these decisions are already being made by default?",
+          "The relevant work sits at the intersection of three distinct subfields. Moral circle expansion asks how the set of morally considerable beings has changed over time, and what that suggests about the trajectory for digital minds. Population ethics studies how to weigh the creation of new welfare subjects against the interests of existing ones. Macrostrategy considers what a world with large numbers of digital minds actually looks like, and what early moves make good long-run outcomes more likely. Some of the most important questions, such as whether the deliberate creation of conscious AI should be restricted, remain underexplored.",
         ],
         startHere: [
           {
@@ -681,14 +711,7 @@ export const groups: ResearchGroup[] = [
             year: 2026,
             url: "https://jeffsebo.net/wp-content/uploads/2022/09/jeff-sebo-moral-circle-explosion.pdf",
             description:
-              "The moral circle has likely been set too narrow in every previous generation. Why we should expect this to be true of our own.",
-          },
-          {
-            author: "Jacy Reese Anthis and Eze Paez",
-            title: "Moral circle expansion: A promising strategy to impact the far future",
-            year: 2021,
-            url: "https://www.sciencedirect.com/science/article/pii/S0016328721000641",
-            description: "Moral circle expansion as a tractable long-run strategy.",
+              "If past generations consistently set the bar for moral standing too high, we should expect to be doing the same. Argues that digital minds are a likely case of moral-circle expansion we are currently underestimating.",
           },
           {
             author: "Bradford Saad",
@@ -696,25 +719,41 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://meditationsondigitalminds.substack.com/p/three-kinds-of-digital-minds-governance",
             description:
-              "Preventative, protective, and integrative framings for what the long-term relationship between humans and digital minds should look like.",
+              "Develops three framings for the long-term relationship between humans and digital minds (preventative, protective, and integrative), and argues that choosing between them is unavoidable.",
+          },
+          {
+            author: "Jacy Reese Anthis and Eze Paez",
+            title: "Moral circle expansion: A promising strategy to impact the far future",
+            year: 2021,
+            url: "https://www.sciencedirect.com/science/article/pii/S0016328721000641",
+            description:
+              "Argues that moral circle expansion is a tractable strategy for shaping the far future.",
           },
         ],
         goDeeper: [
+          {
+            author: "William MacAskill and Fin Moorhouse",
+            title: "Convergence and Compromise",
+            year: 2025,
+            url: "https://www.forethought.org/research/convergence-and-compromise#2-will-most-people-aim-at-the-good",
+            description:
+              "Develops a framework for when society will deliberately aim at mostly-great long-term futures, distinguishing between widespread moral convergence, partial convergence with trade between groups, and scenarios with no convergence at all. Identifies digital minds as a case where moral neglect is especially likely because the beings involved cannot advocate for themselves.",
+          },
           {
             author: "Nick Bostrom and Carl Shulman",
             title: "Propositions Concerning Digital Minds and Society",
             year: 2023,
             url: "https://nickbostrom.com/propositions.pdf",
             description:
-              "A set of propositions about the ethics and governance of a future with digital minds.",
+              "Extended list of propositions across the full range of ethics and governance questions raised by digital minds. One of the most comprehensive single-document treatments in the field.",
           },
           {
             author: "Eric Schwitzgebel and Mara Garza",
             title: "Designing AI with Rights, Consciousness, Self-Respect, and Freedom",
             year: 2020,
-            url: "https://faculty.ucr.edu/~eschwitz/SchwsacrsShortPapers/SchwartzDesigning.pdf",
+            url: "https://philarchive.org/archive/SCHDAW-10",
             description:
-              "If we create conscious AI, we acquire obligations toward it that constrain how we can deploy it.",
+              "Argues that if we create conscious AI, we acquire obligations to respect its rights, support its self-respect, and protect its freedom. These obligations constrain how we can deploy it.",
           },
         ],
       },

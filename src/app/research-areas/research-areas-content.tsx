@@ -85,6 +85,13 @@ function DisciplineChip({ name }: { name: string }) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
 
+  // Each tooltip ends with "Most relevant to: <comma-separated list>." Split so
+  // we can render the relevance line on its own with a bold label.
+  const relevantMarker = "Most relevant to:";
+  const splitIdx = tooltip ? tooltip.indexOf(relevantMarker) : -1;
+  const description = splitIdx >= 0 ? tooltip.slice(0, splitIdx).trim() : tooltip;
+  const relevantTo = splitIdx >= 0 ? tooltip.slice(splitIdx + relevantMarker.length).trim() : "";
+
   return (
     <span ref={ref} className="relative inline-block">
       <button
@@ -104,7 +111,13 @@ function DisciplineChip({ name }: { name: string }) {
           role="tooltip"
           className="absolute bottom-full left-0 z-50 mb-2 w-72 rounded-xl border border-border bg-white px-4 py-3 text-xs leading-relaxed text-foreground/80 shadow-lg"
         >
-          {tooltip}
+          <span className="block">{description}</span>
+          {relevantTo && (
+            <span className="mt-2 block">
+              <strong className="font-semibold text-foreground">{relevantMarker}</strong>{" "}
+              {relevantTo}
+            </span>
+          )}
           <span className="absolute -bottom-1.5 left-4 h-3 w-3 rotate-45 border-b border-r border-border bg-white" />
         </span>
       )}
@@ -133,7 +146,7 @@ function ReadingItem({ item }: { item: Reading }) {
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 inline-block border border-accent rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
+          className="mt-3 inline-block border border-accent rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all"
         >
           Read
         </a>
@@ -249,10 +262,10 @@ export function ResearchAreasContent() {
               See who is working on these questions, or find events and programs to connect with the field.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/field-map" className="inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors">
+              <Link href="/field-map" className="inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all">
                 Field Map
               </Link>
-              <Link href="/events" className="inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors">
+              <Link href="/events" className="inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all">
                 Events & Opportunities
               </Link>
             </div>

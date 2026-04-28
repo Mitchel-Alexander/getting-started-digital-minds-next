@@ -11,7 +11,7 @@ const focusAreas = [
   {
     id: "safety",
     label: "Digital Minds and AI Safety",
-    description: "Digital minds and AI welfare research are closely linked with AI safety. Some safety measures — constraint, monitoring, shutdown — have direct implications for AI welfare if the systems involved are moral patients. Many interventions are positive for both. If your background is in AI safety, the technical skills and strategic instincts you have developed are directly useful here.",
+    description: "AI welfare and AI safety are closely linked. Some safety measures, including constraint, monitoring, and shutdown, have direct implications for AI welfare if the systems involved are moral patients. Some interventions improve both at once. If your background is in AI safety, the technical skills and strategic instincts you have already developed transfer directly.",
     href: "/research-areas#safety-welfare-coordination",
     cta: "Explore Safety-Welfare Coordination",
     mark: <FocusMarkFieldMap size={96} className="text-accent" />,
@@ -19,7 +19,7 @@ const focusAreas = [
   {
     id: "research",
     label: "Research Areas",
-    description: "The key open questions in digital minds research — from consciousness and sentience to welfare, governance, and long-term futures — with readings for each area.",
+    description: "A guide to the digital minds research field, with the central questions and recommended readings for each area.",
     href: "/research-areas",
     cta: "Explore Research Areas",
     mark: <FocusMarkResearch size={96} className="text-accent" />,
@@ -35,7 +35,7 @@ const focusAreas = [
   {
     id: "field-map",
     label: "Field Map",
-    description: "An interactive directory of organizations working on AI consciousness, welfare, and related research.",
+    description: "An interactive directory of projects and organisations across AI consciousness, welfare, and adjacent research areas.",
     href: "/field-map",
     cta: "Explore Field Map",
     mark: <FocusMarkSafety size={96} className="text-accent" />,
@@ -135,7 +135,7 @@ export function HomeContent() {
                         </p>
                         <Link
                           href={area.href}
-                          className="mt-6 inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
+                          className="mt-6 inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all"
                         >
                           {area.cta}
                         </Link>

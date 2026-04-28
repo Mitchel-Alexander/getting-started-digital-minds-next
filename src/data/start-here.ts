@@ -23,7 +23,7 @@ export const tiers: Tier[] = [
     title: "An afternoon",
     items: [
       {
-        text: "Subscribe to the Digital Minds Newsletter. The closest thing the field has to a shared bulletin board. Covers new research, events, job openings, and policy developments as they happen.",
+        text: "Subscribe to the Digital Minds Newsletter. The closest thing the field has to a shared bulletin board, covering new research, events, jobs, and policy as they happen.",
         links: [
           {
             label: "Digital Minds Newsletter",
@@ -32,7 +32,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Read the 80,000 Hours profile on the moral status of digital minds. A short introduction to what the open questions are, why they matter, and where the uncertainty sits.",
+        text: "Read the 80,000 Hours profile on the moral status of digital minds. A short, accessible introduction to the field’s central questions and where the uncertainty sits.",
         links: [
           {
             label: "80,000 Hours profile on the moral status of digital minds",
@@ -41,7 +41,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Browse this Quickstart Guide. A curated reading list that scales with your level of commitment, from a single paper to a full syllabus.",
+        text: "Browse this Quickstart Guide. A curated reading list with options ranging from a single paper to a full syllabus.",
         links: [
           {
             label: "Quickstart Guide",
@@ -50,7 +50,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Watch an episode of Exploring Machine Consciousness (PRISM), Our Lives With Bots, or Conspicuous Cognition. Three channels approaching consciousness, AI, and moral status from different directions. Good for getting a sense of how people in the field actually talk about these questions.",
+        text: "Watch an episode of Exploring Machine Consciousness (PRISM), Our Lives With Bots, or Conspicuous Cognition. Three channels approaching the questions from different directions, useful for getting a sense of how people in the field actually talk.",
         links: [
           {
             label: "Exploring Machine Consciousness",
@@ -73,7 +73,7 @@ export const tiers: Tier[] = [
     title: "A weekend",
     items: [
       {
-        text: "Read Bradford Saad and Andreas Mogensen\u2019s Digital Minds I (2026). The most comprehensive academic introduction available. It covers the philosophical and cognitive science questions at the center of the field, and it does so without assuming prior expertise in either.",
+        text: "Read Bradford Saad and Andreas Mogensen\u2019s Digital Minds I (2026). The most comprehensive academic introduction available, covering the central philosophical and cognitive science questions without assuming prior expertise in either.",
         links: [
           {
             label: "Digital Minds I",
@@ -82,10 +82,10 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Listen to recordings from the NYU Center for Mind Ethics and Policy\u2019s lecture series. Working philosophers present and argue about AI consciousness and moral status, and watching several will reveal how much disagreement there is among people who take the questions seriously.",
+        text: "Listen to recordings from the NYU Center for Mind, Ethics, and Policy lecture series. Working philosophers presenting and arguing about AI consciousness and moral status. Watching several reveals how much disagreement there is among people who take the questions seriously.",
         links: [
           {
-            label: "NYU Center for Mind Ethics and Policy\u2019s lecture series",
+            label: "NYU Center for Mind, Ethics, and Policy lecture series",
             url: "https://www.youtube.com/@nyucenterformindethicspolicy/videos",
           },
         ],
@@ -104,7 +104,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Write something. A summary, a reaction, a set of questions the reading raised. A few hundred words on a blog or shared document can help you to work out what you actually think about a particular topic.",
+        text: "Write something. A summary, a reaction, a set of questions the reading raised. A few hundred words on a blog or shared document can help you work out what you actually think.",
         links: [],
       },
     ],
@@ -145,7 +145,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Attend a conference or workshop. The Sentient Futures conferences have become one of the places where the digital minds community convenes, and many of the sessions are available online for people who cannot attend in person. Showing up to one likely puts you in the room with people whose work you have been reading.",
+        text: "Attend a conference or workshop. The Sentient Futures conferences have become a convening point for the digital minds community, with many sessions available online for those who cannot attend in person. Showing up to one likely puts you in the room with people whose work you have been reading.",
         links: [
           {
             label: "Sentient Futures conferences",

@@ -97,7 +97,7 @@ function Modal({ org, onClose }: { org: Organisation; onClose: () => void }) {
             href={org.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
+            className="mt-6 inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all"
           >
             Visit website
           </a>

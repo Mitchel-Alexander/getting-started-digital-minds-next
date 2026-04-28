@@ -77,7 +77,7 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
           href={event.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-block border border-accent rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-accent hover:bg-accent hover:text-white transition-colors"
+          className="mt-4 inline-block border border-accent rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all"
         >
           Register
         </a>
