@@ -288,6 +288,7 @@ export function OpenQuestionsContent() {
       <PageHeader
         title="Open Questions"
         description="36 consolidated questions across 13 headings, synthesised from 10 published research agendas."
+        maxWidth="max-w-6xl"
       />
       <div className="mx-auto max-w-6xl px-6 py-8">
         {/* Filters */}

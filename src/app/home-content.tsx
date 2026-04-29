@@ -1,46 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { intro, tiersIntro, tiers, type ActionItem } from "@/data/start-here";
 import { FadeIn } from "@/components/animate";
-import { NodeMark } from "@/components/node-mark";
-import { HeroPattern } from "@/components/hero-pattern";
-import { FocusMarkSafety, FocusMarkResearch, FocusMarkEvents, FocusMarkFieldMap } from "@/components/focus-marks";
-
-const focusAreas = [
-  {
-    id: "safety",
-    label: "Digital Minds and AI Safety",
-    description: "AI welfare and AI safety are closely linked. Some safety measures, including constraint, monitoring, and shutdown, have direct implications for AI welfare if the systems involved are moral patients. Some interventions improve both at once. If your background is in AI safety, the technical skills and strategic instincts you have already developed transfer directly.",
-    href: "/research-areas#safety-welfare-coordination",
-    cta: "Explore Safety-Welfare Coordination",
-    mark: <FocusMarkFieldMap size={96} className="text-accent" />,
-  },
-  {
-    id: "research",
-    label: "Research Areas",
-    description: "A guide to the digital minds research field, with the central questions and recommended readings for each area.",
-    href: "/research-areas",
-    cta: "Explore Research Areas",
-    mark: <FocusMarkResearch size={96} className="text-accent" />,
-  },
-  {
-    id: "events",
-    label: "Events & Opportunities",
-    description: "Conferences, workshops, fellowships, and programs across the digital minds community.",
-    href: "/events",
-    cta: "Explore Events & Opportunities",
-    mark: <FocusMarkEvents size={96} className="text-accent" />,
-  },
-  {
-    id: "field-map",
-    label: "Field Map",
-    description: "An interactive directory of projects and organisations across AI consciousness, welfare, and adjacent research areas.",
-    href: "/field-map",
-    cta: "Explore Field Map",
-    mark: <FocusMarkSafety size={96} className="text-accent" />,
-  },
-];
+import { FrostedLavaBackground } from "@/components/frosted-lava-background";
 
 function RichText({ item }: { item: ActionItem }) {
   if (item.links.length === 0) return <>{item.text}</>;
@@ -73,26 +37,32 @@ function RichText({ item }: { item: ActionItem }) {
 export function HomeContent() {
   return (
     <>
-      {/* Hero — sticky, full viewport height, content anchored to bottom */}
-      <section className="relative h-[50vh] overflow-hidden bg-white flex flex-col justify-center items-center text-center">
-        <HeroPattern />
-        <div className="relative mx-auto w-full max-w-6xl px-6 pt-12">
-          <FadeIn>
-            <div>
-              <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
-                Getting Started<br />in Digital Minds
-              </h1>
-              <p className="mt-6 text-xl leading-relaxed text-foreground/60 max-w-sm mx-auto">
-                A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
-              </p>
-            </div>
-          </FadeIn>
+      {/* Hero — sticky, full viewport. Content below scrolls UP over it. */}
+      <section className="sticky top-0 h-screen overflow-hidden bg-white flex flex-col justify-center items-center text-center z-0">
+        <FrostedLavaBackground />
+        <div className="relative mx-auto w-full max-w-6xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 60, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1.0, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
+          >
+            <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-6xl">
+              A Beginner&rsquo;s Guide<br />to Digital Minds
+            </h1>
+            <p className="mt-6 text-xl leading-relaxed text-foreground/60 max-w-sm mx-auto">
+              A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Intro */}
-      <section id="intro" className="relative z-10 bg-accent scroll-mt-16 text-center">
-        <div className="mx-auto w-full max-w-3xl px-6 py-24">
+      {/* Intro banner — two columns: orientation copy + AI safety entry-point */}
+      <section
+        id="intro"
+        className="relative z-10 bg-accent scroll-mt-16 flex items-center"
+        style={{ minHeight: "45vh" }}
+      >
+        <div className="mx-auto w-full max-w-5xl px-6 py-16 grid gap-12 md:grid-cols-[3fr_2fr] items-start">
           <FadeIn>
             <div className="space-y-4">
               {intro.map((p, i) => (
@@ -102,68 +72,37 @@ export function HomeContent() {
               ))}
             </div>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* Learn About — focus areas */}
-      <section className="relative z-10 bg-white border-t border-border">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-[180px_1fr]">
-
-            {/* Far-left label */}
-            <div className="mb-10 lg:mb-0">
-              <p className="text-sm font-medium uppercase tracking-widest text-muted lg:sticky lg:top-24 lg:pt-12">
-                Learn About
+          <FadeIn delay={0.1}>
+            <div className="md:border-l md:border-white/80 md:pl-12">
+              <p className="text-xl font-semibold leading-relaxed text-white mb-4">
+                Coming from AI safety?
               </p>
+              <p className="text-base leading-relaxed text-white/90">
+                AI welfare and AI safety are closely linked. Some safety measures, including
+                constraint, monitoring, and shutdown, have direct implications for AI welfare if
+                the systems involved are moral patients. Some interventions improve both at once.
+                The technical skills and strategic instincts you have already developed transfer
+                directly.
+              </p>
+              <Link
+                href="/research-areas#safety-welfare-coordination"
+                className="mt-6 inline-block bg-white rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-white/90 transition-all"
+              >
+                Explore Safety-Welfare Coordination
+              </Link>
             </div>
-
-            {/* Items */}
-            <div>
-              {focusAreas.map((area) => (
-                <FadeIn key={area.id}>
-                  <div className="border-t border-border py-12">
-                    {/* Full-width title */}
-                    <p className="text-sm font-medium uppercase tracking-widest text-accent mb-8">
-                      {area.label}
-                    </p>
-                    {/* Motif + text */}
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-[120px_1fr] sm:items-start">
-                      {area.mark}
-                      <div>
-                        <p className="text-sm leading-relaxed text-foreground/70">
-                          {area.description}
-                        </p>
-                        <Link
-                          href={area.href}
-                          className="mt-6 inline-block border border-accent rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all"
-                        >
-                          {area.cta}
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* What You Can Do This Week */}
+      {/* What You Can Do This Week — primary post-hero section */}
       <section className="relative z-10 border-t border-border bg-[#f8fafa]">
-        <div className="mx-auto max-w-3xl px-6 py-16">
+        <div className="mx-auto max-w-3xl px-6 py-24">
           <FadeIn>
-            <div className="flex items-center gap-2 mb-4">
-              <NodeMark size={16} />
-              <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-                Getting started
-              </p>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
               What You Can Do This Week
             </h2>
-            <p className="mt-3 text-foreground/60">{tiersIntro}</p>
+            <p className="mt-4 text-lg text-foreground/60">{tiersIntro}</p>
           </FadeIn>
 
           <div className="mt-12 space-y-12">

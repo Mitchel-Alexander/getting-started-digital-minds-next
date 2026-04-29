@@ -23,7 +23,7 @@ export function Navbar() {
           href="/"
           className="text-lg font-semibold tracking-tight"
         >
-          Getting Started in Digital Minds
+          A Beginner&rsquo;s Guide to Digital Minds
         </Link>
 
         {/* Desktop nav */}

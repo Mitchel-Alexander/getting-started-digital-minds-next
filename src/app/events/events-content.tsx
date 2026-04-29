@@ -123,6 +123,7 @@ export function EventsContent() {
       <PageHeader
         title="Events and Opportunities"
         description="Conferences, workshops, fellowships, courses, and other opportunities in digital minds."
+        maxWidth="max-w-6xl"
       />
       <section className="bg-background">
         <div className="mx-auto max-w-6xl px-6 py-12">
@@ -204,7 +205,7 @@ export function EventsContent() {
           <FadeIn>
             <div className="mt-16 border-t border-border pt-8 text-sm text-muted">
               <p>
-                <a href="mailto:mitchelalexanderpass@gmail.com?subject=Event suggestion for Getting Started in Digital Minds" className="text-accent hover:underline">
+                <a href="mailto:mitchelalexanderpass@gmail.com?subject=Event suggestion for A Beginner's Guide to Digital Minds" className="text-accent hover:underline">
                   Suggest an event
                 </a>
                 {" · "}

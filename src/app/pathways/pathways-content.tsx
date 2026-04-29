@@ -387,7 +387,7 @@ export function PathwaysContent() {
       {/* ── CTA footer ────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[#67b2b7]" />
+          <div className="absolute inset-0 bg-[#4098ff]" />
           <NetworkCanvas
             nodeCount={50}
             connectionDistance={140}

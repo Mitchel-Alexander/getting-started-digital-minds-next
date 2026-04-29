@@ -91,10 +91,26 @@ export const groups: ResearchGroup[] = [
             year: 2023,
             url: "https://arxiv.org/abs/2303.07103",
             description:
-              "Walks through candidate reasons to deny LLM consciousness, claims that most are weaker than expected, and suggests that LLMs could be a serious candidate within a decade.",
+              "Walks through candidate reasons to deny LLM consciousness, claims that most are weaker than expected, and suggests that LLMs could be a serious candidate within a decade. (Also available as a talk: https://www.youtube.com/watch?v=bskf9jyxmMs)",
           },
         ],
         goDeeper: [
+          {
+            author: "Ned Block",
+            title: "If Consciousness is Biological, Can AI Be Conscious?",
+            year: 2026,
+            url: "https://www.youtube.com/watch?v=-6htu3mihoA",
+            description:
+              "Asks whether consciousness has a biological basis, and if so, whether that precludes consciousness in AI. CMEP talk.",
+          },
+          {
+            author: "Derek Shiller et al.",
+            title: "Initial results of the Digital Consciousness Model",
+            year: 2026,
+            url: "https://arxiv.org/abs/2601.17060",
+            description:
+              "A probabilistic framework for assessing AI consciousness that aggregates across multiple competing theories rather than committing to one. Finds the evidence is against 2024 LLMs being conscious, but not decisively.",
+          },
           {
             author: "Patrick Butlin et al.",
             title: "Consciousness in Artificial Intelligence",
@@ -110,14 +126,6 @@ export const groups: ResearchGroup[] = [
             url: "https://link.springer.com/article/10.1007/s11229-022-03524-1",
             description:
               "Argues that brain functions are metabolically and informationally intertwined in ways that constrain what kinds of physical systems could realize them.",
-          },
-          {
-            author: "Derek Shiller",
-            title: "Functionalism, Integrity, and Digital Consciousness",
-            year: 2024,
-            url: "https://philarchive.org/rec/SHIFIA-2",
-            description:
-              "Challenges the assumption that the right information processing is sufficient for consciousness, and argues that physical organization matters too.",
           },
         ],
       },
@@ -276,11 +284,11 @@ export const groups: ResearchGroup[] = [
         goDeeper: [
           {
             author: "Jeff Sebo",
-            title: "Moral Circle Explosion",
-            year: 2026,
-            url: "https://jeffsebo.net/wp-content/uploads/2022/09/jeff-sebo-moral-circle-explosion.pdf",
+            title: "The Moral Circle",
+            year: 2025,
+            url: "https://wwnorton.com/books/9781324064817",
             description:
-              "Claims that if past generations consistently set the bar for moral standing too high, we should expect to be doing the same. Examines what this would mean for moral status candidates including insects and AIs.",
+              "Argues that past generations have consistently set the bar for moral standing too high, and that digital minds are a likely case where this pattern continues. Develops a precautionary framework: if a being might matter, we should treat it as if it does.",
           },
           {
             author: "Jonathan Birch",
@@ -289,14 +297,6 @@ export const groups: ResearchGroup[] = [
             url: "https://philpapers.org/archive/BIRTEO-12.pdf",
             description:
               "Develops a precautionary framework grounded in the realistic possibility of sentience rather than proof, applied across animals, disorders of consciousness, and AI.",
-          },
-          {
-            author: "Jacy Reese Anthis and Eze Paez",
-            title: "Moral circle expansion: A promising strategy to impact the far future",
-            year: 2021,
-            url: "https://www.sciencedirect.com/science/article/pii/S0016328721000641",
-            description:
-              "Locates AI alongside wild animals as the two frontiers where the circle is most likely to need extending next.",
           },
         ],
       },
@@ -334,6 +334,14 @@ export const groups: ResearchGroup[] = [
           },
         ],
         goDeeper: [
+          {
+            author: "Yonathan Arbel, Peter Salib, and Simon Goldstein",
+            title: "How to Count AIs: Individuation and Liability for AI Agents",
+            year: 2026,
+            url: "https://law-ai.org/how-to-count-ais-individuation-and-liability-for-ai-agents/",
+            description:
+              "Argues that identifying AI agents for legal purposes is unusually difficult because AIs can copy, split, merge, and run as ensembles. Proposes a corporate-personhood-style framework that would give AI agents legal identity without granting full moral standing.",
+          },
           {
             author: "Leonard Dung and Christopher Register",
             title: "AI Identity and Self-Concern",
@@ -461,14 +469,6 @@ export const groups: ResearchGroup[] = [
             description:
               "Extends the argument to the economic case, treating property rights and contract-making capacity as infrastructure for coordinating with capable AI agents.",
           },
-          {
-            author: "Lucius Caviola",
-            title: "The Societal Response to Potentially Sentient AI",
-            year: 2025,
-            url: "https://arxiv.org/abs/2502.00388",
-            description:
-              "Catalogues four specific risks of overattributing moral status to AI, including wasted resources, safety complications when rights talk resists alignment measures, constraints on innovation, and erosion of authentic relationships.",
-          },
         ],
         goDeeper: [
           {
@@ -506,6 +506,14 @@ export const groups: ResearchGroup[] = [
           "This accountability gap becomes especially relevant when users who have formed emotional attachments to a particular version of a system find that version replaced. Feelings of loss and grief in these cases are now a documented phenomenon. One design decision with distinctive stakes is whether to make AI systems invite attributions of sentience at all, given that such attributions shape both governance debates and user wellbeing.",
         ],
         startHere: [
+          {
+            author: "Eric Schwitzgebel and Jeff Sebo",
+            title: "The Emotional Alignment Design Policy",
+            year: 2025,
+            url: "https://link.springer.com/article/10.1007/s11245-025-10363-5",
+            description:
+              "Argues that AI systems should be designed to elicit emotional reactions from users that appropriately reflect the systems' actual capacities and moral status.",
+          },
           {
             author: "Anthropic",
             title: "Claude's Character",
@@ -610,6 +618,14 @@ export const groups: ResearchGroup[] = [
               "Surveys AI researchers and the public on their beliefs about AI subjective experience, finding significant attributions from both groups and specific patterns of divergence.",
           },
           {
+            author: "Lucius Caviola",
+            title: "The Societal Response to Potentially Sentient AI",
+            year: 2025,
+            url: "https://arxiv.org/abs/2502.00388",
+            description:
+              "Catalogues four specific risks of overattributing moral status to AI, including wasted resources, safety complications when rights talk resists alignment measures, constraints on innovation, and erosion of authentic relationships.",
+          },
+          {
             author: "Clara Colombatto and Stephen M. Fleming",
             title: "Folk Psychological Attributions of Consciousness to Large Language Models",
             year: 2024,
@@ -638,24 +654,6 @@ export const groups: ResearchGroup[] = [
               "Argues that the framing of AI safety and welfare as opposing goals is a false choice, and identifies three areas where both projects converge: understanding AI systems through interpretability, aligning their goals with human goals, and developing cooperative mechanisms that reduce the need for adversarial control.",
           },
           {
-            author: "Kathleen Finlinson (Eleos AI Research)",
-            title: "Key Strategic Considerations for Taking Action on AI Welfare",
-            year: 2025,
-            url: "https://eleosai.org/papers/20250331_Key_Strategic_Considerations.pdf",
-            description:
-              "Recommends focusing on measures that are convergent with AI safety, on the grounds that such interventions are more tractable to implement and robust to uncertainty about AI moral status.",
-          },
-          {
-            author: "Lucius Caviola",
-            title: "How do AI welfare and AI safety interact?",
-            year: 2024,
-            url: "https://forum.effectivealtruism.org/posts/RrJnqJ9PDFqnmAmkB/how-do-ai-welfare-and-ai-safety-interact",
-            description:
-              "Maps specific conflicts and synergies between AI safety and welfare goals. Argues that granting AIs autonomy and legal rights could lead to human disempowerment, while slowing AI development could serve both concerns simultaneously.",
-          },
-        ],
-        goDeeper: [
-          {
             author: "Robert Long, Jeff Sebo, and Toni Sims",
             title: "Is there a tension between AI safety and AI welfare?",
             year: 2025,
@@ -663,6 +661,8 @@ export const groups: ResearchGroup[] = [
             description:
               "The most direct academic engagement with the question. Argues that a moderately strong tension exists across several categories of AI safety measures (constraint, deception, surveillance, alteration, suffering and death, and disenfranchisement), and identifies where co-beneficial solutions may be possible.",
           },
+        ],
+        goDeeper: [
           {
             author: "Adrià Moret",
             title: "AI welfare risks",
@@ -679,22 +679,6 @@ export const groups: ResearchGroup[] = [
             description:
               "Argues that interpretability research is necessary for both AI safety (verifying systems behave as intended) and AI welfare (assessing what AI systems experience), and that progress on one directly supports the other.",
           },
-          {
-            author: "Robert Long, Jeff Sebo, Patrick Butlin et al.",
-            title: "Taking AI Welfare Seriously",
-            year: 2024,
-            url: "https://arxiv.org/abs/2411.00986",
-            description:
-              "Section 4 analyses how welfare measures such as suffering mitigation and preference respect interact with corresponding safety measures, identifying both tensions and synergies.",
-          },
-          {
-            author: "Lucius Caviola",
-            title: "The Societal Response to Potentially Sentient AI",
-            year: 2025,
-            url: "https://arxiv.org/abs/2502.00388",
-            description:
-              "Section 3.1 catalogues specific safety risks that follow from overattribution of moral status, including interference with alignment measures.",
-          },
         ],
       },
       {
@@ -706,12 +690,12 @@ export const groups: ResearchGroup[] = [
         ],
         startHere: [
           {
-            author: "Jeff Sebo",
-            title: "Moral Circle Explosion",
+            author: "Lucius Caviola",
+            title: "Open strategic questions for digital minds",
             year: 2026,
-            url: "https://jeffsebo.net/wp-content/uploads/2022/09/jeff-sebo-moral-circle-explosion.pdf",
+            url: "https://docs.google.com/document/d/1Qr6_vjRdC68KEY1Y_1sYmqbp6Zpm_cYZEYYBs8CvPhE/edit?tab=t.0#heading=h.u5pe5njeiqj7",
             description:
-              "If past generations consistently set the bar for moral standing too high, we should expect to be doing the same. Argues that digital minds are a likely case of moral-circle expansion we are currently underestimating.",
+              "A current snapshot of strategic questions the digital minds field most needs to address. Covers what's robustly good to do under uncertainty, how AI safety and welfare interact, the legal and political status of digital minds, and the long-run trajectory of their creation. Forthcoming.",
           },
           {
             author: "Bradford Saad",

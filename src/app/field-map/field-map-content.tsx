@@ -114,7 +114,8 @@ export function FieldMapContent() {
     <>
       <PageHeader
         title="Field Map"
-        description="Organizations working on AI consciousness, AI welfare, and digital minds research."
+        description="Organisations working on AI consciousness, AI welfare, and digital minds research."
+        maxWidth="max-w-6xl"
       />
       <div className="mx-auto max-w-6xl px-6 py-8">
 

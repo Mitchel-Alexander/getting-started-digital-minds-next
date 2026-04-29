@@ -3,8 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --accent: #67b2b7;
-  --accent-light: rgba(103, 178, 183, 0.08);
+  --accent: #4098ff;
+  --accent-light: rgba(64, 152, 255, 0.08);
   --muted: #6b7280;
   --border: #e5e7eb;
   --card: #f9fafb;
@@ -35,6 +35,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 @keyframes ring-expand {
@@ -45,5 +46,34 @@ html {
   to {
     transform: scale(1);
     opacity: var(--final-opacity, 1);
+  }
+}
+
+/* Frosted-lava background — gentle composition drift, no rotation */
+@keyframes lava-curve-a {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5vw, 0.8vw);
+  }
+}
+
+/* Per-blob breathing — left and right cells drift toward and away from each other */
+@keyframes lava-blob-left {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(35px);
+  }
+}
+
+@keyframes lava-blob-right {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-35px);
   }
 }

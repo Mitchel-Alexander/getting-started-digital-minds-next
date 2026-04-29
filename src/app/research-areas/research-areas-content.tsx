@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   disciplineTooltips,
   groups,
+  overviewParagraphs,
   type ResearchArea,
   type Reading,
 } from "@/data/research-areas";
@@ -128,28 +129,32 @@ function DisciplineChip({ name }: { name: string }) {
 /* ── Reading item ────────────────────────────────────────────────── */
 
 function ReadingItem({ item }: { item: Reading }) {
+  const titleEl = (
+    <span className="text-sm font-semibold leading-snug text-foreground group-hover:text-accent transition-colors">
+      {item.title}
+    </span>
+  );
   return (
     <div className="pt-5">
       <p className="text-xs font-medium uppercase tracking-widest text-accent mb-1.5">
         {item.author} · {item.year}
       </p>
-      <p className="text-sm font-semibold text-foreground leading-snug">
-        {item.title}
-      </p>
-      {item.description && (
-        <p className="mt-1.5 text-xs leading-relaxed text-foreground/60">
-          {item.description}
-        </p>
-      )}
-      {item.url && (
+      {item.url ? (
         <a
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 inline-block border border-accent rounded-sm px-3 py-1.5 text-xs font-medium uppercase tracking-widest bg-accent text-white hover:brightness-95 transition-all"
+          className="group block"
         >
-          Read
+          {titleEl}
         </a>
+      ) : (
+        <p>{titleEl}</p>
+      )}
+      {item.description && (
+        <p className="mt-1.5 text-xs leading-relaxed text-foreground/60">
+          {item.description}
+        </p>
       )}
     </div>
   );
@@ -213,6 +218,40 @@ export function ResearchAreasContent() {
         <TableOfContents />
 
         <div className="flex-1 min-w-0">
+
+          {/* Top-of-page intro + category navigation */}
+          <section className="border-t border-border bg-background">
+            <div className="mx-auto max-w-4xl px-6 py-16">
+              <FadeIn>
+                <div className="space-y-4 max-w-2xl">
+                  {overviewParagraphs.map((p, i) => (
+                    <p key={i} className="text-base leading-relaxed text-foreground/75">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                  {groups.map((group, gi) => (
+                    <a
+                      key={group.id}
+                      href={`#group-${group.id}`}
+                      className="group block rounded-lg border border-border bg-white px-5 py-4 hover:border-accent transition-colors"
+                    >
+                      <p className="text-xs font-medium uppercase tracking-widest text-accent">
+                        Part {gi + 1}
+                      </p>
+                      <h3 className="mt-1 font-serif text-xl font-semibold leading-snug text-foreground group-hover:text-accent transition-colors">
+                        {group.title}
+                      </h3>
+                      <p className="mt-1 text-sm italic text-muted">{group.subtitle}</p>
+                    </a>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
+          </section>
 
           {/* Group sections */}
           {groups.map((group, gi) => (

@@ -19,8 +19,8 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Getting Started in Digital Minds",
-    template: "%s — Getting Started in Digital Minds",
+    default: "A Beginner's Guide to Digital Minds",
+    template: "%s — A Beginner's Guide to Digital Minds",
   },
   description:
     "A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.",
