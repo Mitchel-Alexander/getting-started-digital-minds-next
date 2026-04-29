@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A Beginner's Guide to Digital Minds
 
-## Getting Started
+A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research. The site orients new researchers, points to readings and active questions, and maps the people and institutions working in the area.
 
-First, run the development server:
+Live at: https://[user].github.io/beginners-guide-to-dm/
+
+## Stack
+
+- Next.js 16 (App Router) with static export
+- React 19, TypeScript (strict mode)
+- Tailwind CSS 4
+- Framer Motion for scroll-triggered animations
+- Deployed to GitHub Pages via `.github/workflows/deploy.yml`
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000/beginners-guide-to-dm/ — note the path prefix.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The dev server emulates the GitHub Pages deploy by serving the site under `/beginners-guide-to-dm`. To test as if served from a domain root (no basePath), set `VERCEL=1`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+VERCEL=1 npm run dev    # serves at http://localhost:3000/
+```
 
-## Learn More
+The `VERCEL` flag is also what production uses (when deployed to Vercel preview environments). For GitHub Pages production builds, leave it unset.
 
-To learn more about Next.js, take a look at the following resources:
+## Build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Outputs static files to `out/` (used by the GitHub Pages deploy workflow).
 
-## Deploy on Vercel
+## Project layout
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/                              Next.js App Router routes
+│   ├── layout.tsx                    Root layout (Navbar, Footer, fonts)
+│   ├── page.tsx                      / (home)
+│   ├── home-content.tsx              Home page content
+│   └── [route]/
+│       ├── page.tsx                  Route entry
+│       └── [route]-content.tsx       Page content
+├── components/                       Shared UI
+│   ├── animate.tsx                   Framer Motion wrappers (FadeIn, etc.)
+│   ├── frosted-lava-background.tsx   Hero animation
+│   ├── navbar.tsx, footer.tsx        Layout chrome
+│   ├── page-header.tsx               Standard page header
+│   └── network-canvas.tsx, node-mark.tsx
+└── data/                             Typed static content
+    ├── events.ts, organisations.ts, pathways.ts
+    ├── research-areas.ts, open-questions.ts
+    └── start-here.ts
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Each route follows a `page.tsx` (entry) + `[route]-content.tsx` (UI) split. Data is colocated in `src/data/` as typed exports — interfaces and constants live in the same file.
+
+## Routes
+
+| Path | Purpose |
+|---|---|
+| `/` | Home — hero, intro banner, "What you can do this week" |
+| `/start-here` | Orientation for newcomers |
+| `/research-areas` | Annotated readings by research area |
+| `/open-questions` | Open research questions, filterable |
+| `/field-map` | People and organisations working in the field |
+| `/pathways` | Entry points for different disciplines |
+| `/events` | Programmes and opportunities |
+| `/methodology` | How the site is constructed |
+
+## Contributing
+
+For Claude Code agents and other AI assistants: see `CLAUDE.md` and `AGENTS.md` for project conventions and orientation.
+
+For human contributors:
+- TypeScript is strict — type new data and props.
+- Animations use the wrappers in `src/components/animate.tsx`. Don't reach for `framer-motion` directly unless adding a genuinely new pattern.
+- Static content lives in `src/data/` as typed exports. Page components import and render — no runtime fetches.
+- British English spelling throughout user-facing copy.
+
+## License
+
+TBD.

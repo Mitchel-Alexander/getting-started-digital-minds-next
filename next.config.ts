@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isVercel = !!process.env.VERCEL;
-const basePath = isVercel ? "" : "/getting-started-digital-minds-next";
+const basePath = isVercel ? "" : "/beginners-guide-to-dm";
 
 const nextConfig: NextConfig = {
   ...(isVercel ? {} : { output: "export" as const }),
