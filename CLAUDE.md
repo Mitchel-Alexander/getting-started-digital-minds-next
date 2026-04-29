@@ -6,7 +6,7 @@ This file is your starting point. Read it before making changes.
 
 ## What this is
 
-"A Beginner's Guide to Digital Minds" — a Next.js site that orients newcomers to AI consciousness, AI welfare, and digital minds research. Static content (no runtime data fetches), deployed to GitHub Pages.
+"A Beginner's Guide to Digital Minds" — a Next.js site that orients newcomers to AI consciousness, AI welfare, and digital minds research. Static content (no runtime data fetches), deployed to GitHub Pages at https://digitalminds.guide/.
 
 ## Stack
 
@@ -43,17 +43,17 @@ src/
 ## Dev workflow
 
 ```bash
-npm run dev                   # serves at http://localhost:3000/beginners-guide-to-dm/
-VERCEL=1 npm run dev          # serves at http://localhost:3000/ (no basePath)
+npm install
+npm run dev    # http://localhost:3000
 ```
 
-The basePath kicks in whenever `VERCEL` is unset, because the production deploy is GitHub Pages at `/beginners-guide-to-dm`. If a contributor reports a localhost 404 at `/`, they need to either visit the prefixed URL or set `VERCEL=1`.
+That's it. The site is served at the viewport root because the production deploy uses a custom domain (`digitalminds.guide`), so there's no basePath to emulate locally.
 
 ## Build and deploy
 
 - `npm run build` — static export to `out/`.
 - Deploy is automated via `.github/workflows/deploy.yml` on push to `main`. The workflow runs `next build` and uploads `out/` to GitHub Pages.
-- Vercel preview deploys also exist (when `VERCEL=1` is set) and skip the basePath.
+- Custom domain is configured via the GitHub Pages settings (and/or a `public/CNAME` file). If you change the domain, update both.
 
 ## Common tasks
 
@@ -69,7 +69,6 @@ The basePath kicks in whenever `VERCEL` is unset, because the production deploy 
 
 - Don't add API routes or runtime data fetching. The site is a static export.
 - Don't introduce alternative animation libraries — Framer Motion is already wired up.
-- Don't hardcode the basePath in component code. Anything that needs it should read `process.env.NEXT_PUBLIC_BASE_PATH` (set in `next.config.ts`).
 - Don't commit `.env.local`, `.next/`, `out/`, or `tsconfig.tsbuildinfo` — already gitignored.
 
 ## When in doubt

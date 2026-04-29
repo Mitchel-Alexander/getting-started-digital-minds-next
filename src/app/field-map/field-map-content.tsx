@@ -10,8 +10,6 @@ import {
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animate";
 import { PageHeader } from "@/components/page-header";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 function OrgCard({ org, onClick }: { org: Organisation; onClick: () => void }) {
   const typeLabel = org.org_type.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
 

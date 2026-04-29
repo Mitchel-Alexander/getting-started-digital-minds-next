@@ -1,8 +1,8 @@
-# A Beginner's Guide to Digital Minds
+# Digital Minds Guide
 
 A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research. The site orients new researchers, points to readings and active questions, and maps the people and institutions working in the area.
 
-Live at: https://[user].github.io/beginners-guide-to-dm/
+Live at: https://digitalminds.guide/
 
 ## Stack
 
@@ -19,15 +19,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000/beginners-guide-to-dm/ — note the path prefix.
-
-The dev server emulates the GitHub Pages deploy by serving the site under `/beginners-guide-to-dm`. To test as if served from a domain root (no basePath), set `VERCEL=1`:
-
-```bash
-VERCEL=1 npm run dev    # serves at http://localhost:3000/
-```
-
-The `VERCEL` flag is also what production uses (when deployed to Vercel preview environments). For GitHub Pages production builds, leave it unset.
+Open http://localhost:3000.
 
 ## Build
 
@@ -35,7 +27,7 @@ The `VERCEL` flag is also what production uses (when deployed to Vercel preview 
 npm run build
 ```
 
-Outputs static files to `out/` (used by the GitHub Pages deploy workflow).
+Outputs static files to `out/` (used by the GitHub Pages deploy workflow). The site is a fully static export — no server, no database, no runtime data fetching.
 
 ## Project layout
 
@@ -74,6 +66,12 @@ Each route follows a `page.tsx` (entry) + `[route]-content.tsx` (UI) split. Data
 | `/pathways` | Entry points for different disciplines |
 | `/events` | Programmes and opportunities |
 | `/methodology` | How the site is constructed |
+
+## Hosting
+
+The site is deployed to GitHub Pages from the `out/` directory produced by `npm run build`. The custom domain is configured via a `CNAME` record (managed in the repo's GitHub Pages settings or via a `public/CNAME` file).
+
+Each push to `main` triggers `.github/workflows/deploy.yml`, which builds and publishes automatically. Typical deploy time is 1–2 minutes.
 
 ## Contributing
 
