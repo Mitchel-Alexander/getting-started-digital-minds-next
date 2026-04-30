@@ -18,19 +18,19 @@ This file is your starting point. Read it before making changes.
 
 ```
 src/
-├── app/                              routes (App Router)
-│   ├── layout.tsx                    root layout: Navbar + Footer + fonts
-│   ├── page.tsx + home-content.tsx   /
+├── app/                       routes (App Router)
+│   ├── layout.tsx             root layout: Navbar + Footer + fonts + global metadata
+│   ├── page.tsx               / (home — uses root layout's metadata)
 │   └── <route>/
-│       ├── page.tsx                  thin wrapper
-│       └── <route>-content.tsx       actual UI
-├── components/                       shared UI (flat — no feature folders)
-└── data/                             typed static content
+│       ├── layout.tsx         per-route metadata (title + description)
+│       └── page.tsx           full UI for the route ("use client" where needed)
+├── components/                shared UI (flat — no feature folders)
+└── data/                      typed static content
 ```
 
-**Convention:** every route has a `page.tsx` that imports a `<route>-content.tsx`. Put the page UI in the content file. Keep `page.tsx` thin (often just metadata + the import).
+**Convention:** every route is a folder containing a `page.tsx` (the UI) and usually a `layout.tsx` (just metadata, ~10 lines). The split exists because Next.js requires metadata in a Server Component, while interactive UI needs `"use client"`. Keep all UI in `page.tsx`.
 
-**Data flow:** all content is statically authored in `src/data/<topic>.ts` as typed exports — `export interface Foo` + `export const foos: Foo[]`. The matching `<route>-content.tsx` imports and renders. No runtime fetching, no API routes.
+**Data flow:** all content is statically authored in `src/data/<topic>.ts` as typed exports — `export interface Foo` + `export const foos: Foo[]`. The matching `page.tsx` imports and renders. No runtime fetching, no API routes.
 
 ## Code patterns to follow
 
@@ -61,7 +61,7 @@ That's it. The site is served at the viewport root because the production deploy
 
 **Add an organisation to the field map**: edit `src/data/organisations.ts`. The schema is in the same file. Logos go in `public/logos/`.
 
-**Add a new route**: create `src/app/<name>/page.tsx` (thin) + `<name>-content.tsx` (UI), and add a navbar link in `src/components/navbar.tsx`. Use `<PageHeader>` for consistency.
+**Add a new route**: create `src/app/<name>/page.tsx` (the UI, with `"use client"` if it has any interactivity) + `src/app/<name>/layout.tsx` (just metadata, copy the pattern from any existing route). Add a navbar link in `src/components/navbar.tsx`. Use `<PageHeader>` for consistency.
 
 **Change the hero**: `src/components/frosted-lava-background.tsx` is the animated gradient hero. The breathing animation uses CSS keyframes in `globals.css` (`lava-blob-left`, `lava-blob-right`). Pass `animated={false}` to use it as a static texture (the page headers do this).
 

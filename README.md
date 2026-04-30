@@ -36,10 +36,9 @@ src/
 ├── app/                              Next.js App Router routes
 │   ├── layout.tsx                    Root layout (Navbar, Footer, fonts)
 │   ├── page.tsx                      / (home)
-│   ├── home-content.tsx              Home page content
 │   └── [route]/
-│       ├── page.tsx                  Route entry
-│       └── [route]-content.tsx       Page content
+│       ├── layout.tsx                Per-route metadata (title, description)
+│       └── page.tsx                  Page UI
 ├── components/                       Shared UI
 │   ├── animate.tsx                   Framer Motion wrappers (FadeIn, etc.)
 │   ├── frosted-lava-background.tsx   Hero animation
@@ -52,7 +51,7 @@ src/
     └── start-here.ts
 ```
 
-Each route follows a `page.tsx` (entry) + `[route]-content.tsx` (UI) split. Data is colocated in `src/data/` as typed exports — interfaces and constants live in the same file.
+Each route is one folder containing `page.tsx` (UI) and `layout.tsx` (metadata only). Data is centralised in `src/data/` as typed exports — interfaces and constants live in the same file.
 
 ## Routes
 
