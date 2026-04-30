@@ -41,7 +41,7 @@ export const tiers: Tier[] = [
         ],
       },
       {
-        text: "Browse this Quickstart Guide. A curated reading list with options ranging from a single paper to a full syllabus.",
+        text: "Browse the Quickstart Guide by Avi Parrack and Štěpán Los. A curated reading list with options ranging from a single paper to a full syllabus.",
         links: [
           {
             label: "Quickstart Guide",
