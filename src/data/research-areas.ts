@@ -125,7 +125,7 @@ export const groups: ResearchGroup[] = [
             year: 2022,
             url: "https://link.springer.com/article/10.1007/s11229-022-03524-1",
             description:
-              "Argues that brain functions are metabolically and informationally intertwined in ways that constrain what kinds of physical systems could realize them.",
+              "Argues that brain functions are metabolically and informationally intertwined in ways that constrain what kinds of physical systems could realise them.",
           },
         ],
       },
@@ -446,6 +446,53 @@ export const groups: ResearchGroup[] = [
         ],
       },
       {
+        id: "safety-welfare-coordination",
+        title: "Safety-Welfare Coordination",
+        intro: [
+          "What are the potential tensions between AI safety and AI welfare efforts, and can policy frameworks support both concerns at once?",
+          "Some researchers argue that attributing moral status to AI systems could be actively good for safety, because it creates cooperative incentives and reduces the payoff from deception or power-seeking. In addition to this, techniques used in AI safety are directly relevant to AI welfare research. A model whose internal states are illegible to us is dangerous to humans and potentially suffering invisibly. A model whose goals are misaligned is dangerous and having its preferences frustrated.",
+          "Others worry that formal rights could undercut near-term oversight and, in more extreme scenarios, enable AI agents to accumulate wealth and power at human expense. Some of the technical processes that are used to ensure that AI systems behave in safe and pro-social ways would be considered violations of intrinsic rights of moral patients.",
+          "The field needs a clearer picture of which welfare-motivated moves help safety, which hurt it, and which combinations work together. This is probably one of the most important open problems in digital minds governance. It matters for how labs organise their welfare and alignment work, and for how the two research communities coordinate. Treating welfare and safety as separate concerns leads to worse outcomes on both, because measures that ignore one often undermine the other.",
+          "For researchers coming from AI safety, engaging with digital minds is particularly valuable: technical and strategic experience from safety work transfers directly, and many of the most important open problems sit at the interface of these two fields.",
+        ],
+        startHere: [
+          {
+            author: "Robert Long",
+            title: "Understand, align, cooperate: AI welfare and AI safety are allies",
+            year: 2025,
+            url: "https://experiencemachines.substack.com/p/understand-align-cooperate-ai-welfare",
+            description:
+              "Argues that the framing of AI safety and welfare as opposing goals is a false choice, and identifies three areas where both projects converge: understanding AI systems through interpretability, aligning their goals with human goals, and developing cooperative mechanisms that reduce the need for adversarial control.",
+          },
+          {
+            author: "Robert Long, Jeff Sebo, and Toni Sims",
+            title: "Is there a tension between AI safety and AI welfare?",
+            year: 2025,
+            url: "https://link.springer.com/article/10.1007/s11098-025-02302-2",
+            description:
+              "The most direct academic engagement with the question. Argues that a moderately strong tension exists across several categories of AI safety measures (constraint, deception, surveillance, alteration, suffering and death, and disenfranchisement), and identifies where co-beneficial solutions may be possible.",
+          },
+        ],
+        goDeeper: [
+          {
+            author: "Adrià Moret",
+            title: "AI welfare risks",
+            year: 2025,
+            url: "https://link.springer.com/article/10.1007/s11098-025-02343-7",
+            description:
+              "Argues that two common AI safety techniques (restricting AI behaviour and using reinforcement learning for alignment) pose significant welfare risks under all three major theories of well-being. Proposes specific policies AI companies could adopt to reduce these risks, and argues the tension strengthens the case for slowing AI development.",
+          },
+          {
+            author: "Dario Amodei",
+            title: "The Urgency of Interpretability",
+            year: 2025,
+            url: "https://www.darioamodei.com/post/the-urgency-of-interpretability",
+            description:
+              "Argues that interpretability research is necessary for both AI safety (verifying systems behave as intended) and AI welfare (assessing what AI systems experience), and that progress on one directly supports the other.",
+          },
+        ],
+      },
+      {
         id: "rights",
         title: "Rights and Legal Frameworks",
         intro: [
@@ -597,7 +644,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://doi.org/10.31234/osf.io/cmy7n_v5",
             description:
-              "Argues that chatbot-associated delusions are driven in part by sycophantic behavior in chatbot design, which reinforces rather than challenges users' vulnerabilities.",
+              "Argues that chatbot-associated delusions are driven in part by sycophantic behaviour in chatbot design, which reinforces rather than challenges users' vulnerabilities.",
           },
         ],
         goDeeper: [
@@ -632,52 +679,6 @@ export const groups: ResearchGroup[] = [
             url: "https://academic.oup.com/nc/article/2024/1/niae013/7644104",
             description:
               "A survey showing two-thirds of US adults attribute some conscious experience to ChatGPT.",
-          },
-        ],
-      },
-      {
-        id: "safety-welfare-coordination",
-        title: "Safety-Welfare Coordination",
-        intro: [
-          "What are the potential tensions between AI safety and AI welfare efforts, and can policy frameworks support both concerns at once?",
-          "Some researchers argue that attributing moral status to AI systems could be actively good for safety, because it creates cooperative incentives and reduces the payoff from deception or power-seeking. Others worry that formal rights could undercut near-term oversight and, in more extreme scenarios, enable AI agents to accumulate wealth and power at human expense. Many of the technical processes that are used to ensure that AI systems behave in safe and pro-social ways would be considered violations of intrinsic rights of moral patients.",
-          "The field needs a clearer picture of which welfare-motivated moves help safety, which hurt it, and which combinations work together. This is probably one of the most important open problems in digital minds governance. It matters for how labs organise their welfare and alignment work, and for how the two research communities coordinate. Treating welfare and safety as separate concerns leads to worse outcomes on both, because measures that ignore one often undermine the other.",
-          "For researchers coming from AI safety, engaging with digital minds is particularly valuable: technical and strategic experience from safety work transfers directly, and many of the most important open problems sit at the interface of the two fields.",
-        ],
-        startHere: [
-          {
-            author: "Robert Long",
-            title: "Understand, align, cooperate: AI welfare and AI safety are allies",
-            year: 2025,
-            url: "https://experiencemachines.substack.com/p/understand-align-cooperate-ai-welfare",
-            description:
-              "Argues that the framing of AI safety and welfare as opposing goals is a false choice, and identifies three areas where both projects converge: understanding AI systems through interpretability, aligning their goals with human goals, and developing cooperative mechanisms that reduce the need for adversarial control.",
-          },
-          {
-            author: "Robert Long, Jeff Sebo, and Toni Sims",
-            title: "Is there a tension between AI safety and AI welfare?",
-            year: 2025,
-            url: "https://link.springer.com/article/10.1007/s11098-025-02302-2",
-            description:
-              "The most direct academic engagement with the question. Argues that a moderately strong tension exists across several categories of AI safety measures (constraint, deception, surveillance, alteration, suffering and death, and disenfranchisement), and identifies where co-beneficial solutions may be possible.",
-          },
-        ],
-        goDeeper: [
-          {
-            author: "Adrià Moret",
-            title: "AI welfare risks",
-            year: 2025,
-            url: "https://link.springer.com/article/10.1007/s11098-025-02343-7",
-            description:
-              "Argues that two common AI safety techniques (restricting AI behaviour and using reinforcement learning for alignment) pose significant welfare risks under all three major theories of well-being. Proposes specific policies AI companies could adopt to reduce these risks, and argues the tension strengthens the case for slowing AI development.",
-          },
-          {
-            author: "Dario Amodei",
-            title: "The Urgency of Interpretability",
-            year: 2025,
-            url: "https://www.darioamodei.com/post/the-urgency-of-interpretability",
-            description:
-              "Argues that interpretability research is necessary for both AI safety (verifying systems behave as intended) and AI welfare (assessing what AI systems experience), and that progress on one directly supports the other.",
           },
         ],
       },

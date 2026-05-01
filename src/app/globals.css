@@ -29,8 +29,8 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
-  color: white;
+  background: #afd3f9;
+  color: var(--foreground);
 }
 
 html {

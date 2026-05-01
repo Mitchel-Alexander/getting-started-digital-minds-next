@@ -37,8 +37,8 @@ function RichText({ item }: { item: ActionItem }) {
 export default function Home() {
   return (
     <>
-      {/* Hero — sticky, full viewport. Content below scrolls UP over it. */}
-      <section className="sticky top-0 h-screen overflow-hidden bg-white flex flex-col justify-center items-center text-center z-0">
+      {/* Hero — normal-flow, full viewport height. */}
+      <section className="relative h-screen overflow-hidden bg-white flex flex-col justify-center items-center text-center">
         <FrostedLavaBackground />
         <div className="relative mx-auto w-full max-w-6xl px-6">
           <motion.div
@@ -56,13 +56,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Intro banner — two columns: orientation copy + AI safety entry-point */}
+      {/* Intro banner — two columns: orientation copy + AI safety entry-point.
+          Cobalt is painted via a sibling background layer (not on the section
+          itself) so copy/paste doesn't drag the bg into Gmail / Google Docs. */}
       <section
         id="intro"
-        className="relative z-10 bg-accent scroll-mt-16 flex items-center"
+        className="relative isolate scroll-mt-16 flex items-center"
         style={{ minHeight: "45vh" }}
       >
-        <div className="mx-auto w-full max-w-5xl px-6 py-16 grid gap-12 md:grid-cols-[3fr_2fr] items-start">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-accent" />
+        <div className="relative mx-auto w-full max-w-5xl px-6 py-16 grid gap-12 md:grid-cols-[3fr_2fr] items-start">
           <FadeIn>
             <div className="space-y-4">
               {intro.map((p, i) => (
@@ -74,15 +77,18 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="md:border-l md:border-white/80 md:pl-12">
-              <p className="text-xl font-semibold leading-relaxed text-white mb-4">
-                Coming from AI safety?
-              </p>
               <p className="text-base leading-relaxed text-white/90">
-                AI welfare and AI safety are closely linked. Some safety measures, including
-                constraint, monitoring, and shutdown, have direct implications for AI welfare if
-                the systems involved are moral patients. Some interventions improve both at once.
-                The technical skills and strategic instincts you have already developed transfer
-                directly.
+                Many of the strongest cases for working on AI safety are directly relevant to
+                AI welfare. The technical projects that let us understand AI systems, align
+                their goals, and work with them cooperatively are projects that make outcomes
+                better for humans and, on plausible accounts, for the systems themselves.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-white/90">
+                There are still important tensions that are necessary to address. Constraint,
+                surveillance, alteration, and shutdown can be necessary safety measures and
+                would raise welfare concerns for systems that turn out to be moral patients.
+                The field needs more research on where these tensions can be reduced and where
+                careful tradeoffs are required.
               </p>
               <Link
                 href="/research-areas#safety-welfare-coordination"

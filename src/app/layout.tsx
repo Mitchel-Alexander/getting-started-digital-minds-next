@@ -17,13 +17,41 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+const SITE_TITLE = "A Beginner's Guide to Digital Minds";
+const SITE_DESCRIPTION =
+  "A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.";
+const SITE_URL = "https://digitalminds.guide";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "A Beginner's Guide to Digital Minds",
-    template: "%s — A Beginner's Guide to Digital Minds",
+    default: SITE_TITLE,
+    template: `%s — ${SITE_TITLE}`,
   },
-  description:
-    "A guide for newcomers to the field of AI consciousness, AI welfare, and digital minds research.",
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_TITLE,
+    type: "website",
+    locale: "en_GB",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: SITE_TITLE,
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({

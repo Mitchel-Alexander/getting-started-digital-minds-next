@@ -1,7 +1,7 @@
 export interface Event {
   name: string;
   url: string;
-  organizer: string;
+  organiser: string;
   date_start: string | null;
   date_end: string | null;
   type: "conference" | "workshop" | "fellowship" | "course" | "seminar" | "program";
@@ -16,7 +16,7 @@ export const events: Event[] = [
   {
     name: "AI & Consciousness",
     url: "https://luma.com/0dkylo8k",
-    organizer: "Jose A. Fernandez Calvo",
+    organiser: "Jose A. Fernandez Calvo",
     date_start: "2026-04-07",
     date_end: null,
     type: "seminar",
@@ -29,7 +29,7 @@ export const events: Event[] = [
   {
     name: "Introduction to Digital Minds — Online Course",
     url: "https://digitalminds.cam/course/",
-    organizer: "Cambridge CDM",
+    organiser: "Cambridge CDM",
     date_start: null,
     date_end: null,
     type: "course",
@@ -42,7 +42,7 @@ export const events: Event[] = [
   {
     name: "Cambridge Digital Minds Fellowship",
     url: "https://digitalminds.cam/fellowship/",
-    organizer: "Cambridge CDM",
+    organiser: "Cambridge CDM",
     date_start: "2026-08-03",
     date_end: "2026-08-09",
     type: "fellowship",
@@ -55,7 +55,7 @@ export const events: Event[] = [
   {
     name: "AI Sentience Scholars Program — 2026 Cohort",
     url: "https://neuromatch.io/ai-sentience-scholars/",
-    organizer: "Neuromatch",
+    organiser: "Neuromatch",
     date_start: "2026-06-01",
     date_end: "2026-12-31",
     type: "program",
@@ -68,7 +68,7 @@ export const events: Event[] = [
   {
     name: "Future Impact Group Fellowship",
     url: "https://futureimpact.group/fellowship",
-    organizer: "Future Impact Group",
+    organiser: "Future Impact Group",
     date_start: "2026-06-01",
     date_end: "2026-08-24",
     type: "fellowship",
@@ -81,7 +81,7 @@ export const events: Event[] = [
   {
     name: "Sentient Futures Fellowship",
     url: "https://www.sentientfutures.ai/",
-    organizer: "Sentient Futures",
+    organiser: "Sentient Futures",
     date_start: "2026-06-01",
     date_end: "2026-08-01",
     type: "fellowship",
@@ -94,7 +94,7 @@ export const events: Event[] = [
   {
     name: "PIVOTAL Research Mentorship",
     url: "https://www.pivotal-research.org/mentors",
-    organizer: "PIVOTAL Research",
+    organiser: "PIVOTAL Research",
     date_start: "2026-07-01",
     date_end: "2026-09-30",
     type: "program",
@@ -107,7 +107,7 @@ export const events: Event[] = [
   {
     name: "Sentient Futures Summit London 2026",
     url: "https://www.sentientfutures.ai/sfslondon2026",
-    organizer: "Sentient Futures",
+    organiser: "Sentient Futures",
     date_start: "2026-05-22",
     date_end: "2026-05-24",
     type: "conference",
@@ -120,7 +120,7 @@ export const events: Event[] = [
   {
     name: "ASSC29",
     url: "https://theassc.org/",
-    organizer: "Association for the Scientific Study of Consciousness",
+    organiser: "Association for the Scientific Study of Consciousness",
     date_start: "2026-06-30",
     date_end: "2026-07-03",
     type: "conference",
@@ -133,7 +133,7 @@ export const events: Event[] = [
   {
     name: "GovAI Summer Fellowship",
     url: "https://www.governance.ai/",
-    organizer: "Centre for the Governance of AI",
+    organiser: "Centre for the Governance of AI",
     date_start: "2026-06-15",
     date_end: "2026-08-15",
     type: "fellowship",
@@ -146,7 +146,7 @@ export const events: Event[] = [
   {
     name: "ERA Cambridge Fellowship",
     url: "https://www.existentialriskalliance.org/",
-    organizer: "Existential Risk Alliance",
+    organiser: "Existential Risk Alliance",
     date_start: "2026-10-01",
     date_end: "2026-12-01",
     type: "fellowship",
@@ -159,7 +159,7 @@ export const events: Event[] = [
   {
     name: "MC0001 \u2014 The Founding Assembly for Machine Consciousness Research",
     url: "https://machine-consciousness.ai/",
-    organizer: "California Institute for Machine Consciousness (CIMC)",
+    organiser: "California Institute for Machine Consciousness (CIMC)",
     date_start: "2026-05-29",
     date_end: "2026-05-31",
     type: "conference",
@@ -172,7 +172,7 @@ export const events: Event[] = [
   {
     name: "If Consciousness Is Biological, Can AI Be Conscious? \u2014 Ned Block",
     url: "https://nonhumanminds.org/event/canaibeconscious/",
-    organizer: "Center for Mind, Ethics, and Policy (CMEP)",
+    organiser: "Center for Mind, Ethics, and Policy (CMEP)",
     date_start: "2026-04-10",
     date_end: null,
     type: "seminar",
@@ -185,7 +185,7 @@ export const events: Event[] = [
   {
     name: "2026 Mind, Ethics, and Policy Summit",
     url: "https://nonhumanminds.org/opportunities/",
-    organizer: "Center for Mind, Ethics, and Policy (CMEP)",
+    organiser: "Center for Mind, Ethics, and Policy (CMEP)",
     date_start: "2026-04-10",
     date_end: "2026-04-11",
     type: "workshop",
@@ -198,7 +198,7 @@ export const events: Event[] = [
   {
     name: "AI Sentience Scholars \u2014 Application Support Webinar",
     url: "https://neuromatch.io/ai-sentience-scholars/",
-    organizer: "Neuromatch",
+    organiser: "Neuromatch",
     date_start: "2026-04-01",
     date_end: null,
     type: "seminar",
