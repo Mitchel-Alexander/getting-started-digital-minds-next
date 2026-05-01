@@ -114,7 +114,7 @@ export const tiers: Tier[] = [
     title: "Going deeper",
     items: [
       {
-        text: "Start or join a reading group. If your department or institution does not have one, propose it. A handful of people meeting every two weeks to work through a paper is one of the lowest-cost, highest-value things you can organize. Several of the field\u2019s current collaborations began this way.",
+        text: "Start or join a reading group. If your department or institution does not have one, propose it. A handful of people meeting every two weeks to work through a paper is one of the lowest-cost, highest-value things you can organise. Several of the field\u2019s current collaborations began this way.",
         links: [],
       },
       {
