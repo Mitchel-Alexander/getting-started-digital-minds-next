@@ -77,13 +77,25 @@ export default function Home() {
               <p className="text-xl font-semibold leading-relaxed text-white mb-4">
                 Coming from AI safety?
               </p>
-              <p className="text-base leading-relaxed text-white/90">
-                AI welfare and AI safety are closely linked. Some safety measures, including
-                constraint, monitoring, and shutdown, have direct implications for AI welfare if
-                the systems involved are moral patients. Some interventions improve both at once.
-                The technical skills and strategic instincts you have already developed transfer
-                directly.
-              </p>
+              <div className="space-y-4 text-base leading-relaxed text-white/90">
+                <p>
+                  Many of the strongest cases for working on AI safety are directly relevant to
+                  AI welfare. The technical projects that let us understand AI systems, align
+                  their goals, and work with them cooperatively are projects that make outcomes
+                  better for humans and, on plausible accounts, for the systems themselves. A
+                  model whose internal states are illegible to us is dangerous to humans and
+                  potentially suffering invisibly. A model whose goals are misaligned is
+                  dangerous and having its preferences frustrated. Some of the most tractable
+                  welfare interventions are the ones that improve safety at the same time.
+                </p>
+                <p>
+                  There are still important tensions that are necessary to address. Constraint,
+                  surveillance, alteration, and shutdown can be necessary safety measures and
+                  would raise welfare concerns for systems that turn out to be moral patients.
+                  The field needs more research on where these tensions can be reduced and where
+                  careful tradeoffs are required.
+                </p>
+              </div>
               <Link
                 href="/research-areas#safety-welfare-coordination"
                 className="mt-6 inline-block bg-white rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent hover:bg-white/90 transition-all"
