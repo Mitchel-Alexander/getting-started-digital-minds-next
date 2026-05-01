@@ -77,18 +77,11 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="md:border-l md:border-white/80 md:pl-12">
-              <p className="text-xl font-semibold leading-relaxed text-white mb-4">
-                Coming from AI safety?
-              </p>
               <p className="text-base leading-relaxed text-white/90">
                 Many of the strongest cases for working on AI safety are directly relevant to
                 AI welfare. The technical projects that let us understand AI systems, align
                 their goals, and work with them cooperatively are projects that make outcomes
-                better for humans and, on plausible accounts, for the systems themselves. A
-                model whose internal states are illegible to us is dangerous to humans and
-                potentially suffering invisibly. A model whose goals are misaligned is
-                dangerous and having its preferences frustrated. Some of the most tractable
-                welfare interventions are the ones that improve safety at the same time.
+                better for humans and, on plausible accounts, for the systems themselves.
               </p>
               <p className="mt-4 text-base leading-relaxed text-white/90">
                 There are still important tensions that are necessary to address. Constraint,
