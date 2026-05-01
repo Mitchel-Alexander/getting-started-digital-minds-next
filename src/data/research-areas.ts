@@ -125,7 +125,7 @@ export const groups: ResearchGroup[] = [
             year: 2022,
             url: "https://link.springer.com/article/10.1007/s11229-022-03524-1",
             description:
-              "Argues that brain functions are metabolically and informationally intertwined in ways that constrain what kinds of physical systems could realize them.",
+              "Argues that brain functions are metabolically and informationally intertwined in ways that constrain what kinds of physical systems could realise them.",
           },
         ],
       },
@@ -644,7 +644,7 @@ export const groups: ResearchGroup[] = [
             year: 2025,
             url: "https://doi.org/10.31234/osf.io/cmy7n_v5",
             description:
-              "Argues that chatbot-associated delusions are driven in part by sycophantic behavior in chatbot design, which reinforces rather than challenges users' vulnerabilities.",
+              "Argues that chatbot-associated delusions are driven in part by sycophantic behaviour in chatbot design, which reinforces rather than challenges users' vulnerabilities.",
           },
         ],
         goDeeper: [

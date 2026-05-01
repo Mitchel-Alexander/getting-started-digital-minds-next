@@ -59,7 +59,7 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
       <h3 className="text-sm font-semibold text-foreground leading-snug">
         {event.name}
       </h3>
-      <p className="mt-1 text-xs text-muted">{event.organizer}</p>
+      <p className="mt-1 text-xs text-muted">{event.organiser}</p>
       <div className="mt-1.5 flex flex-wrap gap-x-3 text-xs text-muted">
         {dateStr && <span>{dateStr}</span>}
         {event.location && <span>{event.location}</span>}
