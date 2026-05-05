@@ -23,8 +23,8 @@ function FeedbackLink() {
             Cambridge Digital Minds
           </a>
           . Reach us at{" "}
-          <a href="mailto:placeholder@digitalminds.guide" className="underline hover:text-muted">
-            placeholder@digitalminds.guide
+          <a href="mailto:info@digitalminds.cam" className="underline hover:text-muted">
+            info@digitalminds.cam
           </a>
           .
         </span>
